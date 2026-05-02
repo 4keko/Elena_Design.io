@@ -30,8 +30,8 @@ body {
 /* ---------- АНИМИРОВАННЫЙ ГРАДИЕНТНЫЙ ФОН ---------- */
 .hero {
     padding: 60px 5%;
-    background: radial-gradient(circle at 0% 0%, #0e0e0e, #1a1a2e, #0e0e0e);
-    animation: gradientShift 12s ease infinite;
+    background: radial-gradient(circle at 0% 0%, #0e0e0e, #1a1a2e, #2a1a3e);
+    animation: gradientShift 10s ease infinite;
     background-size: 200% 200%;
 }
 
