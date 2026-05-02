@@ -3,12 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Elena — UI/UX Designer</title>
+    <title>Елена — UI/UX Designer</title>
+    <!-- Open Graph -->
+    <meta property="og:title" content="Елена — UI/UX Designer">
+    <meta property="og:description" content="Создаю интерфейсы, которые чувствуются">
+    <meta property="og:image" content="https://shmelevadesign.ru/elena.jpg">
+    <meta property="og:type" content="website">
+    <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<!-- ИНТЕРАКТИВНЫЙ КУРСОР -->
+<div class="custom-cursor"></div>
 
 <header class="header">
     <a href="#" class="logo">hel.design</a>
@@ -28,9 +37,14 @@
                 <a href="#cases" class="btn-primary">Смотреть работы →</a>
                 <a href="#contact" class="btn-secondary">Связаться</a>
             </div>
+            <!-- СЧЁТЧИК ПРОЕКТОВ -->
+            <div class="stats">
+                <div class="stat"><span class="counter" data-target="7">0</span><span>+</span> проектов</div>
+                <div class="stat"><span class="counter" data-target="4">0</span><span>+</span> лет опыта</div>
+            </div>
         </div>
         <div class="hero-image">
-            <img src="Helena.jpeg" alt="Елена">
+            <img src="elena.jpg" alt="Елена" onerror="this.src='https://via.placeholder.com/400x400?text=Elena+Design'">
         </div>
     </div>
 </section>
@@ -43,8 +57,8 @@
 <section id="reviews" class="reviews">
     <h2>Отзывы</h2>
     <div class="review-card">
-        <p id="review-text">"Современный стиль и внимание к деталям."</p>
-        <span id="review-author">— Игорь</span>
+        <p id="review-text">"Работа выполнена на высоком уровне. Сайт получился современным и удобным."</p>
+        <span id="review-author">— Марина, владелица бизнеса</span>
     </div>
 </section>
 
@@ -54,19 +68,16 @@
     <a href="mailto:Shmeleva.design@gmail.com?subject=Привет!%20Хочу%20обсудить%20проект" class="btn-email">
         📧 Написать письмо
     </a>
-    
-    <!-- СОЦСЕТИ С ИКОНКАМИ FONT AWESOME -->
     <div class="contact-socials">
-        <a href="https://t.me/elena_tgg" target="_blank" class="social-link">
-            <i class="fab fa-telegram-plane"></i> Telegram
+        <a href="https://t.me/elena_tgg" target="_blank" class="social-link" aria-label="Telegram">
+            <i class="fab fa-telegram-plane"></i>
         </a>
-        <a href="https://www.behance.net/32ffd275" target="_blank" class="social-link">
-            <i class="fab fa-behance"></i> Behance
+        <a href="https://www.behance.net/32ffd275" target="_blank" class="social-link" aria-label="Behance">
+            <i class="fab fa-behance"></i>
         </a>
     </div>
 </section>
 
-<!-- ПОДВАЛ — ВАРИАНТ 3 -->
 <footer class="footer">
     <div class="footer-content">
         <p class="footer-roles">
@@ -79,7 +90,7 @@
 </footer>
 
 <script>
-    // ===== СЛУЧАЙНЫЕ ОТЗЫВЫ =====
+    // ===== АВТО-СМЕНА ОТЗЫВОВ (КАРУСЕЛЬ) =====
     const reviewsList = [
         { text: "Очень сильный визуал и продуманный UX. Елена предложила решения, о которых мы не думали.", author: "Алексей, IT-директор" },
         { text: "Работа выполнена на высоком уровне. Сайт получился современным и удобным.", author: "Марина, владелица бизнеса" },
@@ -87,11 +98,22 @@
         { text: "Понравился подход и результат. Елена быстро поняла нашу аудиторию.", author: "Ольга, основатель стартапа" },
         { text: "Лучший UX-дизайнер! Клиенты в восторге от интерфейса.", author: "Дмитрий, product manager" }
     ];
-    const randomIndex = Math.floor(Math.random() * reviewsList.length);
-    const selected = reviewsList[randomIndex];
-    document.getElementById("review-text").innerHTML = `"${selected.text}"`;
-    document.getElementById("review-author").innerHTML = `— ${selected.author}`;
-
+    
+    let reviewIndex = 0;
+    const reviewText = document.getElementById("review-text");
+    const reviewAuthor = document.getElementById("review-author");
+    
+    function updateReview(index) {
+        const r = reviewsList[index % reviewsList.length];
+        reviewText.innerHTML = `"${r.text}"`;
+        reviewAuthor.innerHTML = `— ${r.author}`;
+    }
+    
+    setInterval(() => {
+        reviewIndex++;
+        updateReview(reviewIndex);
+    }, 5000);
+    
     // ===== СЛУЧАЙНЫЕ 4 ПРОЕКТА =====
     const allProjects = [
         { href: "https://www.behance.net/gallery/248386073/dizajn-lendinga-zhk-legenda", img: "legenda-preview.jpg", title: "ЖК Легенда", desc: "Лендинг жилого комплекса", fallback: "ЖК+Легенда" },
@@ -130,6 +152,64 @@
     }
 
     renderProjects();
+    
+    // ===== АНИМАЦИЯ СЧЁТЧИКА ПРОЕКТОВ =====
+    const counters = document.querySelectorAll('.counter');
+    const speed = 200;
+    
+    const animateCounter = (counter) => {
+        const updateCount = () => {
+            const target = parseInt(counter.getAttribute('data-target'));
+            const current = parseInt(counter.innerText);
+            const increment = Math.ceil(target / 20);
+            
+            if (current < target) {
+                counter.innerText = Math.min(current + increment, target);
+                setTimeout(updateCount, 30);
+            } else {
+                counter.innerText = target;
+            }
+        };
+        updateCount();
+    };
+    
+    // Запускаем счётчик при появлении в окне
+    const statsSection = document.querySelector('.stats');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                counters.forEach(counter => animateCounter(counter));
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    if (statsSection) observer.observe(statsSection);
+    
+    // ===== ИНТЕРАКТИВНЫЙ КУРСОР =====
+    const cursor = document.querySelector('.custom-cursor');
+    if (cursor) {
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+        
+        const links = document.querySelectorAll('a, button, .btn-primary, .btn-secondary, .social-link');
+        links.forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                cursor.style.width = '48px';
+                cursor.style.height = '48px';
+                cursor.style.borderColor = '#a5b4fc';
+                cursor.style.background = 'rgba(102,126,234,0.1)';
+            });
+            link.addEventListener('mouseleave', () => {
+                cursor.style.width = '32px';
+                cursor.style.height = '32px';
+                cursor.style.borderColor = '#667eea';
+                cursor.style.background = 'transparent';
+            });
+        });
+    }
 </script>
 
 </body>
