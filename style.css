@@ -1,4 +1,4 @@
-/* ----- ОБНУЛЕНИЕ ----- */
+/* ----- ОБНУЛЕНИЕ И БАЗА ----- */
 * {
     margin: 0;
     padding: 0;
@@ -52,11 +52,13 @@ body {
     transition: color 0.3s;
 }
 
-.nav a:hover {
+.nav a:hover, .nav a.active {
     color: #667eea;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 4px;
 }
 
-/* ----- HERO (С ФОТО) ----- */
+/* ----- HERO ----- */
 .hero {
     padding: 60px 5%;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -83,6 +85,15 @@ body {
     color: white;
 }
 
+.hero-text .highlight {
+    display: block;
+    font-size: 44px;
+    background: linear-gradient(135deg, #ffd700, #ffffff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
 .hero-text p {
     font-size: 18px;
     margin-bottom: 30px;
@@ -105,6 +116,26 @@ body {
     transition: all 0.3s ease;
     cursor: pointer;
     border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.4s, height 0.4s;
+}
+
+.btn:hover::after {
+    width: 200%;
+    height: 200%;
 }
 
 .btn.primary {
@@ -349,7 +380,42 @@ h2 {
     color: #555;
 }
 
-/* ----- КОНТАКТЫ ----- */
+/* ----- ОТЗЫВЫ ----- */
+.testimonials {
+    background: white;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.testimonial-card {
+    background: #f8f9ff;
+    padding: 30px;
+    border-radius: 24px;
+    transition: 0.3s;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.testimonial-text {
+    font-style: italic;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.testimonial-author {
+    color: #667eea;
+    font-weight: 600;
+}
+
+/* ----- КОНТАКТЫ С ФОРМОЙ ----- */
 .contact {
     background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
@@ -363,6 +429,36 @@ h2 {
 .contact p {
     margin-bottom: 24px;
     font-size: 18px;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 30px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contact-form input, .contact-form textarea {
+    padding: 14px 18px;
+    border: none;
+    border-radius: 30px;
+    font-family: inherit;
+    font-size: 16px;
+    background: rgba(255,255,255,0.9);
+    transition: 0.2s;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    outline: none;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.5);
+}
+
+.contact-form button {
+    align-self: center;
+    border: none;
+    cursor: pointer;
 }
 
 .contact-socials {
@@ -389,26 +485,7 @@ h2 {
     color: #667eea;
     transform: translateY(-3px);
 }
-.contact-form {
-    max-width: 600px;
-    margin: 30px auto 0;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-.contact-form input, .contact-form textarea {
-    padding: 14px 18px;
-    border: none;
-    border-radius: 30px;
-    font-family: inherit;
-    font-size: 16px;
-    background: rgba(255,255,255,0.9);
-}
-.contact-form button {
-    align-self: center;
-    border: none;
-    cursor: pointer;
-}
+
 /* ----- ПОДВАЛ ----- */
 .footer {
     background: #1e1e2a;
@@ -418,23 +495,35 @@ h2 {
     font-size: 14px;
 }
 
+/* ----- АНИМАЦИЯ ПРИ СКРОЛЛЕ ----- */
+.services, .portfolio, .process, .testimonials, .contact {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.services.visible, .portfolio.visible, .process.visible, .testimonials.visible, .contact.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* ----- АДАПТАЦИЯ ПОД НОУТБУКИ И ТЕЛЕФОНЫ ----- */
 @media (max-width: 900px) {
     .hero-container {
         flex-direction: column;
         text-align: center;
     }
-    
     .hero-buttons {
         justify-content: center;
     }
-    
     .socials {
         justify-content: center;
     }
-    
     .hero-text h1 {
         font-size: 36px;
+    }
+    .hero-text .highlight {
+        font-size: 32px;
     }
 }
 
@@ -443,163 +532,30 @@ h2 {
         flex-direction: column;
         gap: 15px;
     }
-    
     .nav {
         gap: 20px;
         flex-wrap: wrap;
         justify-content: center;
     }
-    
     h2 {
         font-size: 28px;
     }
-    
     .portfolio-header {
         flex-direction: column;
         align-items: center;
         gap: 10px;
         text-align: center;
     }
-    
     .contact-socials {
         flex-direction: column;
         align-items: center;
     }
-    
     .contact-socials .social-icon {
         width: 80%;
     }
-}
-/* Плавное появление секций при прокрутке */
-.services, .portfolio, .process, .contact {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.services.visible, .portfolio.visible, .process.visible, .contact.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Более плавный ховер для кнопок */
-.btn {
-    position: relative;
-    overflow: hidden;
-}
-
-.btn::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.3);
-    transform: translate(-50%, -50%);
-    transition: width 0.4s, height 0.4s;
-}
-
-.btn:hover::after {
-    width: 200%;
-    height: 200%;
-}
-
-/* Эффект для карточек портфолио */
-.portfolio-card {
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.portfolio-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-}
-
-/* Акцент на активный пункт меню при скролле */
-.nav a.active {
-    color: #667eea;
-    font-weight: 700;
-    border-bottom: 2px solid #667eea;
-}
-.testimonials {
-    background: #f8f9ff;
-}
-.testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-.testimonial-card {
-    background: white;
-    padding: 30px;
-    border-radius: 24px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: 0.3s;
-}
-.testimonial-card:hover {
-    transform: translateY(-5px);
-}
-.testimonial-text {
-    font-style: italic;
-    margin-bottom: 20px;
-    color: #333;
-}
-.testimonial-author {
-    color: #667eea;
-    font-weight: 600;
-}
-.contact-form {
-    max-width: 600px;
-    margin: 30px auto 0;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-.contact-form input, .contact-form textarea {
-    padding: 14px 18px;
-    border: none;
-    border-radius: 30px;
-    font-family: inherit;
-    font-size: 16px;
-    background: rgba(255,255,255,0.9);
-}
-.contact-form button {
-    align-self: center;
-    border: none;
-    cursor: pointer;
-}
-.thoughts {
-    background: white;
-}
-.thoughts-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-.thought-card {
-    background: #f8f9ff;
-    padding: 24px;
-    border-radius: 24px;
-    text-decoration: none;
-    transition: 0.3s;
-}
-.thought-card:hover {
-    transform: translateY(-5px);
-    background: #edf2ff;
-}
-.thought-date {
-    font-size: 14px;
-    color: #667eea;
-    display: block;
-    margin-bottom: 12px;
-}
-.thought-card h3 {
-    margin-bottom: 12px;
-    color: #1e1e2a;
-}
-.thought-card p {
-    color: #555;
+    .step-number {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
 }
