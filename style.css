@@ -325,3 +325,108 @@ body {
         width: 80%;
     }
 }
+/* Стили для страницы портфолио */
+.portfolio-detail {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.portfolio-detail h1 {
+    text-align: center;
+    color: white;
+    margin-bottom: 50px;
+    font-size: 48px;
+}
+
+.project {
+    display: flex;
+    gap: 40px;
+    background: white;
+    border-radius: 24px;
+    padding: 30px;
+    margin-bottom: 40px;
+    align-items: center;
+    transition: transform 0.3s;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+}
+
+.project img {
+    width: 40%;
+    border-radius: 16px;
+}
+
+.project-info {
+    flex: 1;
+}
+
+.project-info h2 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.project-info p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.tech {
+    display: inline-block;
+    background: #f0f0f0;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.project.reverse {
+    flex-direction: row-reverse;
+}
+
+.footer {
+    text-align: center;
+    padding: 30px;
+    color: rgba(255,255,255,0.7);
+    background: rgba(0,0,0,0.1);
+}
+
+/* Активная ссылка в навигации */
+.nav a.active {
+    color: #667eea;
+    border-bottom: 2px solid #667eea;
+}
+
+/* Стили для страницы "Обо мне" */
+.about-section {
+    max-width: 1000px;
+    margin: 60px auto;
+    background: white;
+    border-radius: 32px;
+    padding: 40px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.about-section img {
+    width: 250px;
+    border-radius: 50%;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.skill-tag {
+    background: #667eea;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+}
