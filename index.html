@@ -3,20 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Elena — UI/UX Designer</title>
-    <!-- Open Graph -->
-    <meta property="og:title" content="Elena — UI/UX Designer">
-    <meta property="og:description" content="Создаю интерфейсы, которые чувствуются">
-    <meta property="og:image" content="https://shmelevadesign.ru/Helena.jpeg">
-    <meta property="og:type" content="website">
-    <!-- Fonts & Icons -->
+    <title>Елена — UI/UX Designer</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- ИНТЕРАКТИВНЫЙ КУРСОР -->
 <div class="custom-cursor"></div>
 
 <header class="header">
@@ -37,10 +30,12 @@
                 <a href="#cases" class="btn-primary">Смотреть работы →</a>
                 <a href="#contact" class="btn-secondary">Связаться</a>
             </div>
-            <!-- СЧЁТЧИК ПРОЕКТОВ -->
-            <div class="stats">
-                <div class="stat"><span class="counter" data-target="7">0</span><span>+</span> проектов</div>
-                <div class="stat"><span class="counter" data-target="4">0</span><span>+</span> лет опыта</div>
+            
+            <!-- СТАТИСТИКА: карточка + точка • -->
+            <div class="stats-card">
+                <span class="stat-item"><strong>7+</strong> проектов</span>
+                <span class="stat-dot">•</span>
+                <span class="stat-item"><strong>4+</strong> года опыта</span>
             </div>
         </div>
         <div class="hero-image">
@@ -90,7 +85,7 @@
 </footer>
 
 <script>
-    // ===== АВТО-СМЕНА ОТЗЫВОВ (КАРУСЕЛЬ) =====
+    // ===== АВТО-СМЕНА ОТЗЫВОВ =====
     const reviewsList = [
         { text: "Очень сильный визуал и продуманный UX. Елена предложила решения, о которых мы не думали.", author: "Алексей, IT-директор" },
         { text: "Работа выполнена на высоком уровне. Сайт получился современным и удобным.", author: "Марина, владелица бизнеса" },
@@ -153,39 +148,6 @@
 
     renderProjects();
     
-    // ===== АНИМАЦИЯ СЧЁТЧИКА ПРОЕКТОВ =====
-    const counters = document.querySelectorAll('.counter');
-    const speed = 200;
-    
-    const animateCounter = (counter) => {
-        const updateCount = () => {
-            const target = parseInt(counter.getAttribute('data-target'));
-            const current = parseInt(counter.innerText);
-            const increment = Math.ceil(target / 20);
-            
-            if (current < target) {
-                counter.innerText = Math.min(current + increment, target);
-                setTimeout(updateCount, 30);
-            } else {
-                counter.innerText = target;
-            }
-        };
-        updateCount();
-    };
-    
-    // Запускаем счётчик при появлении в окне
-    const statsSection = document.querySelector('.stats');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                counters.forEach(counter => animateCounter(counter));
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-    
-    if (statsSection) observer.observe(statsSection);
-    
     // ===== ИНТЕРАКТИВНЫЙ КУРСОР =====
     const cursor = document.querySelector('.custom-cursor');
     if (cursor) {
@@ -211,6 +173,5 @@
         });
     }
 </script>
-
 </body>
 </html>
