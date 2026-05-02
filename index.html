@@ -18,48 +18,70 @@
     </nav>
 </header>
 
+<!-- ГЛАВНЫЙ ЭКРАН С ФОТО (как в первой версии) -->
 <section class="hero">
-    <h1>
-        Создаю интерфейсы,<br>
-        которые <span>чувствуются</span>
-    </h1>
-    <p>UI/UX дизайнер • Лендинги и веб-сайты</p>
+    <div class="hero-container">
+        <div class="hero-text">
+            <h1>Создаю интерфейсы,<br>которые <span>чувствуются</span></h1>
+            <p>UI/UX дизайнер • Лендинги и веб-сайты</p>
+            <div class="hero-buttons">
+                <a href="#cases" class="btn-primary">Смотреть работы →</a>
+                <a href="#contact" class="btn-secondary">Связаться</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="1-2.jpeg" alt="Елена">
+        </div>
+    </div>
 </section>
 
+<!-- ИЗБРАННЫЕ ПРОЕКТЫ (КОМПАКТНАЯ СЕТКА) -->
 <section id="cases" class="cases">
     <h2>Избранные проекты</h2>
+    <div class="cases-grid">
+        <a href="https://www.behance.net/gallery/248386073/dizajn-lendinga-zhk-legenda" target="_blank" class="case">
+            <div class="case-image">
+                <img src="legenda-preview.jpg" alt="ЖК Легенда" onerror="this.src='https://via.placeholder.com/600x400?text=ЖК+Легенда'">
+            </div>
+            <div class="case-info">
+                <h3>ЖК Легенда</h3>
+                <p>Лендинг жилого комплекса</p>
+            </div>
+        </a>
 
-    <a href="https://www.behance.net/gallery/248386073/dizajn-lendinga-zhk-legenda" target="_blank" class="case">
-        <div class="case-image">
-            <img src="legenda-preview.jpg" alt="ЖК Легенда" onerror="this.src='https://via.placeholder.com/800x500?text=ЖК+Легенда'">
-        </div>
-        <div class="case-info">
-            <h3>ЖК Легенда</h3>
-            <p>Лендинг жилого комплекса</p>
-        </div>
-    </a>
+        <a href="https://www.behance.net/gallery/186421391/Website-for-eco-hotel" target="_blank" class="case">
+            <div class="case-image">
+                <img src="ecohotel-preview.jpg" alt="Eco Hotel" onerror="this.src='https://via.placeholder.com/600x400?text=Eco+Hotel'">
+            </div>
+            <div class="case-info">
+                <h3>Eco Hotel</h3>
+                <p>Сайт для эко-отеля</p>
+            </div>
+        </a>
 
-    <a href="https://www.behance.net/gallery/186421391/Website-for-eco-hotel" target="_blank" class="case">
-        <div class="case-image">
-            <img src="ecohotel-preview.jpg" alt="Eco Hotel" onerror="this.src='https://via.placeholder.com/800x500?text=Eco+Hotel'">
-        </div>
-        <div class="case-info">
-            <h3>Eco Hotel</h3>
-            <p>Сайт для эко-отеля</p>
-        </div>
-    </a>
+        <a href="https://www.behance.net/gallery/182255229/Online-flower-shop-salon" target="_blank" class="case">
+            <div class="case-image">
+                <img src="flowershop-preview.jpg" alt="Flower Shop" onerror="this.src='https://via.placeholder.com/600x400?text=Flower+Shop'">
+            </div>
+            <div class="case-info">
+                <h3>Flower Shop</h3>
+                <p>Интернет-магазин цветов</p>
+            </div>
+        </a>
 
-    <a href="https://www.behance.net/gallery/182255229/Online-flower-shop-salon" target="_blank" class="case">
-        <div class="case-image">
-            <img src="flowershop-preview.jpg" alt="Flower Shop" onerror="this.src='https://via.placeholder.com/800x500?text=Flower+Shop'">
-        </div>
-        <div class="case-info">
-            <h3>Flower Shop</h3>
-            <p>Интернет-магазин цветов</p>
-        </div>
-    </a>
+        <a href="https://www.behance.net/32ffd275" target="_blank" class="case">
+            <div class="case-image">
+                <img src="next-project.jpg" alt="Следующий проект" onerror="this.src='https://via.placeholder.com/600x400?text=Новый+проект'">
+            </div>
+            <div class="case-info">
+                <h3>Новый проект</h3>
+                <p>Скоро здесь будет ваш проект</p>
+            </div>
+        </a>
+    </div>
 </section>
 
+<!-- ОТЗЫВЫ -->
 <section id="reviews" class="reviews">
     <h2>Отзывы</h2>
     <div class="review-card">
@@ -68,6 +90,7 @@
     </div>
 </section>
 
+<!-- КОНТАКТЫ -->
 <section id="contact" class="contact">
     <h2>Связаться</h2>
     <form action="https://formspree.io/f/mkoyonba" method="POST">
@@ -84,7 +107,7 @@
 </footer>
 
 <script>
-    // Динамические отзывы (обновляются при каждой загрузке)
+    // Случайные отзывы
     const reviewsList = [
         { text: "Очень сильный визуал и продуманный UX. Елена предложила решения, о которых мы не думали.", author: "Алексей, IT-директор" },
         { text: "Работа выполнена на высоком уровне. Сайт получился современным и удобным.", author: "Марина, владелица бизнеса" },
