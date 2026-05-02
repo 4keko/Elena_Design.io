@@ -11,7 +11,7 @@ body {
     scroll-behavior: smooth;
 }
 
-/* ---------- HEADER ---------- */
+/* ---------- ШАПКА ---------- */
 .header {
     position: sticky;
     top: 0;
@@ -20,12 +20,14 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 60px;
+    padding: 20px 5%;
     z-index: 100;
+    flex-wrap: wrap;
+    gap: 16px;
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 700;
     background: linear-gradient(135deg, #667eea, #764ba2);
     -webkit-background-clip: text;
@@ -44,36 +46,95 @@ nav a:hover {
     color: #fff;
 }
 
-/* ---------- HERO ---------- */
+/* ---------- ГЛАВНЫЙ ЭКРАН С ФОТО ---------- */
 .hero {
-    padding: 140px 60px;
+    padding: 60px 5%;
+}
+
+.hero-container {
     max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
 }
 
-.hero h1 {
-    font-size: clamp(2.5rem, 6vw, 4rem);
+.hero-text {
+    flex: 1;
+    min-width: 260px;
+}
+
+.hero-text h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
     line-height: 1.2;
-    margin-bottom: 1rem;
+    margin-bottom: 20px;
 }
 
-.hero span {
-    color: #667eea;
+.hero-text h1 span {
     background: linear-gradient(135deg, #667eea, #a5b4fc);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
 }
 
-.hero p {
-    margin-top: 20px;
+.hero-text p {
     color: #aaa;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
 }
 
-/* ---------- CASES (ПРОЕКТЫ) ---------- */
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 12px 28px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.05);
+}
+
+.btn-secondary {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.btn-secondary:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    width: 320px;
+    border-radius: 40% 60% 60% 40%;
+    box-shadow: 0 25px 40px rgba(0,0,0,0.4);
+}
+
+/* ---------- КОМПАКТНАЯ СЕТКА ПРОЕКТОВ 2×2 ---------- */
 .cases {
-    padding: 80px 60px;
-    max-width: 1200px;
+    padding: 60px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .cases h2 {
@@ -81,59 +142,62 @@ nav a:hover {
     font-size: 2rem;
 }
 
+.cases-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
 .case {
-    display: flex;
     background: #1a1a1a;
     border-radius: 24px;
     overflow: hidden;
-    margin-bottom: 48px;
     text-decoration: none;
     color: white;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.25s, box-shadow 0.25s;
+    display: flex;
+    flex-direction: column;
 }
 
 .case:hover {
     transform: translateY(-6px);
-    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 20px 30px rgba(0,0,0,0.5);
 }
 
 .case-image {
-    flex: 1.2;
-    min-width: 240px;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
 }
 
 .case-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
-    transition: transform 0.4s;
+    transition: transform 0.3s;
 }
 
 .case:hover .case-image img {
-    transform: scale(1.02);
+    transform: scale(1.03);
 }
 
 .case-info {
-    flex: 1;
-    padding: 32px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    padding: 20px;
 }
 
 .case-info h3 {
-    font-size: 1.8rem;
-    margin-bottom: 8px;
+    font-size: 1.3rem;
+    margin-bottom: 6px;
 }
 
 .case-info p {
     color: #aaa;
+    font-size: 0.9rem;
 }
 
-/* ---------- REVIEWS ---------- */
+/* ---------- ОТЗЫВЫ ---------- */
 .reviews {
-    padding: 80px 60px;
+    padding: 60px 5%;
     text-align: center;
     background: #0a0a0a;
 }
@@ -164,10 +228,11 @@ nav a:hover {
     color: #667eea;
 }
 
-/* ---------- CONTACT + FORM ---------- */
+/* ---------- КОНТАКТЫ ---------- */
 .contact {
-    padding: 80px 60px;
+    padding: 60px 5%;
     max-width: 600px;
+    margin: 0 auto;
 }
 
 .contact h2 {
@@ -189,7 +254,6 @@ input, textarea {
     color: white;
     font-family: inherit;
     font-size: 1rem;
-    transition: 0.2s;
 }
 
 input:focus, textarea:focus {
@@ -211,10 +275,9 @@ button {
 
 button:hover {
     transform: translateY(-2px);
-    filter: brightness(1.05);
 }
 
-/* ---------- FOOTER ---------- */
+/* ---------- ПОДВАЛ ---------- */
 .footer {
     padding: 40px;
     text-align: center;
@@ -228,66 +291,59 @@ button:hover {
     opacity: 0.7;
 }
 
-/* ---------- АДАПТАЦИЯ (ПЛАНШЕТЫ / ТЕЛЕФОНЫ) ---------- */
+/* ---------- АДАПТАЦИЯ (ПЛАНШЕТЫ И ТЕЛЕФОНЫ) ---------- */
 @media (max-width: 900px) {
-    .header {
-        padding: 16px 30px;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
-    }
-    
-    nav a {
-        margin-left: 16px;
-    }
-    
-    .hero {
-        padding: 100px 30px;
-    }
-    
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-    
-    .cases {
-        padding: 50px 30px;
-    }
-    
-    .case {
+    .hero-container {
         flex-direction: column;
+        text-align: center;
     }
     
-    .case-image {
-        height: 220px;
+    .hero-buttons {
+        justify-content: center;
     }
     
-    .case-info {
-        padding: 24px;
+    .hero-image img {
+        width: 260px;
     }
     
-    .reviews {
-        padding: 50px 30px;
-    }
-    
-    .contact {
-        padding: 50px 30px;
+    .cases-grid {
+        gap: 24px;
     }
 }
 
-@media (max-width: 550px) {
-    .hero {
-        padding: 80px 20px;
+@media (max-width: 700px) {
+    .header {
+        justify-content: center;
     }
     
-    .hero p {
-        font-size: 1rem;
+    nav a {
+        margin: 0 12px;
     }
     
-    .case-info h3 {
-        font-size: 1.4rem;
+    .cases-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
     }
     
     .review-card p {
         font-size: 1rem;
+    }
+    
+    .contact {
+        padding: 40px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 40px 20px;
+    }
+    
+    .hero-text h1 {
+        font-size: 1.8rem;
+    }
+    
+    .btn-primary, .btn-secondary {
+        padding: 10px 20px;
     }
 }
