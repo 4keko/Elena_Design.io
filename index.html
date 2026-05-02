@@ -1,105 +1,89 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elena | UI/UX Designer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Шрифт -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<title>Elena — UI/UX Designer</title>
 
-    <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
 </head>
 <body>
 
-<!-- HEADER -->
 <header class="header">
     <div class="logo">Elena</div>
-
-    <nav class="nav">
+    <nav>
+        <a href="#cases">Кейсы</a>
+        <a href="#process">Процесс</a>
         <a href="#about">Обо мне</a>
-        <a href="#works">Работы</a>
         <a href="#contact">Контакты</a>
     </nav>
-
-    <a href="#contact" class="btn">Связаться</a>
 </header>
 
 <!-- HERO -->
 <section class="hero">
+    <h1>
+        Проектирую интерфейсы,<br>
+        которые <span>понятны людям</span>
+    </h1>
 
-    <div class="hero-text">
-        <h1>
-            Дизайн, который <span class="accent">работает</span>
-        </h1>
+    <p>
+        UI/UX дизайнер. Помогаю продуктам становиться удобнее и красивее.
+    </p>
+</section>
 
-        <p class="subtitle">
-            UI/UX дизайнер • Веб и мобильные интерфейсы
-        </p>
+<!-- CASES -->
+<section id="cases" class="cases">
 
-        <p>
-            Создаю удобные и красивые интерфейсы, которые решают задачи бизнеса и пользователей.
-        </p>
+    <h2>Избранные проекты</h2>
 
-        <div class="hero-buttons">
-            <a href="#works" class="btn">Смотреть работы</a>
-            <a href="#contact" class="btn secondary">Связаться</a>
-        </div>
-
-        <div class="socials">
-            <a href="https://t.me/your_username" target="_blank">Telegram</a>
-            <a href="https://behance.net/your_username" target="_blank">Behance</a>
+    <div class="case">
+        <img src="https://via.placeholder.com/800x400">
+        <div>
+            <h3>Mobile Banking</h3>
+            <p>Редизайн банковского приложения</p>
         </div>
     </div>
 
-    <div class="hero-image">
-        <img src="1-2.jpeg" alt="Елена">
+    <div class="case">
+        <img src="https://via.placeholder.com/800x400">
+        <div>
+            <h3>E-commerce</h3>
+            <p>UX интернет-магазина</p>
+        </div>
+    </div>
+
+</section>
+
+<!-- PROCESS -->
+<section id="process" class="process">
+
+    <h2>Как я работаю</h2>
+
+    <div class="steps">
+        <div>Исследование</div>
+        <div>Прототип</div>
+        <div>Дизайн</div>
+        <div>Тестирование</div>
     </div>
 
 </section>
 
 <!-- ABOUT -->
-<section class="about" id="about">
+<section id="about" class="about">
     <h2>Обо мне</h2>
     <p>
-        Я начинающий UI/UX дизайнер. Изучаю дизайн интерфейсов, создаю прототипы и
-        помогаю продуктам становиться удобнее для пользователей.
+        Начинающий дизайнер, развиваюсь в UI/UX, работаю с Figma и прототипированием.
     </p>
 </section>
 
-<!-- WORKS -->
-<section class="works" id="works">
-    <h2>Мои работы</h2>
-
-    <div class="works-grid">
-
-        <div class="work-card">
-            <img src="https://via.placeholder.com/400x250">
-            <h3>Banking App</h3>
-            <p>Мобильное приложение</p>
-        </div>
-
-        <div class="work-card">
-            <img src="https://via.placeholder.com/400x250">
-            <h3>Online Store</h3>
-            <p>Интернет-магазин</p>
-        </div>
-
-        <div class="work-card">
-            <img src="https://via.placeholder.com/400x250">
-            <h3>Travel Landing</h3>
-            <p>Лендинг</p>
-        </div>
-
-    </div>
-</section>
-
 <!-- CONTACT -->
-<section class="contact" id="contact">
+<section id="contact" class="contact">
     <h2>Связаться</h2>
-    <p>Открыта к проектам и сотрудничеству</p>
-
-    <a href="mailto:your@email.com" class="btn">Написать</a>
+    <a href="#">Telegram</a>
+    <a href="#">Behance</a>
 </section>
 
 </body>
