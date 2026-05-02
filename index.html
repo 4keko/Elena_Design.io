@@ -4,15 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Елена | UI/UX Designer</title>
-    <!-- Подключаем шрифт Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
-    <!-- Подключаем Font Awesome для иконок соцсетей (если понадобится) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- ШАПКА (как на картинке) -->
+    <!-- ШАПКА -->
     <header class="header">
         <div class="logo">Елена</div>
         <nav class="nav">
@@ -23,131 +21,136 @@
         </nav>
     </header>
 
-    <!-- ГЛАВНЫЙ ЭКРАН (HERO) -->
+    <!-- ГЛАВНЫЙ ЭКРАН с ФОТО -->
     <section class="hero">
-        <div class="hero-text">
-            <h1>UI/UX Designer</h1>
-            <p>Создаю удобные и красивые интерфейсы для людей и бизнеса</p>
-            <div class="hero-buttons">
-                <a href="#portfolio" class="btn primary">Смотреть работы →</a>
-                <a href="#contact" class="btn secondary">Связаться со мной</a>
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1>UI/UX Designer</h1>
+                <p>Создаю удобные и красивые интерфейсы для людей и бизнеса</p>
+                <div class="hero-buttons">
+                    <a href="#portfolio" class="btn primary">Смотреть работы →</a>
+                    <a href="#contact" class="btn secondary">Связаться со мной</a>
+                </div>
+                <div class="socials">
+                    <a href="https://t.me/elena_tgg" target="_blank" class="social-icon">
+                        <i class="fab fa-telegram-plane"></i>
+                    </a>
+                    <a href="https://www.behance.net/32ffd275" target="_blank" class="social-icon">
+                        <i class="fab fa-behance"></i>
+                    </a>
+                </div>
             </div>
-            <div class="socials">
-                <a href="https://t.me/elena_tgg" target="_blank" class="social-icon" aria-label="Telegram">
-                    <i class="fab fa-telegram-plane"></i>
-                </a>
-                <a href="https://www.behance.net/32ffd275" target="_blank" class="social-icon" aria-label="Behance">
-                    <i class="fab fa-behance"></i>
-                </a>
+            <div class="hero-image">
+                <img src="1-2.jpeg" alt="Елена">
             </div>
         </div>
-        <!-- Можно добавить ваше фото, если есть -->
-        <!-- <div class="hero-image">...</div> -->
     </section>
 
-    <!-- ЧЕМ Я ЗАНИМАЮСЬ (SERVICES) -->
+    <!-- ЧЕМ Я ЗАНИМАЮСЬ -->
     <section id="services" class="services">
-        <h2>Чем я занимаюсь</h2>
-        <p class="section-subtitle">Разрабатываю интерфейсы, которые помогают пользователям достигать целей с удовольствием.</p>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon"><i class="fas fa-palette"></i></div>
-                <h3>UI Дизайн</h3>
-                <p>Создаю визуально привлекательные и понятные интерфейсы.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon"><i class="fas fa-users"></i></div>
-                <h3>UX Дизайн</h3>
-                <p>Исследую пользователей и проектирую удобные пути.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
-                <h3>Прототипирование</h3>
-                <p>Создаю интерактивные прототипы и тестирую гипотезы.</p>
+        <div class="container">
+            <h2>Чем я занимаюсь</h2>
+            <p class="section-subtitle">Разрабатываю интерфейсы, которые помогают пользователям достигать целей с удовольствием.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-palette"></i></div>
+                    <h3>UI Дизайн</h3>
+                    <p>Создаю визуально привлекательные и понятные интерфейсы.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-users"></i></div>
+                    <h3>UX Дизайн</h3>
+                    <p>Исследую пользователей и проектирую удобные пути.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Прототипирование</h3>
+                    <p>Создаю интерактивные прототипы и тестирую гипотезы.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- МОИ РАБОТЫ (ПОРТФОЛИО) -->
+    <!-- МОИ РАБОТЫ -->
     <section id="portfolio" class="portfolio">
-        <div class="portfolio-header">
-            <h2>Мои работы</h2>
-            <a href="https://www.behance.net/32ffd275" target="_blank" class="link-all">Смотреть все работы →</a>
-        </div>
-        <div class="portfolio-grid">
-            <!-- КАРТОЧКА 1: Banking App -->
-            <div class="portfolio-card">
-                <div class="card-image">
-                    <img src="https://via.placeholder.com/400x300/667eea/ffffff?text=Banking+App" alt="Banking App">
+        <div class="container">
+            <div class="portfolio-header">
+                <h2>Мои работы</h2>
+                <a href="https://www.behance.net/32ffd275" target="_blank" class="link-all">Смотреть все работы →</a>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="card-image">
+                        <img src="https://via.placeholder.com/400x300/667eea/ffffff?text=Banking+App" alt="Banking App">
+                    </div>
+                    <div class="card-info">
+                        <h3>Banking App</h3>
+                        <p>Мобильное приложение для управления финансами</p>
+                        <span class="tag">UI/UX</span>
+                    </div>
                 </div>
-                <div class="card-info">
-                    <h3>Banking App</h3>
-                    <p>Мобильное приложение для управления финансами</p>
-                    <span class="tag">UI/UX</span>
+                <div class="portfolio-card">
+                    <div class="card-image">
+                        <img src="https://via.placeholder.com/400x300/764ba2/ffffff?text=Online+Store" alt="Online Store">
+                    </div>
+                    <div class="card-info">
+                        <h3>Online Store</h3>
+                        <p>Интернет-магазин одежды</p>
+                        <span class="tag">UI/UX</span>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="card-image">
+                        <img src="https://via.placeholder.com/400x300/f093fb/ffffff?text=Travel+Landing" alt="Travel Landing">
+                    </div>
+                    <div class="card-info">
+                        <h3>Travel Landing Page</h3>
+                        <p>Лендинг для туристического агентства</p>
+                        <span class="tag">UI</span>
+                    </div>
                 </div>
             </div>
-            <!-- КАРТОЧКА 2: Online Store -->
-            <div class="portfolio-card">
-                <div class="card-image">
-                    <img src="https://via.placeholder.com/400x300/764ba2/ffffff?text=Online+Store" alt="Online Store">
-                </div>
-                <div class="card-info">
-                    <h3>Online Store</h3>
-                    <p>Интернет-магазин одежды</p>
-                    <span class="tag">UI/UX</span>
-                </div>
+            <div class="portfolio-note">
+                <p>Полные кейсы смотрите на моём <a href="https://www.behance.net/32ffd275" target="_blank">Behance</a></p>
             </div>
-            <!-- КАРТОЧКА 3: Travel Landing Page -->
-            <div class="portfolio-card">
-                <div class="card-image">
-                    <img src="https://via.placeholder.com/400x300/f093fb/ffffff?text=Travel+Landing" alt="Travel Landing Page">
-                </div>
-                <div class="card-info">
-                    <h3>Travel Landing Page</h3>
-                    <p>Лендинг для туристического агентства</p>
-                    <span class="tag">UI</span>
-                </div>
-            </div>
-        </div>
-        <div class="portfolio-note">
-            <p>* Полные кейсы смотрите на моём <a href="https://www.behance.net/32ffd275" target="_blank">Behance</a></p>
         </div>
     </section>
 
-    <!-- МОЙ ПРОЦЕСС РАБОТЫ -->
+    <!-- МОЙ ПРОЦЕСС -->
     <section id="process" class="process">
-        <h2>Мой процесс работы</h2>
-        <div class="process-steps">
-            <div class="step">
-                <div class="step-number">1</div>
-                <h3>Исследование</h3>
-                <p>Анализирую задачи, изучаю пользователей и конкурентов</p>
-            </div>
-            <div class="step">
-                <div class="step-number">2</div>
-                <h3>Идея и структура</h3>
-                <p>Создаю пользовательские сценарии и структуру (инфографика)</p>
-            </div>
-            <div class="step">
-                <div class="step-number">3</div>
-                <h3>Дизайн</h3>
-                <p>Разрабатываю визуальные макеты и UI-элементы</p>
-            </div>
-            <div class="step">
-                <div class="step-number">4</div>
-                <h3>Тестирование</h3>
-                <p>Проверяю удобство и улучшаю решения</p>
+        <div class="container">
+            <h2>Мой процесс работы</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Исследование</h3>
+                    <p>Анализирую задачи, изучаю пользователей и конкурентов</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Идея и структура</h3>
+                    <p>Создаю пользовательские сценарии и структуру</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Дизайн</h3>
+                    <p>Разрабатываю визуальные макеты и UI-элементы</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Тестирование</h3>
+                    <p>Проверяю удобство и улучшаю решения</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ФОРМА СВЯЗИ / ПРИЗЫВ К ДЕЙСТВИЮ -->
+    <!-- КОНТАКТЫ -->
     <section id="contact" class="contact">
-        <div class="contact-content">
+        <div class="container">
             <h2>Написать мне</h2>
             <p>Готова обсудить ваш проект или ответить на вопросы</p>
             <a href="mailto:shmelevadesign@mail.ru" class="btn primary large">Написать письмо</a>
-            <p class="contact-or">или</p>
             <div class="contact-socials">
                 <a href="https://t.me/elena_tgg" target="_blank" class="social-icon">
                     <i class="fab fa-telegram-plane"></i> Telegram
@@ -164,7 +167,6 @@
         <p>© 2025 Елена — UI/UX Designer</p>
     </footer>
 
-    <!-- Небольшой скрипт для плавной прокрутки -->
     <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
