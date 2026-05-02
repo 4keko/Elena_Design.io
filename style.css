@@ -514,3 +514,21 @@ nav a:hover {
         display: none;
     }
 }
+.social-link i {
+    font-size: 1.1rem;
+    transition: transform 0.2s;
+}
+
+.social-link:hover i {
+    transform: scale(1.1);
+}
+
+/* Цвет Telegram при наведении */
+.social-link:hover .fa-telegram-plane {
+    color: #26A5E4;
+}
+
+/* Цвет Behance при наведении */
+.social-link:hover .fa-behance {
+    color: #1769FF;
+}
