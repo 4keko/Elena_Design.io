@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>hel.design — UI/UX Designer</title>
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon-dark.svg" id="dynamicFavicon">
     <link rel="alternate icon" href="favicon-dark.svg">
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    
     <script>
+        // Загрузка сохранённой темы и соответствующего favicon
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'light') {
             document.documentElement.setAttribute('data-theme', 'light');
@@ -101,6 +105,7 @@
 </footer>
 
 <script>
+    // ===== ПЕРЕКЛЮЧЕНИЕ ТЕМЫ + СМЕНА FAVICON =====
     const themeSwitch = document.getElementById('themeSwitch');
     const favicon = document.getElementById('dynamicFavicon');
     
@@ -121,7 +126,7 @@
         setTheme(isDark ? 'light' : 'dark');
     });
     
-    // Счётчики
+    // ===== АНИМАЦИЯ СЧЁТЧИКА =====
     function animateCounter(element, target, duration = 1500) {
         if (!element) return;
         const increment = target / (duration / 16);
@@ -143,7 +148,7 @@
         animateCounter(document.getElementById('expCount'), 4);
     });
     
-    // Подсветка активного пункта меню + корректная прокрутка
+    // ===== ПОДСВЕТКА АКТИВНОГО ПУНКТА МЕНЮ =====
     const sections = [
         document.getElementById('cases'),
         document.getElementById('reviews'),
@@ -156,7 +161,7 @@
         const scrollPos = window.scrollY + 150;
         sections.forEach(section => {
             if (!section) return;
-            const top = section.offsetTop;
+            const top = section.offsetTop - 80;
             const bottom = top + section.offsetHeight;
             if (scrollPos >= top && scrollPos < bottom) {
                 current = section.getAttribute('id');
@@ -170,20 +175,20 @@
         });
     });
     
-    // Плавная прокрутка ко всем якорям
+    // ===== ПЛАВНАЯ ПРОКРУТКА =====
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            e.preventDefault();
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
             const target = document.querySelector(targetId);
             if (target) {
+                e.preventDefault();
                 target.scrollIntoView({ behavior: 'smooth' });
             }
         });
     });
     
-    // Отзывы
+    // ===== АВТО-СМЕНА ОТЗЫВОВ =====
     const reviewsList = [
         { text: "Очень сильный визуал и продуманный UX. Елена предложила решения, о которых мы не думали.", author: "Алексей, IT-директор", avatar: "👨‍💻" },
         { text: "Работа выполнена на высоком уровне. Сайт получился современным и удобным.", author: "Марина, основательница стартапа", avatar: "👩‍💼" },
@@ -213,7 +218,7 @@
         updateReview(reviewIndex);
     }, 5000);
     
-    // Проекты
+    // ===== СЛУЧАЙНЫЕ 4 ПРОЕКТА =====
     const allProjects = [
         { href: "https://www.behance.net/gallery/248386073/dizajn-lendinga-zhk-legenda", img: "legenda-preview.jpg", title: "ЖК Легенда", desc: "Лендинг жилого комплекса • Увеличение заявок +40%", fallback: "ЖК+Легенда" },
         { href: "https://www.behance.net/gallery/186421391/Website-for-eco-hotel", img: "ecohotel-preview.jpg", title: "Eco Hotel", desc: "Сайт для эко-отеля • Рост бронирований +25%", fallback: "Eco+Hotel" },
@@ -252,7 +257,7 @@
 
     renderProjects();
     
-    // Курсор
+    // ===== КУРСОР (только для десктопа) =====
     const cursor = document.querySelector('.custom-cursor');
     if (cursor && window.innerWidth > 768) {
         document.addEventListener('mousemove', (e) => {
@@ -263,8 +268,8 @@
         const interactiveElements = document.querySelectorAll('a, button, .btn-primary, .btn-secondary, .social-link, .case, .theme-switch, .nav-link');
         interactiveElements.forEach(el => {
             el.addEventListener('mouseenter', () => {
-                cursor.style.width = '44px';
-                cursor.style.height = '44px';
+                cursor.style.width = '40px';
+                cursor.style.height = '40px';
                 cursor.style.borderColor = 'var(--accent-color)';
                 cursor.style.background = 'rgba(102,126,234,0.1)';
             });
