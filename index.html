@@ -163,21 +163,22 @@
 </section>
 
     <!-- КОНТАКТЫ -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Написать мне</h2>
-            <p>Готова обсудить ваш проект или ответить на вопросы</p>
-            <a href="mailto:shmelevadesign@mail.ru" class="btn primary large">Написать письмо</a>
-            <div class="contact-socials">
-                <a href="https://t.me/elena_tgg" target="_blank" class="social-icon">
-                    <i class="fab fa-telegram-plane"></i> Telegram
-                </a>
-                <a href="https://www.behance.net/32ffd275" target="_blank" class="social-icon">
-                    <i class="fab fa-behance"></i> Behance
-                </a>
-            </div>
+   <section id="contact" class="contact">
+    <div class="container">
+        <h2>Написать мне</h2>
+        <p>Готова обсудить ваш проект или ответить на вопросы</p>
+        <form action="https://formspree.io/f/ваш_ключ" method="POST" class="contact-form">
+            <input type="text" name="name" placeholder="Ваше имя" required>
+            <input type="email" name="email" placeholder="Ваш email" required>
+            <textarea name="message" rows="4" placeholder="Сообщение..." required></textarea>
+            <button type="submit" class="btn primary large">Отправить →</button>
+        </form>
+        <div class="contact-socials">
+            <a href="https://t.me/elena_tgg" target="_blank" class="social-icon"><i class="fab fa-telegram-plane"></i> Telegram</a>
+            <a href="https://www.behance.net/32ffd275" target="_blank" class="social-icon"><i class="fab fa-behance"></i> Behance</a>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- ПОДВАЛ -->
     <footer class="footer">
