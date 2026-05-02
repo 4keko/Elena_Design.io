@@ -1,4 +1,4 @@
-/* ---------- ОБНУЛЕНИЕ И БАЗА ---------- */
+/* ----- ОБНУЛЕНИЕ ----- */
 * {
     margin: 0;
     padding: 0;
@@ -10,17 +10,21 @@ body {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #1e1e2a;
     line-height: 1.5;
-    scroll-behavior: smooth;
 }
 
-/* ---------- ШАПКА ---------- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ----- ШАПКА ----- */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 5%;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(10px);
+    padding: 20px 5%;
+    background: white;
     box-shadow: 0 2px 20px rgba(0,0,0,0.05);
     position: sticky;
     top: 0;
@@ -28,7 +32,7 @@ body {
 }
 
 .logo {
-    font-size: 1.8rem;
+    font-size: 24px;
     font-weight: 700;
     background: linear-gradient(135deg, #667eea, #764ba2);
     -webkit-background-clip: text;
@@ -38,7 +42,7 @@ body {
 
 .nav {
     display: flex;
-    gap: 2rem;
+    gap: 30px;
 }
 
 .nav a {
@@ -52,43 +56,49 @@ body {
     color: #667eea;
 }
 
-/* ---------- ГЛАВНЫЙ ЭКРАН (HERO) ---------- */
+/* ----- HERO (С ФОТО) ----- */
 .hero {
-    min-height: 90vh;
+    padding: 60px 5%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 4rem 2rem;
-    color: white;
+    justify-content: space-between;
+    gap: 50px;
+    flex-wrap: wrap;
 }
 
 .hero-text {
-    max-width: 800px;
+    flex: 1;
+    min-width: 280px;
 }
 
 .hero-text h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    font-weight: 700;
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: white;
 }
 
 .hero-text p {
-    font-size: 1.3rem;
-    margin-bottom: 2rem;
-    opacity: 0.95;
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: rgba(255,255,255,0.9);
 }
 
 .hero-buttons {
     display: flex;
-    gap: 1rem;
-    justify-content: center;
-    margin-bottom: 2rem;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
 }
 
 .btn {
     display: inline-block;
-    padding: 0.8rem 1.8rem;
+    padding: 12px 28px;
     border-radius: 40px;
     text-decoration: none;
     font-weight: 600;
@@ -119,24 +129,19 @@ body {
 }
 
 .btn.large {
-    padding: 1rem 2.5rem;
-    font-size: 1.2rem;
+    padding: 14px 32px;
+    font-size: 16px;
 }
 
-/* Соцсети в Hero */
 .socials {
     display: flex;
-    gap: 1.5rem;
-    justify-content: center;
+    gap: 20px;
 }
 
 .social-icon {
     color: white;
-    font-size: 1.5rem;
+    font-size: 24px;
     transition: transform 0.2s, color 0.2s;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
     text-decoration: none;
 }
 
@@ -145,42 +150,50 @@ body {
     color: #ffd700;
 }
 
-/* ---------- СЕКЦИИ (ОБЩИЕ) ---------- */
+.hero-image {
+    flex: 1;
+    text-align: center;
+    min-width: 280px;
+}
+
+.hero-image img {
+    max-width: 100%;
+    width: 320px;
+    border-radius: 40% 60% 60% 40%;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+/* ----- ОБЩИЕ СТИЛИ СЕКЦИЙ ----- */
 section {
-    padding: 5rem 5%;
+    padding: 80px 0;
     background: white;
-    border-radius: 2rem 2rem 0 0;
-    margin-top: -1rem;
-    position: relative;
 }
 
 h2 {
-    font-size: 2.5rem;
+    font-size: 36px;
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 16px;
     color: #1e1e2a;
 }
 
 .section-subtitle {
     text-align: center;
     max-width: 700px;
-    margin: 0 auto 3rem;
+    margin: 0 auto 48px;
     color: #555;
-    font-size: 1.1rem;
+    font-size: 18px;
 }
 
-/* ---------- УСЛУГИ ---------- */
+/* ----- УСЛУГИ ----- */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    gap: 30px;
 }
 
 .service-card {
     background: #f8f9ff;
-    padding: 2rem;
+    padding: 32px;
     border-radius: 24px;
     text-align: center;
     transition: all 0.3s;
@@ -192,25 +205,27 @@ h2 {
 }
 
 .service-icon {
-    font-size: 2.5rem;
+    font-size: 40px;
     color: #667eea;
-    margin-bottom: 1rem;
+    margin-bottom: 20px;
 }
 
 .service-card h3 {
-    margin-bottom: 0.8rem;
+    margin-bottom: 12px;
+    font-size: 22px;
 }
 
-/* ---------- ПОРТФОЛИО ---------- */
+.service-card p {
+    color: #555;
+}
+
+/* ----- ПОРТФОЛИО ----- */
 .portfolio-header {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
     flex-wrap: wrap;
-    margin-bottom: 2rem;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-bottom: 40px;
 }
 
 .link-all {
@@ -227,9 +242,8 @@ h2 {
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto 2rem;
+    gap: 30px;
+    margin-bottom: 30px;
 }
 
 .portfolio-card {
@@ -238,7 +252,6 @@ h2 {
     overflow: hidden;
     box-shadow: 0 8px 20px rgba(0,0,0,0.05);
     transition: all 0.3s ease;
-    cursor: pointer;
     border: 1px solid #eee;
 }
 
@@ -249,13 +262,14 @@ h2 {
 
 .card-image {
     overflow: hidden;
+    height: 220px;
 }
 
 .card-image img {
     width: 100%;
-    height: 220px;
+    height: 100%;
     object-fit: cover;
-    transition: transform 0.5s;
+    transition: transform 0.4s;
 }
 
 .portfolio-card:hover .card-image img {
@@ -263,30 +277,31 @@ h2 {
 }
 
 .card-info {
-    padding: 1.5rem;
+    padding: 20px;
 }
 
 .card-info h3 {
-    margin-bottom: 0.5rem;
+    margin-bottom: 8px;
+    font-size: 20px;
 }
 
 .card-info p {
     color: #555;
-    margin-bottom: 0.8rem;
+    margin-bottom: 12px;
 }
 
 .tag {
     background: #edf2ff;
     color: #667eea;
-    padding: 0.2rem 0.8rem;
+    padding: 4px 12px;
     border-radius: 20px;
-    font-size: 0.8rem;
+    font-size: 12px;
     font-weight: 600;
+    display: inline-block;
 }
 
 .portfolio-note {
     text-align: center;
-    margin-top: 2rem;
     color: #555;
 }
 
@@ -295,45 +310,50 @@ h2 {
     text-decoration: none;
 }
 
-/* ---------- ПРОЦЕСС ---------- */
+/* ----- ПРОЦЕСС ----- */
+.process {
+    background: #f8f9ff;
+}
+
 .process-steps {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    gap: 30px;
     text-align: center;
 }
 
 .step {
-    padding: 1.5rem;
+    padding: 20px;
 }
 
 .step-number {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
-    font-size: 1.5rem;
+    font-size: 24px;
     font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    margin: 0 auto 1rem;
+    margin: 0 auto 20px;
 }
 
 .step h3 {
-    margin-bottom: 0.5rem;
+    margin-bottom: 12px;
+    font-size: 20px;
 }
 
-/* ---------- КОНТАКТЫ ---------- */
+.step p {
+    color: #555;
+}
+
+/* ----- КОНТАКТЫ ----- */
 .contact {
     background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
     text-align: center;
-    border-radius: 0;
-    margin-bottom: 0;
 }
 
 .contact h2 {
@@ -341,32 +361,27 @@ h2 {
 }
 
 .contact p {
-    margin-bottom: 1.5rem;
-}
-
-.contact-content {
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.contact-or {
-    margin: 1rem 0;
-    opacity: 0.8;
+    margin-bottom: 24px;
+    font-size: 18px;
 }
 
 .contact-socials {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
-    margin-top: 1rem;
+    gap: 24px;
+    margin-top: 32px;
+    flex-wrap: wrap;
 }
 
 .contact-socials .social-icon {
     background: rgba(255,255,255,0.2);
-    padding: 0.5rem 1rem;
+    padding: 10px 24px;
     border-radius: 40px;
-    font-size: 1rem;
+    font-size: 16px;
     color: white;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .contact-socials .social-icon:hover {
@@ -375,52 +390,55 @@ h2 {
     transform: translateY(-3px);
 }
 
-/* ---------- ПОДВАЛ ---------- */
+/* ----- ПОДВАЛ ----- */
 .footer {
     background: #1e1e2a;
     color: rgba(255,255,255,0.7);
     text-align: center;
-    padding: 2rem;
-    font-size: 0.9rem;
+    padding: 30px;
+    font-size: 14px;
 }
 
-/* ---------- АДАПТИВНОСТЬ (МОБИЛЬНЫЕ) ---------- */
-@media (max-width: 768px) {
-    .header {
+/* ----- АДАПТАЦИЯ ПОД НОУТБУКИ И ТЕЛЕФОНЫ ----- */
+@media (max-width: 900px) {
+    .hero-container {
         flex-direction: column;
-        gap: 1rem;
-    }
-    
-    .nav {
-        gap: 1rem;
-    }
-    
-    .hero-text h1 {
-        font-size: 2.2rem;
-    }
-    
-    .hero-text p {
-        font-size: 1rem;
+        text-align: center;
     }
     
     .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
+        justify-content: center;
     }
     
-    .btn {
-        width: 80%;
+    .socials {
+        justify-content: center;
+    }
+    
+    .hero-text h1 {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .nav {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
     
     h2 {
-        font-size: 2rem;
+        font-size: 28px;
     }
     
     .portfolio-header {
         flex-direction: column;
-        gap: 0.5rem;
         align-items: center;
+        gap: 10px;
         text-align: center;
     }
     
