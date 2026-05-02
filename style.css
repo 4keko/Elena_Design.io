@@ -1,3 +1,37 @@
+:root {
+    /* Тёмная тема (по умолчанию) */
+    --bg-primary: #0e0e0e;
+    --bg-secondary: #0a0a0a;
+    --bg-card: #1a1a1a;
+    --text-primary: #ffffff;
+    --text-secondary: #aaa;
+    --accent-color: #667eea;
+    --accent-gradient: linear-gradient(135deg, #667eea, #764ba2);
+    --border-color: rgba(255,255,255,0.08);
+    --hero-gradient: radial-gradient(circle at 0% 0%, #0e0e0e, #1a1a2e, #2a1a3e);
+    --footer-gradient: linear-gradient(135deg, #0e0e0e, #1a1a2e, #2a1a3e);
+    --stats-bg: rgba(255,255,255,0.05);
+    --stats-border: rgba(255,255,255,0.08);
+    --stats-hover: rgba(255,255,255,0.08);
+}
+
+/* СВЕТЛАЯ ТЕМА (пастельные тона + тёмно-зелёный акцент) */
+[data-theme="light"] {
+    --bg-primary: #f5f0eb;
+    --bg-secondary: #efe8e0;
+    --bg-card: #ffffff;
+    --text-primary: #2c3e2f;
+    --text-secondary: #5a6e5d;
+    --accent-color: #2d5a2c;
+    --accent-gradient: linear-gradient(135deg, #2d5a2c, #4a7c48);
+    --border-color: rgba(0,0,0,0.08);
+    --hero-gradient: radial-gradient(circle at 0% 0%, #f5f0eb, #e8dfd5, #f0ebe3);
+    --footer-gradient: linear-gradient(135deg, #f5f0eb, #e8dfd5, #f0ebe3);
+    --stats-bg: rgba(0,0,0,0.03);
+    --stats-border: rgba(0,0,0,0.06);
+    --stats-hover: rgba(0,0,0,0.05);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,18 +40,19 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background: #0e0e0e;
-    color: #fff;
+    background: var(--bg-primary);
+    color: var(--text-primary);
     scroll-behavior: smooth;
     overflow-x: hidden;
     cursor: none;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* ---------- ИНТЕРАКТИВНЫЙ КУРСОР ---------- */
 .custom-cursor {
     width: 32px;
     height: 32px;
-    border: 2px solid #667eea;
+    border: 2px solid var(--accent-color);
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
@@ -30,10 +65,10 @@ body {
 /* ---------- АНИМИРОВАННЫЙ ГРАДИЕНТ ДЛЯ HERO ---------- */
 .hero {
     padding: 60px 5%;
-    background: radial-gradient(circle at 0% 0%, #0e0e0e, #1a1a2e, #2a1a3e);
+    background: var(--hero-gradient);
     animation: gradientShift 10s ease infinite;
     background-size: 200% 200%;
-    border-bottom: 1px solid rgba(102,126,234,0.15);
+    border-bottom: 1px solid var(--border-color);
 }
 
 @keyframes gradientShift {
@@ -57,10 +92,14 @@ body {
     gap: 16px;
 }
 
+[data-theme="light"] .header {
+    background: rgba(245, 240, 235, 0.9);
+}
+
 .logo {
     font-size: 1.6rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: var(--accent-gradient);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -73,31 +112,73 @@ body {
     opacity: 0.85;
 }
 
-nav a {
-    color: #aaa;
-    margin-left: 24px;
+/* Кнопка переключения темы */
+.theme-toggle {
+    background: var(--stats-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 40px;
+    padding: 8px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.theme-toggle i {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    transition: color 0.2s;
+}
+
+.theme-toggle .fa-sun {
+    display: none;
+}
+
+[data-theme="light"] .theme-toggle .fa-moon {
+    display: none;
+}
+
+[data-theme="light"] .theme-toggle .fa-sun {
+    display: inline-block;
+}
+
+.theme-toggle:hover {
+    background: var(--stats-hover);
+    transform: translateY(-2px);
+}
+
+nav {
+    display: flex;
+    gap: 24px;
+}
+
+.nav-link {
+    color: var(--text-secondary);
     text-decoration: none;
     transition: color 0.2s;
     position: relative;
 }
 
-nav a::after {
+.nav-link::after {
     content: '';
     position: absolute;
     bottom: -4px;
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: var(--accent-gradient);
     transition: width 0.3s;
 }
 
-nav a:hover::after {
+.nav-link:hover::after,
+.nav-link.active::after {
     width: 100%;
 }
 
-nav a:hover {
-    color: #fff;
+.nav-link:hover,
+.nav-link.active {
+    color: var(--accent-color);
 }
 
 /* ---------- ГЛАВНЫЙ ЭКРАН ---------- */
@@ -122,14 +203,14 @@ nav a:hover {
 }
 
 .hero-text h1 span {
-    background: linear-gradient(135deg, #667eea, #a5b4fc);
+    background: var(--accent-gradient);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
 }
 
 .hero-text p {
-    color: #aaa;
+    color: var(--text-secondary);
     font-size: 1.1rem;
     margin-bottom: 30px;
 }
@@ -146,13 +227,13 @@ nav a:hover {
     border-radius: 40px;
     text-decoration: none;
     font-weight: 600;
-    transition: 0.2s;
+    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
     position: relative;
     overflow: hidden;
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: var(--accent-gradient);
     color: white;
 }
 
@@ -180,13 +261,14 @@ nav a:hover {
 }
 
 .btn-secondary {
-    background: rgba(255,255,255,0.1);
-    color: white;
-    border: 1px solid rgba(255,255,255,0.2);
+    background: var(--stats-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
 }
 
 .btn-secondary:hover {
-    background: rgba(255,255,255,0.2);
+    background: var(--stats-hover);
+    transform: translateY(-3px);
 }
 
 /* СТАТИСТИКА */
@@ -195,40 +277,36 @@ nav a:hover {
     align-items: baseline;
     justify-content: center;
     gap: 1.2rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--stats-bg);
     backdrop-filter: blur(8px);
     border-radius: 60px;
     padding: 0.5rem 1.8rem;
     margin-top: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--stats-border);
     transition: all 0.2s;
 }
 
 .stats-card:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.15);
+    background: var(--stats-hover);
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
 }
 
 .stat-item {
     font-size: 0.9rem;
-    color: #ccc;
+    color: var(--text-secondary);
 }
 
 .stat-item strong {
     font-size: 1.2rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--text-primary);
     margin-right: 4px;
     display: inline-block;
-    transition: transform 0.2s;
-}
-
-.stat-item strong:hover {
-    transform: scale(1.05);
 }
 
 .stat-dot {
-    color: #667eea;
+    color: var(--accent-color);
     font-size: 1rem;
     font-weight: bold;
 }
@@ -255,7 +333,7 @@ nav a:hover {
     padding: 60px 5%;
     max-width: 1400px;
     margin: 0 auto;
-    background: #0e0e0e;
+    background: var(--bg-primary);
 }
 
 .cases h2 {
@@ -271,34 +349,30 @@ nav a:hover {
 }
 
 .case {
-    background: #1a1a1a;
+    background: var(--bg-card);
     border-radius: 24px;
     overflow: hidden;
     text-decoration: none;
-    color: white;
-    transition: transform 0.3s, box-shadow 0.3s;
+    color: var(--text-primary);
+    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
     display: flex;
     flex-direction: column;
     opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 0.6s forwards;
+    border: 1px solid var(--border-color);
 }
 
-.case:nth-child(1) { animation-delay: 0.05s; }
-.case:nth-child(2) { animation-delay: 0.1s; }
-.case:nth-child(3) { animation-delay: 0.15s; }
-.case:nth-child(4) { animation-delay: 0.2s; }
+.case:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 35px rgba(0,0,0,0.2);
+}
 
 @keyframes fadeInUp {
     to {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-.case:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 25px 35px rgba(0,0,0,0.5);
 }
 
 .case-image {
@@ -311,7 +385,7 @@ nav a:hover {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s;
+    transition: transform 0.5s;
 }
 
 .case:hover .case-image img {
@@ -328,15 +402,16 @@ nav a:hover {
 }
 
 .case-info p {
-    color: #aaa;
-    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.4;
 }
 
 /* ---------- ОТЗЫВЫ ---------- */
 .reviews {
     padding: 60px 5%;
     text-align: center;
-    background: #0a0a0a;
+    background: var(--bg-secondary);
 }
 
 .reviews h2 {
@@ -347,34 +422,40 @@ nav a:hover {
 .review-card {
     max-width: 700px;
     margin: 0 auto;
-    background: #1a1a1a;
+    background: var(--bg-card);
     padding: 2rem;
     border-radius: 32px;
-    transition: transform 0.3s, box-shadow 0.3s;
-    min-height: 180px;
+    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    min-height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative;
+    border: 1px solid var(--border-color);
 }
 
 .review-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.review-avatar {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
 }
 
 .review-card p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     line-height: 1.4;
     margin-bottom: 1rem;
     font-style: italic;
-    color: #ddd;
+    color: var(--text-primary);
     transition: opacity 0.25s ease;
 }
 
 .review-card span {
     font-weight: 600;
-    color: #667eea;
-    transition: opacity 0.25s ease;
+    color: var(--accent-color);
 }
 
 /* ---------- КОНТАКТЫ ---------- */
@@ -383,7 +464,7 @@ nav a:hover {
     text-align: center;
     max-width: 700px;
     margin: 0 auto;
-    background: #0e0e0e;
+    background: var(--bg-primary);
 }
 
 .contact h2 {
@@ -392,7 +473,7 @@ nav a:hover {
 }
 
 .contact-subtitle {
-    color: #aaa;
+    color: var(--text-secondary);
     margin-bottom: 30px;
     font-size: 1rem;
 }
@@ -401,14 +482,14 @@ nav a:hover {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: var(--accent-gradient);
     padding: 14px 32px;
     border-radius: 50px;
     text-decoration: none;
     color: white;
     font-weight: 600;
     font-size: 1.1rem;
-    transition: 0.2s;
+    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
     margin-bottom: 32px;
     position: relative;
     overflow: hidden;
@@ -450,11 +531,12 @@ nav a:hover {
     justify-content: center;
     width: 56px;
     height: 56px;
-    background: rgba(255,255,255,0.05);
+    background: var(--stats-bg);
+    border: 1px solid var(--border-color);
     border-radius: 50%;
     text-decoration: none;
-    color: #ccc;
-    transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    color: var(--text-secondary);
+    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
 }
 
 .social-link i {
@@ -463,29 +545,21 @@ nav a:hover {
 }
 
 .social-link:hover {
-    background: rgba(255,255,255,0.12);
-    color: white;
-    transform: translateY(-4px);
+    background: var(--stats-hover);
+    color: var(--accent-color);
+    transform: translateY(-4px) rotate(8deg);
 }
 
 .social-link:hover i {
-    transform: scale(1.1) rotate(5deg);
+    transform: scale(1.1);
 }
 
-.social-link:hover .fa-telegram-plane {
-    color: #26A5E4;
-}
-
-.social-link:hover .fa-behance {
-    color: #1769FF;
-}
-
-/* ---------- ПОДВАЛ (УСИЛЕННЫЙ ГРАДИЕНТ) ---------- */
+/* ---------- ПОДВАЛ ---------- */
 .footer {
     padding: 50px 20px;
     text-align: center;
-    border-top: 1px solid rgba(102,126,234,0.2);
-    background: linear-gradient(135deg, #0e0e0e, #1a1a2e, #2a1a3e);
+    border-top: 1px solid var(--border-color);
+    background: var(--footer-gradient);
     background-size: 200% 200%;
     animation: footerGradient 6s ease infinite;
 }
@@ -508,29 +582,24 @@ nav a:hover {
 }
 
 .role-design {
-    background: linear-gradient(135deg, #a5b4fc, #667eea);
+    background: var(--accent-gradient);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     font-weight: 600;
-    text-shadow: 0 0 12px rgba(102,126,234,0.3);
 }
 
 .role-frontend {
-    background: linear-gradient(135deg, #c084fc, #a855f7);
+    background: var(--accent-gradient);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     font-weight: 600;
-    text-shadow: 0 0 12px rgba(168,85,247,0.3);
 }
 
 .divider {
     margin: 0 12px;
-    background: linear-gradient(135deg, #667eea, #c084fc);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: var(--accent-color);
     font-size: 0.9rem;
 }
 
@@ -544,28 +613,20 @@ nav a:hover {
 }
 
 .family-sign:hover {
-    background: linear-gradient(135deg, #a5b4fc, #c084fc);
+    background: var(--accent-gradient);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    text-shadow: 0 0 8px rgba(102,126,234,0.5);
 }
 
 .heart {
     display: inline-block;
-    background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    font-weight: 700;
     transition: transform 0.2s;
+    color: #ff6b6b;
 }
 
 .family-sign:hover .heart {
     transform: scale(1.2);
-    background: linear-gradient(135deg, #ff8787, #ffaaaa);
-    -webkit-background-clip: text;
-    background-clip: text;
 }
 
 /* ---------- АДАПТАЦИЯ ---------- */
@@ -594,15 +655,24 @@ nav a:hover {
     }
     .header {
         justify-content: center;
+        flex-wrap: wrap;
     }
-    nav a {
-        margin: 0 12px;
+    nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+    }
+    .theme-toggle {
+        order: 2;
+    }
+    .logo {
+        order: 1;
     }
     .cases-grid {
         grid-template-columns: 1fr;
     }
     .review-card {
-        min-height: 200px;
+        min-height: 240px;
         padding: 1.5rem;
     }
     .review-card p {
