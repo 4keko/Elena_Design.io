@@ -1,30 +1,43 @@
-body {
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: 'Inter', sans-serif;
-    background: #0f0f0f;
-    color: white;
+    background: #0e0e0e;
+    color: #fff;
 }
 
 /* HEADER */
 .header {
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(10px);
+    background: rgba(0,0,0,0.6);
     display: flex;
     justify-content: space-between;
-    padding: 20px 50px;
+    padding: 20px 60px;
 }
 
 .header a {
+    color: #aaa;
     margin-left: 20px;
-    color: white;
     text-decoration: none;
+}
+
+.header a:hover {
+    color: #fff;
 }
 
 /* HERO */
 .hero {
-    padding: 120px 60px;
+    padding: 140px 60px;
 }
 
 .hero h1 {
-    font-size: 60px;
+    font-size: 64px;
     line-height: 1.2;
 }
 
@@ -32,44 +45,54 @@ body {
     color: #667eea;
 }
 
+.hero p {
+    margin-top: 20px;
+    color: #aaa;
+}
+
 /* CASES */
 .cases {
     padding: 80px 60px;
 }
 
+.cases h2 {
+    margin-bottom: 40px;
+}
+
 .case {
+    display: block;
     margin-bottom: 60px;
+    text-decoration: none;
+    color: white;
+    position: relative;
 }
 
 .case img {
     width: 100%;
     border-radius: 20px;
-    transition: 0.4s;
+    transition: 0.5s;
 }
 
-.case img:hover {
-    transform: scale(1.03);
+.case:hover img {
+    transform: scale(1.02);
 }
 
-/* PROCESS */
-.process {
+.case-info {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+}
+
+/* REVIEWS */
+.reviews {
     padding: 80px 60px;
+    text-align: center;
 }
 
-.steps {
-    display: flex;
-    gap: 20px;
-}
-
-.steps div {
-    padding: 20px;
-    border: 1px solid #333;
-    border-radius: 10px;
-}
-
-/* ABOUT */
-.about {
-    padding: 80px 60px;
+.review-card {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #ccc;
 }
 
 /* CONTACT */
@@ -77,8 +100,46 @@ body {
     padding: 80px 60px;
 }
 
-.contact a {
-    display: inline-block;
-    margin-right: 20px;
-    color: #667eea;
+form {
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+input, textarea {
+    margin-bottom: 15px;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+}
+
+button {
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: #667eea;
+    color: white;
+    cursor: pointer;
+}
+
+/* FOOTER */
+.footer {
+    padding: 40px;
+    text-align: center;
+    color: #777;
+}
+
+/* ADAPTIVE */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .header {
+        padding: 20px;
+    }
+
+    .cases {
+        padding: 40px;
+    }
 }
