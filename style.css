@@ -27,7 +27,7 @@ body {
     backdrop-filter: blur(2px);
 }
 
-/* ---------- АНИМИРОВАННЫЙ ГРАДИЕНТ ТОЛЬКО ДЛЯ HERO ---------- */
+/* ---------- АНИМИРОВАННЫЙ ГРАДИЕНТ ДЛЯ HERO ---------- */
 .hero {
     padding: 60px 5%;
     background: radial-gradient(circle at 0% 0%, #0e0e0e, #1a1a2e, #2a1a3e);
@@ -233,22 +233,6 @@ nav a:hover {
     font-weight: bold;
 }
 
-.behance-link {
-    margin-top: 16px;
-    font-size: 0.75rem;
-    opacity: 0.6;
-    transition: opacity 0.2s;
-}
-
-.behance-link a {
-    color: #aaa;
-    text-decoration: none;
-}
-
-.behance-link:hover {
-    opacity: 1;
-}
-
 .hero-image {
     flex: 1;
     text-align: center;
@@ -266,7 +250,7 @@ nav a:hover {
     transform: scale(1.02);
 }
 
-/* ---------- ПРОЕКТЫ (ЧЁРНЫЙ ФОН) ---------- */
+/* ---------- ПРОЕКТЫ ---------- */
 .cases {
     padding: 60px 5%;
     max-width: 1400px;
@@ -348,7 +332,7 @@ nav a:hover {
     font-size: 0.9rem;
 }
 
-/* ---------- ОТЗЫВЫ (ТЁМНО-СЕРЫЙ ФОН) ---------- */
+/* ---------- ОТЗЫВЫ ---------- */
 .reviews {
     padding: 60px 5%;
     text-align: center;
@@ -496,20 +480,20 @@ nav a:hover {
     color: #1769FF;
 }
 
-/* ---------- ПОДВАЛ (ГРАДИЕНТНЫЙ) ---------- */
+/* ---------- ПОДВАЛ (УСИЛЕННЫЙ ГРАДИЕНТ) ---------- */
 .footer {
     padding: 50px 20px;
     text-align: center;
     border-top: 1px solid rgba(102,126,234,0.2);
-    background: linear-gradient(180deg, #0a0a0a, #1a1a2e, #0e0e0e);
+    background: linear-gradient(135deg, #0e0e0e, #1a1a2e, #2a1a3e);
     background-size: 200% 200%;
-    animation: footerGradient 8s ease infinite;
+    animation: footerGradient 6s ease infinite;
 }
 
 @keyframes footerGradient {
-    0% { background-position: 0% 0%; }
-    50% { background-position: 100% 100%; }
-    100% { background-position: 0% 0%; }
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .footer-content {
