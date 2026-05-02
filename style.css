@@ -9,8 +9,8 @@
     --border-color: rgba(255,255,255,0.08);
     --hero-gradient: radial-gradient(circle at 0% 0%, #0e0e0e, #1a1a2e, #2a1a3e);
     --footer-gradient: linear-gradient(135deg, #1a1a2e, #0e0e0e);
-    --gradient-start: #1a1a2e;
-    --gradient-end: #0a0a0a;
+    --contact-gradient: linear-gradient(180deg, #0e0e0e 0%, #1a1a2e 60%, #2a1a3e 100%);
+    --cases-gradient: linear-gradient(135deg, #1a1a2e, #0e0e0e);
     --stats-bg: rgba(255,255,255,0.05);
     --stats-border: rgba(255,255,255,0.08);
     --stats-hover: rgba(255,255,255,0.08);
@@ -27,8 +27,8 @@
     --border-color: rgba(0,0,0,0.06);
     --hero-gradient: radial-gradient(circle at 0% 0%, #f5f0eb, #e8dfd5, #f0ebe3);
     --footer-gradient: linear-gradient(135deg, #e8dfd5, #dad0c4);
-    --gradient-start: #e8dfd5;
-    --gradient-end: #dad0c4;
+    --contact-gradient: linear-gradient(180deg, #f5f0eb 0%, #e8dfd5 60%, #dad0c4 100%);
+    --cases-gradient: linear-gradient(135deg, #f5f0eb, #efe8e0);
     --stats-bg: rgba(0,0,0,0.03);
     --stats-border: rgba(0,0,0,0.06);
     --stats-hover: rgba(0,0,0,0.05);
@@ -364,7 +364,7 @@ nav {
     padding: 60px 5%;
     max-width: 1400px;
     margin: 0 auto;
-    background: var(--bg-primary);
+    background: var(--cases-gradient);
 }
 
 .cases h2 {
@@ -488,12 +488,13 @@ nav {
 }
 
 .contact {
-    padding: 60px 5% 40px;
+    padding: 60px 5% 50px;
     text-align: center;
-    max-width: 700px;
+    max-width: 800px;
     margin: 0 auto;
-    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--gradient-start) 100%);
-    border-radius: 0 0 40px 40px;
+    background: var(--contact-gradient);
+    border-radius: 60px 60px 40px 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
 .contact h2 {
@@ -579,7 +580,6 @@ nav {
     transform: translateY(-3px) scale(1.05);
 }
 
-/* Адаптация иконок соцсетей под светлую тему */
 [data-theme="light"] .social-link .fa-telegram-plane,
 [data-theme="light"] .social-link .fa-behance {
     color: var(--accent-color) !important;
@@ -708,6 +708,10 @@ nav {
     }
     .review-card p {
         font-size: 0.9rem;
+    }
+    .contact {
+        border-radius: 40px;
+        padding: 40px 20px;
     }
     .contact-socials {
         gap: 20px;
