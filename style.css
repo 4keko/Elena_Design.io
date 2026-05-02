@@ -41,6 +41,7 @@ body {
     gap: 16px;
 }
 
+/* ЛОГОТИП — ССЫЛКА НАВЕРХ, БЕЗ ПОДЧЁРКИВАНИЯ */
 .logo {
     font-size: 1.6rem;
     font-weight: 700;
@@ -48,6 +49,13 @@ body {
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    text-decoration: none;
+    transition: opacity 0.2s;
+    cursor: pointer;
+}
+
+.logo:hover {
+    opacity: 0.85;
 }
 
 nav a {
@@ -220,9 +228,6 @@ nav a:hover {
 .case:nth-child(2) { animation-delay: 0.1s; }
 .case:nth-child(3) { animation-delay: 0.15s; }
 .case:nth-child(4) { animation-delay: 0.2s; }
-.case:nth-child(5) { animation-delay: 0.25s; }
-.case:nth-child(6) { animation-delay: 0.3s; }
-.case:nth-child(7) { animation-delay: 0.35s; }
 
 @keyframes fadeInUp {
     to {
