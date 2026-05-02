@@ -324,7 +324,7 @@ nav a:hover {
     font-size: 0.9rem;
 }
 
-/* ---------- ОТЗЫВЫ ---------- */
+/* ---------- ОТЗЫВЫ — ФИКСИРОВАННАЯ ВЫСОТА ---------- */
 .reviews {
     padding: 60px 5%;
     text-align: center;
@@ -343,6 +343,10 @@ nav a:hover {
     padding: 2rem;
     border-radius: 32px;
     transition: transform 0.3s, box-shadow 0.3s;
+    min-height: 180px; /* ← фиксированная высота */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .review-card:hover {
@@ -356,13 +360,25 @@ nav a:hover {
     margin-bottom: 1rem;
     font-style: italic;
     color: #ddd;
+    transition: opacity 0.25s ease;
 }
 
 .review-card span {
     font-weight: 600;
     color: #667eea;
+    transition: opacity 0.25s ease;
 }
 
+/* Адаптив для мобильных */
+@media (max-width: 700px) {
+    .review-card {
+        min-height: 200px;
+        padding: 1.5rem;
+    }
+    .review-card p {
+        font-size: 1rem;
+    }
+}
 /* ---------- КОНТАКТЫ ---------- */
 .contact {
     padding: 60px 5%;
