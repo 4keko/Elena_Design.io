@@ -18,7 +18,6 @@
     </nav>
 </header>
 
-<!-- ГЛАВНЫЙ ЭКРАН С ФОТО -->
 <section class="hero">
     <div class="hero-container">
         <div class="hero-text">
@@ -35,91 +34,14 @@
     </div>
 </section>
 
-<!-- ИЗБРАННЫЕ ПРОЕКТЫ (ВСЕ 7) -->
+<!-- СЛУЧАЙНЫЕ 4 ПРОЕКТА ПРИ ЗАГРУЗКЕ -->
 <section id="cases" class="cases">
     <h2>Избранные проекты</h2>
-    <div class="cases-grid">
-        
-        <!-- 1. ЖК Легенда -->
-        <a href="https://www.behance.net/gallery/248386073/dizajn-lendinga-zhk-legenda" target="_blank" class="case">
-            <div class="case-image">
-                <img src="legenda-preview.jpg" alt="ЖК Легенда" onerror="this.src='https://via.placeholder.com/600x400?text=ЖК+Легенда'">
-            </div>
-            <div class="case-info">
-                <h3>ЖК Легенда</h3>
-                <p>Лендинг жилого комплекса</p>
-            </div>
-        </a>
-
-        <!-- 2. Eco Hotel -->
-        <a href="https://www.behance.net/gallery/186421391/Website-for-eco-hotel" target="_blank" class="case">
-            <div class="case-image">
-                <img src="ecohotel-preview.jpg" alt="Eco Hotel" onerror="this.src='https://via.placeholder.com/600x400?text=Eco+Hotel'">
-            </div>
-            <div class="case-info">
-                <h3>Eco Hotel</h3>
-                <p>Сайт для эко-отеля</p>
-            </div>
-        </a>
-
-        <!-- 3. Flower Shop -->
-        <a href="https://www.behance.net/gallery/182255229/Online-flower-shop-salon" target="_blank" class="case">
-            <div class="case-image">
-                <img src="flowershop-preview.jpg" alt="Flower Shop" onerror="this.src='https://via.placeholder.com/600x400?text=Flower+Shop'">
-            </div>
-            <div class="case-info">
-                <h3>Flower Shop</h3>
-                <p>Интернет-магазин цветов</p>
-            </div>
-        </a>
-
-        <!-- 4. Yandex Pet Day (НОВЫЙ) -->
-        <a href="https://www.behance.net/gallery/248387797/Yandex-Pet-Day" target="_blank" class="case">
-            <div class="case-image">
-                <img src="yandex-petday.jpg" alt="Yandex Pet Day" onerror="this.src='https://via.placeholder.com/600x400?text=Yandex+Pet+Day'">
-            </div>
-            <div class="case-info">
-                <h3>Yandex Pet Day</h3>
-                <p>Спецпроект для Яндекса</p>
-            </div>
-        </a>
-
-        <!-- 5. Consulting Company (НОВЫЙ) -->
-        <a href="https://www.behance.net/gallery/194731149/Web-design-for-consulting-company" target="_blank" class="case">
-            <div class="case-image">
-                <img src="consulting-preview.jpg" alt="Consulting Company" onerror="this.src='https://via.placeholder.com/600x400?text=Consulting+Company'">
-            </div>
-            <div class="case-info">
-                <h3>Consulting Company</h3>
-                <p>Веб-дизайн для консалтинга</p>
-            </div>
-        </a>
-
-        <!-- 6. Редизайн "Дом сайтов" (НОВЫЙ) -->
-        <a href="https://www.behance.net/gallery/192322247/redizajn-glavnoj-stranicy-dom-sajtov" target="_blank" class="case">
-            <div class="case-image">
-                <img src="domsaitov-redesign.jpg" alt="Дом сайтов" onerror="this.src='https://via.placeholder.com/600x400?text=Дом+сайтов'">
-            </div>
-            <div class="case-info">
-                <h3>Дом сайтов</h3>
-                <p>Редизайн главной страницы</p>
-            </div>
-        </a>
-
-        <!-- 7. Главные страницы сайтов (НОВЫЙ) -->
-        <a href="https://www.behance.net/gallery/192315737/glavnye-stranicy-sajtov" target="_blank" class="case">
-            <div class="case-image">
-                <img src="mainpages-collection.jpg" alt="Главные страницы" onerror="this.src='https://via.placeholder.com/600x400?text=Главные+страницы'">
-            </div>
-            <div class="case-info">
-                <h3>Главные страницы</h3>
-                <p>Коллекция дизайнов</p>
-            </div>
-        </a>
+    <div id="casesContainer" class="cases-grid">
+        <!-- JavaScript подставит 4 случайных проекта -->
     </div>
 </section>
 
-<!-- ОТЗЫВЫ -->
 <section id="reviews" class="reviews">
     <h2>Отзывы</h2>
     <div class="review-card">
@@ -128,15 +50,12 @@
     </div>
 </section>
 
-<!-- КОНТАКТЫ (ПОЧТА + СОЦСЕТИ) -->
 <section id="contact" class="contact">
     <h2>Связаться</h2>
     <p class="contact-subtitle">Напишите мне — отвечу в течение дня</p>
-    
     <a href="mailto:Shmeleva.design@gmail.com?subject=Привет!%20Хочу%20обсудить%20проект" class="btn-email">
         📧 Написать письмо
     </a>
-    
     <div class="contact-socials">
         <a href="https://t.me/elena_tgg" target="_blank" class="social-link">
             <span>💬</span> Telegram
@@ -153,7 +72,7 @@
 </footer>
 
 <script>
-    // Случайные отзывы
+    // ===== СЛУЧАЙНЫЕ ОТЗЫВЫ =====
     const reviewsList = [
         { text: "Очень сильный визуал и продуманный UX. Елена предложила решения, о которых мы не думали.", author: "Алексей, IT-директор" },
         { text: "Работа выполнена на высоком уровне. Сайт получился современным и удобным.", author: "Марина, владелица бизнеса" },
@@ -161,11 +80,49 @@
         { text: "Понравился подход и результат. Елена быстро поняла нашу аудиторию.", author: "Ольга, основатель стартапа" },
         { text: "Лучший UX-дизайнер! Клиенты в восторге от интерфейса.", author: "Дмитрий, product manager" }
     ];
-    
     const randomIndex = Math.floor(Math.random() * reviewsList.length);
     const selected = reviewsList[randomIndex];
     document.getElementById("review-text").innerHTML = `"${selected.text}"`;
     document.getElementById("review-author").innerHTML = `— ${selected.author}`;
+
+    // ===== СЛУЧАЙНЫЕ 4 ПРОЕКТА ПРИ ЗАГРУЗКЕ =====
+    const allProjects = [
+        { href: "https://www.behance.net/gallery/248386073/dizajn-lendinga-zhk-legenda", img: "legenda-preview.jpg", title: "ЖК Легенда", desc: "Лендинг жилого комплекса", fallback: "ЖК+Легенда" },
+        { href: "https://www.behance.net/gallery/186421391/Website-for-eco-hotel", img: "ecohotel-preview.jpg", title: "Eco Hotel", desc: "Сайт для эко-отеля", fallback: "Eco+Hotel" },
+        { href: "https://www.behance.net/gallery/182255229/Online-flower-shop-salon", img: "flowershop-preview.jpg", title: "Flower Shop", desc: "Интернет-магазин цветов", fallback: "Flower+Shop" },
+        { href: "https://www.behance.net/gallery/248387797/Yandex-Pet-Day", img: "yandex-petday.jpg", title: "Yandex Pet Day", desc: "Спецпроект для Яндекса", fallback: "Yandex+Pet+Day" },
+        { href: "https://www.behance.net/gallery/194731149/Web-design-for-consulting-company", img: "consulting-preview.jpg", title: "Consulting Company", desc: "Веб-дизайн для консалтинга", fallback: "Consulting+Company" },
+        { href: "https://www.behance.net/gallery/192322247/redizajn-glavnoj-stranicy-dom-sajtov", img: "domsaitov-redesign.jpg", title: "Дом сайтов", desc: "Редизайн главной страницы", fallback: "Дом+сайтов" },
+        { href: "https://www.behance.net/gallery/192315737/glavnye-stranicy-sajtov", img: "mainpages-collection.jpg", title: "Главные страницы", desc: "Коллекция дизайнов", fallback: "Главные+страницы" }
+    ];
+
+    function getRandomProjects(count = 4) {
+        const shuffled = [...allProjects];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled.slice(0, count);
+    }
+
+    function renderProjects() {
+        const container = document.getElementById('casesContainer');
+        if (!container) return;
+        const projects = getRandomProjects(4);
+        container.innerHTML = projects.map(proj => `
+            <a href="${proj.href}" target="_blank" class="case">
+                <div class="case-image">
+                    <img src="${proj.img}" alt="${proj.title}" onerror="this.src='https://via.placeholder.com/600x400?text=${proj.fallback}'">
+                </div>
+                <div class="case-info">
+                    <h3>${proj.title}</h3>
+                    <p>${proj.desc}</p>
+                </div>
+            </a>
+        `).join('');
+    }
+
+    renderProjects();
 </script>
 
 </body>
