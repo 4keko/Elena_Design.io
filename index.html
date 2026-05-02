@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>hel.design — UI/UX Designer</title>
-    
-    <!-- Favicon (будет меняться через JS) -->
     <link rel="icon" type="image/svg+xml" href="favicon-dark.svg" id="dynamicFavicon">
     <link rel="alternate icon" href="favicon-dark.svg">
-    
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -16,7 +13,6 @@
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'light') {
             document.documentElement.setAttribute('data-theme', 'light');
-            // Устанавливаем светлый favicon
             const favicon = document.getElementById('dynamicFavicon');
             if (favicon) favicon.href = 'favicon-light.svg';
         }
@@ -28,7 +24,6 @@
 
 <header class="header">
     <a href="#" class="logo">hel.design</a>
-    
     <div class="theme-switch" id="themeSwitch">
         <div class="theme-switch-track"></div>
         <div class="theme-switch-thumb">
@@ -36,7 +31,6 @@
             <i class="fas fa-sun"></i>
         </div>
     </div>
-    
     <nav>
         <a href="#cases" class="nav-link">Кейсы</a>
         <a href="#reviews" class="nav-link">Отзывы</a>
@@ -53,7 +47,6 @@
                 <a href="#cases" class="btn-primary">Смотреть работы →</a>
                 <a href="#contact" class="btn-secondary">Связаться</a>
             </div>
-            
             <div class="stats-card">
                 <span class="stat-item"><strong id="projectsCount" class="stat-number">0</strong> проектов</span>
                 <span class="stat-dot">•</span>
@@ -108,7 +101,6 @@
 </footer>
 
 <script>
-    // ===== ПЕРЕКЛЮЧЕНИЕ ТЕМЫ С ИЗМЕНЕНИЕМ FAVICON =====
     const themeSwitch = document.getElementById('themeSwitch');
     const favicon = document.getElementById('dynamicFavicon');
     
@@ -129,13 +121,11 @@
         setTheme(isDark ? 'light' : 'dark');
     });
     
-    // ===== АНИМАЦИЯ СЧЁТЧИКА =====
+    // Счётчики
     function animateCounter(element, target, duration = 1500) {
         if (!element) return;
-        const start = 0;
         const increment = target / (duration / 16);
-        let current = start;
-        
+        let current = 0;
         const updateCounter = () => {
             current += increment;
             if (current < target) {
@@ -153,22 +143,25 @@
         animateCounter(document.getElementById('expCount'), 4);
     });
     
-    // ===== ПОДСВЕТКА АКТИВНОГО ПУНКТА МЕНЮ =====
-    const sections = document.querySelectorAll('section');
+    // Подсветка активного пункта меню + корректная прокрутка
+    const sections = [
+        document.getElementById('cases'),
+        document.getElementById('reviews'),
+        document.getElementById('contact')
+    ];
     const navLinks = document.querySelectorAll('.nav-link');
     
     window.addEventListener('scroll', () => {
         let current = '';
         const scrollPos = window.scrollY + 150;
-        
         sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionBottom = sectionTop + section.offsetHeight;
-            if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
+            if (!section) return;
+            const top = section.offsetTop;
+            const bottom = top + section.offsetHeight;
+            if (scrollPos >= top && scrollPos < bottom) {
                 current = section.getAttribute('id');
             }
         });
-        
         navLinks.forEach(link => {
             link.classList.remove('active');
             if (link.getAttribute('href') === `#${current}`) {
@@ -177,7 +170,20 @@
         });
     });
     
-    // ===== АВТО-СМЕНА ОТЗЫВОВ =====
+    // Плавная прокрутка ко всем якорям
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            const target = document.querySelector(targetId);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+    
+    // Отзывы
     const reviewsList = [
         { text: "Очень сильный визуал и продуманный UX. Елена предложила решения, о которых мы не думали.", author: "Алексей, IT-директор", avatar: "👨‍💻" },
         { text: "Работа выполнена на высоком уровне. Сайт получился современным и удобным.", author: "Марина, основательница стартапа", avatar: "👩‍💼" },
@@ -207,7 +213,7 @@
         updateReview(reviewIndex);
     }, 5000);
     
-    // ===== СЛУЧАЙНЫЕ 4 ПРОЕКТА =====
+    // Проекты
     const allProjects = [
         { href: "https://www.behance.net/gallery/248386073/dizajn-lendinga-zhk-legenda", img: "legenda-preview.jpg", title: "ЖК Легенда", desc: "Лендинг жилого комплекса • Увеличение заявок +40%", fallback: "ЖК+Легенда" },
         { href: "https://www.behance.net/gallery/186421391/Website-for-eco-hotel", img: "ecohotel-preview.jpg", title: "Eco Hotel", desc: "Сайт для эко-отеля • Рост бронирований +25%", fallback: "Eco+Hotel" },
@@ -246,9 +252,9 @@
 
     renderProjects();
     
-    // ===== ИНТЕРАКТИВНЫЙ КУРСОР =====
+    // Курсор
     const cursor = document.querySelector('.custom-cursor');
-    if (cursor && window.innerWidth > 700) {
+    if (cursor && window.innerWidth > 768) {
         document.addEventListener('mousemove', (e) => {
             cursor.style.left = e.clientX + 'px';
             cursor.style.top = e.clientY + 'px';
@@ -257,18 +263,16 @@
         const interactiveElements = document.querySelectorAll('a, button, .btn-primary, .btn-secondary, .social-link, .case, .theme-switch, .nav-link');
         interactiveElements.forEach(el => {
             el.addEventListener('mouseenter', () => {
-                cursor.style.width = '48px';
-                cursor.style.height = '48px';
+                cursor.style.width = '44px';
+                cursor.style.height = '44px';
                 cursor.style.borderColor = 'var(--accent-color)';
-                cursor.style.background = 'rgba(102,126,234,0.15)';
-                cursor.style.backdropFilter = 'blur(4px)';
+                cursor.style.background = 'rgba(102,126,234,0.1)';
             });
             el.addEventListener('mouseleave', () => {
-                cursor.style.width = '32px';
-                cursor.style.height = '32px';
+                cursor.style.width = '24px';
+                cursor.style.height = '24px';
                 cursor.style.borderColor = 'var(--accent-color)';
                 cursor.style.background = 'transparent';
-                cursor.style.backdropFilter = 'blur(0px)';
             });
         });
     }
