@@ -10,6 +10,21 @@ body {
     color: #fff;
     scroll-behavior: smooth;
     overflow-x: hidden;
+    cursor: none;
+}
+
+/* ---------- ИНТЕРАКТИВНЫЙ КУРСОР ---------- */
+.custom-cursor {
+    width: 32px;
+    height: 32px;
+    border: 2px solid #667eea;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: width 0.2s, height 0.2s, background 0.2s, border-color 0.2s;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(2px);
 }
 
 /* ---------- АНИМИРОВАННЫЙ ГРАДИЕНТНЫЙ ФОН ---------- */
@@ -122,6 +137,7 @@ nav a:hover {
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
+    margin-bottom: 32px;
 }
 
 .btn-primary, .btn-secondary {
@@ -170,6 +186,25 @@ nav a:hover {
 
 .btn-secondary:hover {
     background: rgba(255,255,255,0.2);
+}
+
+/* СЧЁТЧИК ПРОЕКТОВ */
+.stats {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.stat {
+    font-size: 1rem;
+    color: #aaa;
+}
+
+.stat span:first-child {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #667eea;
+    margin-right: 2px;
 }
 
 .hero-image {
@@ -271,7 +306,7 @@ nav a:hover {
     font-size: 0.9rem;
 }
 
-/* ---------- ОТЗЫВЫ ---------- */
+/* ---------- ОТЗЫВЫ С АНИМАЦИЕЙ ---------- */
 .reviews {
     padding: 60px 5%;
     text-align: center;
@@ -289,11 +324,12 @@ nav a:hover {
     background: #1a1a1a;
     padding: 2rem;
     border-radius: 32px;
-    transition: transform 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .review-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
 }
 
 .review-card p {
@@ -302,6 +338,7 @@ nav a:hover {
     margin-bottom: 1rem;
     font-style: italic;
     color: #ddd;
+    transition: opacity 0.6s ease;
 }
 
 .review-card span {
@@ -309,7 +346,7 @@ nav a:hover {
     color: #667eea;
 }
 
-/* ---------- КОНТАКТЫ (ПОЧТА) ---------- */
+/* ---------- КОНТАКТЫ — МИНИМАЛИСТИЧНЫЕ ИКОНКИ ---------- */
 .contact {
     padding: 60px 5%;
     text-align: center;
@@ -378,22 +415,39 @@ nav a:hover {
 .social-link {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
     background: rgba(255,255,255,0.05);
-    padding: 10px 20px;
-    border-radius: 40px;
+    border-radius: 50%;
     text-decoration: none;
     color: #ccc;
-    transition: 0.2s;
+    transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.social-link i {
+    font-size: 1.8rem;
+    transition: transform 0.2s;
 }
 
 .social-link:hover {
-    background: rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.12);
     color: white;
-    transform: translateY(-3px);
+    transform: translateY(-4px);
 }
 
-/* ---------- ПОДВАЛ — ВАРИАНТ 3 (ГРАДИЕНТНЫЙ С GLOW) ---------- */
+.social-link:hover i {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.social-link:hover .fa-telegram-plane {
+    color: #26A5E4;
+}
+
+.social-link:hover .fa-behance {
+    color: #1769FF;
+}
+
 /* ---------- ПОДВАЛ — УСИЛЕННЫЙ ГРАДИЕНТ ---------- */
 .footer {
     padding: 50px 20px;
@@ -413,7 +467,6 @@ nav a:hover {
     letter-spacing: 0.5px;
 }
 
-/* ГРАДИЕНТ ДЛЯ ИМЕНИ ЕЛЕНЫ */
 .role-design {
     background: linear-gradient(135deg, #a5b4fc, #667eea);
     -webkit-background-clip: text;
@@ -423,7 +476,6 @@ nav a:hover {
     text-shadow: 0 0 12px rgba(102,126,234,0.3);
 }
 
-/* ГРАДИЕНТ ДЛЯ ИМЕНИ ВАЛЕНТИНА */
 .role-frontend {
     background: linear-gradient(135deg, #c084fc, #a855f7);
     -webkit-background-clip: text;
@@ -442,7 +494,6 @@ nav a:hover {
     font-size: 0.9rem;
 }
 
-/* СЕМЕЙНАЯ ПОДПИСЬ — ТОЖЕ С ЛЁГКИМ ГРАДИЕНТОМ */
 .family-sign {
     font-size: 0.85rem;
     background: linear-gradient(135deg, #888, #aaa);
@@ -460,7 +511,6 @@ nav a:hover {
     text-shadow: 0 0 8px rgba(102,126,234,0.5);
 }
 
-/* СЕРДЦЕ — ГРАДИЕНТНОЕ И АНИМИРОВАННОЕ */
 .heart {
     display: inline-block;
     background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
@@ -478,47 +528,6 @@ nav a:hover {
     background-clip: text;
 }
 
-.role-design {
-    color: #a5b4fc;
-    font-weight: 500;
-}
-
-.role-frontend {
-    color: #c084fc;
-    font-weight: 500;
-}
-
-.divider {
-    margin: 0 12px;
-    color: #444;
-    font-size: 0.8rem;
-}
-
-.family-sign {
-    font-size: 0.85rem;
-    color: #555;
-    transition: all 0.3s;
-}
-
-.family-sign:hover {
-    color: #888;
-    text-shadow: 0 0 8px rgba(102,126,234,0.3);
-}
-
-.heart {
-    display: inline-block;
-    background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    font-weight: 600;
-    transition: transform 0.2s;
-}
-
-.family-sign:hover .heart {
-    transform: scale(1.15);
-}
-
 /* ---------- АДАПТАЦИЯ ---------- */
 @media (max-width: 900px) {
     .hero-container {
@@ -531,12 +540,21 @@ nav a:hover {
     .hero-image img {
         width: 260px;
     }
+    .stats {
+        justify-content: center;
+    }
     .cases-grid {
         gap: 24px;
     }
 }
 
 @media (max-width: 700px) {
+    body {
+        cursor: auto;
+    }
+    .custom-cursor {
+        display: none;
+    }
     .header {
         justify-content: center;
     }
@@ -551,13 +569,23 @@ nav a:hover {
         font-size: 1rem;
     }
     .contact-socials {
-        gap: 16px;
+        gap: 24px;
+    }
+    .social-link {
+        width: 48px;
+        height: 48px;
+    }
+    .social-link i {
+        font-size: 1.5rem;
     }
     .footer-roles {
         font-size: 0.8rem;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
     }
     .divider {
-        margin: 0 8px;
+        display: none;
     }
 }
 
@@ -571,30 +599,7 @@ nav a:hover {
     .btn-primary, .btn-secondary {
         padding: 10px 20px;
     }
-    .footer-roles {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
+    .stat span:first-child {
+        font-size: 1.4rem;
     }
-    .divider {
-        display: none;
-    }
-}
-.social-link i {
-    font-size: 1.1rem;
-    transition: transform 0.2s;
-}
-
-.social-link:hover i {
-    transform: scale(1.1);
-}
-
-/* Цвет Telegram при наведении */
-.social-link:hover .fa-telegram-plane {
-    color: #26A5E4;
-}
-
-/* Цвет Behance при наведении */
-.social-link:hover .fa-behance {
-    color: #1769FF;
 }
