@@ -8,9 +8,8 @@
     --accent-gradient: linear-gradient(135deg, #667eea, #764ba2);
     --border-color: rgba(255,255,255,0.08);
     --hero-gradient: radial-gradient(circle at 0% 0%, #0e0e0e, #1a1a2e, #2a1a3e);
-    --footer-gradient: linear-gradient(135deg, #1a1a2e, #0e0e0e);
-    --contact-gradient: linear-gradient(180deg, #0e0e0e 0%, #1a1a2e 60%, #2a1a3e 100%);
-    --cases-gradient: linear-gradient(135deg, #1a1a2e, #0e0e0e);
+    --gradient-start: #1a1a2e;
+    --gradient-end: #0a0a0a;
     --stats-bg: rgba(255,255,255,0.05);
     --stats-border: rgba(255,255,255,0.08);
     --stats-hover: rgba(255,255,255,0.08);
@@ -26,9 +25,8 @@
     --accent-gradient: linear-gradient(135deg, #2d5a2c, #4a7c48);
     --border-color: rgba(0,0,0,0.06);
     --hero-gradient: radial-gradient(circle at 0% 0%, #f5f0eb, #e8dfd5, #f0ebe3);
-    --footer-gradient: linear-gradient(135deg, #e8dfd5, #dad0c4);
-    --contact-gradient: linear-gradient(180deg, #f5f0eb 0%, #e8dfd5 60%, #dad0c4 100%);
-    --cases-gradient: linear-gradient(135deg, #f5f0eb, #efe8e0);
+    --gradient-start: #e8dfd5;
+    --gradient-end: #dad0c4;
     --stats-bg: rgba(0,0,0,0.03);
     --stats-border: rgba(0,0,0,0.06);
     --stats-hover: rgba(0,0,0,0.05);
@@ -364,7 +362,7 @@ nav {
     padding: 60px 5%;
     max-width: 1400px;
     margin: 0 auto;
-    background: var(--cases-gradient);
+    background: var(--bg-primary);
 }
 
 .cases h2 {
@@ -442,6 +440,7 @@ nav {
     padding: 60px 5%;
     text-align: center;
     background: var(--bg-secondary);
+    border-bottom: none;
 }
 
 .reviews h2 {
@@ -487,14 +486,39 @@ nav {
     color: var(--accent-color);
 }
 
+/* Объединённый градиентный блок (контакты + подвал) */
+.gradient-section {
+    background: linear-gradient(180deg, 
+        var(--gradient-start) 0%, 
+        var(--gradient-end) 100%);
+    background-size: 100% 200%;
+    animation: bottomGradientShift 8s ease infinite;
+    border-radius: 40px 40px 0 0;
+    margin-top: 0;
+    padding-top: 20px;
+}
+
+@keyframes bottomGradientShift {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 0% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+[data-theme="dark"] .gradient-section {
+    --gradient-start: #1a1a2e;
+    --gradient-end: #0a0a0a;
+}
+
+[data-theme="light"] .gradient-section {
+    --gradient-start: #e8dfd5;
+    --gradient-end: #dad0c4;
+}
+
 .contact {
-    padding: 60px 5% 50px;
-    text-align: center;
-    max-width: 800px;
+    max-width: 700px;
     margin: 0 auto;
-    background: var(--contact-gradient);
-    border-radius: 60px 60px 40px 40px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    text-align: center;
+    padding: 40px 20px 30px;
 }
 
 .contact h2 {
@@ -592,24 +616,9 @@ nav {
 }
 
 .footer {
-    padding: 40px 20px;
     text-align: center;
-    border-top: 2px solid transparent;
-    border-image: var(--accent-gradient);
-    border-image-slice: 1;
-    background: var(--footer-gradient);
-    background-size: 200% 200%;
-    animation: footerGradient 6s ease infinite;
-}
-
-[data-theme="light"] .footer {
-    border-top: 2px solid rgba(45, 90, 44, 0.3);
-}
-
-@keyframes footerGradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    padding: 30px 20px 40px;
+    background: transparent;
 }
 
 .footer-content {
@@ -710,8 +719,7 @@ nav {
         font-size: 0.9rem;
     }
     .contact {
-        border-radius: 40px;
-        padding: 40px 20px;
+        padding: 30px 20px;
     }
     .contact-socials {
         gap: 20px;
