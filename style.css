@@ -1,561 +1,210 @@
-/* ----- ОБНУЛЕНИЕ И БАЗА ----- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
+    margin: 0;
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #1e1e2a;
-    line-height: 1.5;
+    background: radial-gradient(circle at top, #667eea, #2a2a72);
+    color: #333;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-}
-
-/* ----- ШАПКА ----- */
+/* HEADER */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 5%;
+    padding: 20px 50px;
     background: white;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.05);
-    position: sticky;
-    top: 0;
-    z-index: 100;
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: 700;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-.nav {
-    display: flex;
-    gap: 30px;
+    font-weight: 600;
+    font-size: 20px;
 }
 
 .nav a {
+    margin: 0 15px;
     text-decoration: none;
     color: #333;
-    font-weight: 500;
-    transition: color 0.3s;
+    transition: 0.3s;
 }
 
-.nav a:hover, .nav a.active {
+.nav a:hover {
     color: #667eea;
-    border-bottom: 2px solid #667eea;
-    padding-bottom: 4px;
 }
 
-/* ----- HERO ----- */
+/* HERO */
 .hero {
-    padding: 60px 5%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
-.hero-container {
-    max-width: 1200px;
-    margin: 0 auto;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    gap: 50px;
-    flex-wrap: wrap;
+    align-items: center;
+    padding: 80px 60px;
+    color: white;
+    animation: fadeIn 1s ease;
 }
 
 .hero-text {
-    flex: 1;
-    min-width: 280px;
+    max-width: 500px;
 }
 
 .hero-text h1 {
     font-size: 48px;
-    margin-bottom: 20px;
-    color: white;
+    margin: 0;
 }
 
-.hero-text .highlight {
-    display: block;
-    font-size: 44px;
-    background: linear-gradient(135deg, #ffd700, #ffffff);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+.accent {
+    color: #ffd166;
 }
 
-.hero-text p {
-    font-size: 18px;
-    margin-bottom: 30px;
-    color: rgba(255,255,255,0.9);
+.subtitle {
+    opacity: 0.8;
+    margin: 10px 0;
 }
 
-.hero-buttons {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
-}
-
+/* BUTTONS */
 .btn {
     display: inline-block;
-    padding: 12px 28px;
-    border-radius: 40px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border: none;
-    position: relative;
-    overflow: hidden;
-}
-
-.btn::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.3);
-    transform: translate(-50%, -50%);
-    transition: width 0.4s, height 0.4s;
-}
-
-.btn:hover::after {
-    width: 200%;
-    height: 200%;
-}
-
-.btn.primary {
-    background: white;
-    color: #667eea;
-}
-
-.btn.primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-.btn.secondary {
-    background: rgba(255,255,255,0.2);
+    padding: 12px 18px;
+    background: #667eea;
     color: white;
-    backdrop-filter: blur(5px);
-}
-
-.btn.secondary:hover {
-    background: rgba(255,255,255,0.3);
-    transform: translateY(-3px);
-}
-
-.btn.large {
-    padding: 14px 32px;
-    font-size: 16px;
-}
-
-.socials {
-    display: flex;
-    gap: 20px;
-}
-
-.social-icon {
-    color: white;
-    font-size: 24px;
-    transition: transform 0.2s, color 0.2s;
+    border-radius: 8px;
     text-decoration: none;
-}
-
-.social-icon:hover {
-    transform: translateY(-4px);
-    color: #ffd700;
-}
-
-.hero-image {
-    flex: 1;
-    text-align: center;
-    min-width: 280px;
-}
-
-.hero-image img {
-    max-width: 100%;
-    width: 320px;
-    border-radius: 40% 60% 60% 40%;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-}
-
-/* ----- ОБЩИЕ СТИЛИ СЕКЦИЙ ----- */
-section {
-    padding: 80px 0;
-    background: white;
-}
-
-h2 {
-    font-size: 36px;
-    text-align: center;
-    margin-bottom: 16px;
-    color: #1e1e2a;
-}
-
-.section-subtitle {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 48px;
-    color: #555;
-    font-size: 18px;
-}
-
-/* ----- УСЛУГИ ----- */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.service-card {
-    background: #f8f9ff;
-    padding: 32px;
-    border-radius: 24px;
-    text-align: center;
-    transition: all 0.3s;
-}
-
-.service-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 30px rgba(0,0,0,0.05);
-}
-
-.service-icon {
-    font-size: 40px;
-    color: #667eea;
-    margin-bottom: 20px;
-}
-
-.service-card h3 {
-    margin-bottom: 12px;
-    font-size: 22px;
-}
-
-.service-card p {
-    color: #555;
-}
-
-/* ----- ПОРТФОЛИО ----- */
-.portfolio-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
-}
-
-.link-all {
-    color: #667eea;
-    text-decoration: none;
-    font-weight: 600;
-    transition: opacity 0.2s;
-}
-
-.link-all:hover {
-    opacity: 0.7;
-}
-
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-    margin-bottom: 30px;
-}
-
-.portfolio-card {
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
-    border: 1px solid #eee;
-}
-
-.portfolio-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 30px rgba(0,0,0,0.1);
-}
-
-.card-image {
-    overflow: hidden;
-    height: 220px;
-}
-
-.card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s;
-}
-
-.portfolio-card:hover .card-image img {
-    transform: scale(1.05);
-}
-
-.card-info {
-    padding: 20px;
-}
-
-.card-info h3 {
-    margin-bottom: 8px;
-    font-size: 20px;
-}
-
-.card-info p {
-    color: #555;
-    margin-bottom: 12px;
-}
-
-.tag {
-    background: #edf2ff;
-    color: #667eea;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
-    display: inline-block;
-}
-
-.portfolio-note {
-    text-align: center;
-    color: #555;
-}
-
-.portfolio-note a {
-    color: #667eea;
-    text-decoration: none;
-}
-
-/* ----- ПРОЦЕСС ----- */
-.process {
-    background: #f8f9ff;
-}
-
-.process-steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 30px;
-    text-align: center;
-}
-
-.step {
-    padding: 20px;
-}
-
-.step-number {
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    margin: 0 auto 20px;
-}
-
-.step h3 {
-    margin-bottom: 12px;
-    font-size: 20px;
-}
-
-.step p {
-    color: #555;
-}
-
-/* ----- ОТЗЫВЫ ----- */
-.testimonials {
-    background: white;
-}
-
-.testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.testimonial-card {
-    background: #f8f9ff;
-    padding: 30px;
-    border-radius: 24px;
+    margin-right: 10px;
     transition: 0.3s;
 }
 
-.testimonial-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+.btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
 }
 
-.testimonial-text {
-    font-style: italic;
-    margin-bottom: 20px;
-    color: #333;
+.btn.secondary {
+    background: #aaa;
 }
 
-.testimonial-author {
-    color: #667eea;
-    font-weight: 600;
+/* SOCIALS */
+.socials {
+    margin-top: 20px;
 }
 
-/* ----- КОНТАКТЫ С ФОРМОЙ ----- */
-.contact {
-    background: linear-gradient(135deg, #667eea, #764ba2);
+.socials a {
+    margin-right: 15px;
     color: white;
-    text-align: center;
+    text-decoration: none;
+    opacity: 0.8;
 }
 
-.contact h2 {
-    color: white;
-}
-
-.contact p {
-    margin-bottom: 24px;
-    font-size: 18px;
-}
-
-.contact-form {
-    max-width: 600px;
-    margin: 30px auto 0;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.contact-form input, .contact-form textarea {
-    padding: 14px 18px;
-    border: none;
-    border-radius: 30px;
-    font-family: inherit;
-    font-size: 16px;
-    background: rgba(255,255,255,0.9);
-    transition: 0.2s;
-}
-
-.contact-form input:focus, .contact-form textarea:focus {
-    outline: none;
-    background: white;
-    box-shadow: 0 0 0 3px rgba(255,255,255,0.5);
-}
-
-.contact-form button {
-    align-self: center;
-    border: none;
-    cursor: pointer;
-}
-
-.contact-socials {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    margin-top: 32px;
-    flex-wrap: wrap;
-}
-
-.contact-socials .social-icon {
-    background: rgba(255,255,255,0.2);
-    padding: 10px 24px;
-    border-radius: 40px;
-    font-size: 16px;
-    color: white;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.contact-socials .social-icon:hover {
-    background: white;
-    color: #667eea;
-    transform: translateY(-3px);
-}
-
-/* ----- ПОДВАЛ ----- */
-.footer {
-    background: #1e1e2a;
-    color: rgba(255,255,255,0.7);
-    text-align: center;
-    padding: 30px;
-    font-size: 14px;
-}
-
-/* ----- АНИМАЦИЯ ПРИ СКРОЛЛЕ ----- */
-.services, .portfolio, .process, .testimonials, .contact {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.services.visible, .portfolio.visible, .process.visible, .testimonials.visible, .contact.visible {
+.socials a:hover {
     opacity: 1;
-    transform: translateY(0);
 }
 
-/* ----- АДАПТАЦИЯ ПОД НОУТБУКИ И ТЕЛЕФОНЫ ----- */
-@media (max-width: 900px) {
-    .hero-container {
+/* IMAGE */
+.hero-image img {
+    width: 350px;
+    border-radius: 40% 60% 60% 40%;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    transform: rotate(-2deg);
+    transition: 0.3s;
+}
+
+.hero-image img:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+/* ABOUT */
+.about {
+    background: white;
+    padding: 60px;
+    text-align: center;
+}
+
+.about h2 {
+    margin-bottom: 20px;
+}
+
+/* WORKS */
+.works {
+    background: #f4f4f4;
+    padding: 60px;
+    text-align: center;
+}
+
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.work-card {
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.work-card:hover {
+    transform: translateY(-10px);
+}
+
+.work-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* overlay */
+.work-card::after {
+    content: "Смотреть кейс";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.work-card:hover::after {
+    opacity: 1;
+}
+
+/* CONTACT */
+.contact {
+    text-align: center;
+    padding: 60px;
+    color: white;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ADAPTIVE */
+@media (max-width: 768px) {
+    .hero {
         flex-direction: column;
         text-align: center;
     }
-    .hero-buttons {
-        justify-content: center;
-    }
-    .socials {
-        justify-content: center;
-    }
-    .hero-text h1 {
-        font-size: 36px;
-    }
-    .hero-text .highlight {
-        font-size: 32px;
-    }
-}
 
-@media (max-width: 768px) {
+    .hero-image img {
+        margin-top: 30px;
+        width: 250px;
+    }
+
+    .works-grid {
+        grid-template-columns: 1fr;
+    }
+
     .header {
         flex-direction: column;
-        gap: 15px;
-    }
-    .nav {
-        gap: 20px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    h2 {
-        font-size: 28px;
-    }
-    .portfolio-header {
-        flex-direction: column;
-        align-items: center;
         gap: 10px;
-        text-align: center;
-    }
-    .contact-socials {
-        flex-direction: column;
-        align-items: center;
-    }
-    .contact-socials .social-icon {
-        width: 80%;
-    }
-    .step-number {
-        width: 50px;
-        height: 50px;
-        font-size: 20px;
     }
 }
