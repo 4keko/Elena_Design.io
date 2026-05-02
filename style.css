@@ -1,5 +1,11 @@
-body {
+/* ОСНОВНЫЕ СТИЛИ */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #667eea, #764ba2);
     color: #333;
@@ -76,18 +82,36 @@ body {
     background: #aaa;
 }
 
-/* SOCIALS */
+/* SOCIALS — иконки Telegram и Behance */
 .socials {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
+    align-items: center;
     margin-top: 20px;
 }
 
-.socials a {
-    margin-right: 15px;
-    color: white;
-    text-decoration: none;
+.social-icon {
+    display: inline-flex;
+    transition: transform 0.2s ease, filter 0.2s ease;
 }
 
-/* IMAGE */
+/* Анимация при нажатии (клике) */
+.social-icon:active {
+    transform: scale(0.85);
+    filter: brightness(0.8);
+}
+
+/* Эффект при наведении мыши */
+.social-icon:hover {
+    transform: translateY(-4px);
+}
+
+.social-icon svg {
+    transition: all 0.2s ease;
+}
+
+/* HERO IMAGE */
 .hero-image img {
     width: 350px;
     border-radius: 40% 60% 60% 40%;
@@ -132,76 +156,4 @@ body {
     text-align: center;
     padding: 60px;
     color: white;
-}
-/* Основные стили */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-    background: #f9f9ff;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 2rem;
-}
-
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-h1 {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
-    color: #1a1a2e;
-}
-
-p {
-    font-size: 1.2rem;
-    color: #4a4a6a;
-    margin-bottom: 3rem;
-}
-
-/* Блок со ссылками-иконками */
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-}
-
-/* Стили для картинок-ссылок */
-.social-icon {
-    display: inline-block;
-    transition: transform 0.2s ease, filter 0.2s ease;
-    cursor: pointer;
-}
-
-.social-icon img {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-    transition: all 0.2s ease;
-    border-radius: 20px;
-}
-
-/* 🎬 Анимация при нажатии (active) */
-.social-icon:active {
-    transform: scale(0.9);
-    filter: brightness(0.9);
-}
-
-/* Дополнительно: эффект при наведении */
-.social-icon:hover {
-    transform: translateY(-5px);
-}
-
-.social-icon:hover img {
-    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2));
 }
