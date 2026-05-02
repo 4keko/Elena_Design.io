@@ -503,3 +503,31 @@ h2 {
     font-weight: 700;
     border-bottom: 2px solid #667eea;
 }
+.testimonials {
+    background: #f8f9ff;
+}
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+.testimonial-card {
+    background: white;
+    padding: 30px;
+    border-radius: 24px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+.testimonial-card:hover {
+    transform: translateY(-5px);
+}
+.testimonial-text {
+    font-style: italic;
+    margin-bottom: 20px;
+    color: #333;
+}
+.testimonial-author {
+    color: #667eea;
+    font-weight: 600;
+}
