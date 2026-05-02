@@ -3,42 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Elena — UI/UX Designer</title>
+    <title>Елена — UI/UX Designer</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<!-- Behance Projects Counter (обновляется раз в сутки) -->
-<script>
-    async function updateBehanceStats() {
-        const username = '32ffd275'; // ваш ID на Behance
-        const cacheKey = 'behance_projects_count';
-        const cacheTime = 24 * 60 * 60 * 1000; // 24 часа
-        
-        const cached = localStorage.getItem(cacheKey);
-        const cacheDate = localStorage.getItem(cacheKey + '_date');
-        
-        if (cached && cacheDate && (Date.now() - parseInt(cacheDate)) < cacheTime) {
-            document.querySelector('.stat-number:first-child').innerHTML = cached + '+';
-            return;
-        }
-        
-        try {
-            // Используем Behance API (требуется ключ, но для простоты — заглушка)
-            // Реальное API: https://www.behance.net/v2/users/32ffd275/projects?client_id=YOUR_KEY
-            // Пока оставим заглушку, но вы можете зарегистрировать приложение и получить ключ
-            const demoCount = 7; // Заглушка
-            localStorage.setItem(cacheKey, demoCount);
-            localStorage.setItem(cacheKey + '_date', Date.now());
-            document.querySelector('.stat-number:first-child').innerHTML = demoCount + '+';
-        } catch(e) {
-            console.log('Behance stats update failed');
-        }
-    }
-    
-    updateBehanceStats();
-</script>
+
 <div class="custom-cursor"></div>
 
 <header class="header">
@@ -60,11 +31,14 @@
                 <a href="#contact" class="btn-secondary">Связаться</a>
             </div>
             
-            <!-- СТАТИСТИКА: карточка + точка • -->
+            <!-- СТАТИСТИКА + ССЫЛКА НА BEHANCE -->
             <div class="stats-card">
-                <span class="stat-item"><strong>7+</strong> проектов</span>
+                <span class="stat-item"><strong class="stat-number">7+</strong> проектов</span>
                 <span class="stat-dot">•</span>
                 <span class="stat-item"><strong>4+</strong> года опыта</span>
+            </div>
+            <div class="behance-link">
+                <a href="https://www.behance.net/32ffd275" target="_blank">Актуальное портфолио на Behance →</a>
             </div>
         </div>
         <div class="hero-image">
@@ -129,8 +103,12 @@
     
     function updateReview(index) {
         const r = reviewsList[index % reviewsList.length];
-        reviewText.innerHTML = `"${r.text}"`;
-        reviewAuthor.innerHTML = `— ${r.author}`;
+        reviewText.style.opacity = '0';
+        setTimeout(() => {
+            reviewText.innerHTML = `"${r.text}"`;
+            reviewAuthor.innerHTML = `— ${r.author}`;
+            reviewText.style.opacity = '1';
+        }, 200);
     }
     
     setInterval(() => {
