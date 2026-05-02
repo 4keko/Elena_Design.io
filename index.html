@@ -178,5 +178,35 @@
             });
         });
     </script>
+    // Плавное появление секций
+const sections = document.querySelectorAll('.services, .portfolio, .process, .contact');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1 });
+
+sections.forEach(section => observer.observe(section));
+
+// Подсветка активного пункта меню при скролле
+window.addEventListener('scroll', () => {
+    const scrollPos = window.scrollY + 100;
+    document.querySelectorAll('section').forEach(section => {
+        const top = section.offsetTop;
+        const bottom = top + section.offsetHeight;
+        const id = section.getAttribute('id');
+        if (scrollPos >= top && scrollPos < bottom) {
+            document.querySelectorAll('.nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${id}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    });
+});
 </body>
 </html>
