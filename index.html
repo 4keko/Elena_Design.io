@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>hel.design — UI/UX Designer</title> <!-- Название изменено на hel.design -->
+    <title>hel.design — UI/UX Designer</title>
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="alternate icon" href="favicon.ico">
@@ -11,6 +11,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <script>
+        // Тёмная/светлая тема (проверяем сохранённые настройки)
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+        }
+    </script>
 </head>
 <body>
 
@@ -18,10 +25,17 @@
 
 <header class="header">
     <a href="#" class="logo">hel.design</a>
+    
+    <!-- Кнопка переключения темы -->
+    <button id="themeToggle" class="theme-toggle" aria-label="Переключить тему">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </button>
+    
     <nav>
-        <a href="#cases">Кейсы</a>
-        <a href="#reviews">Отзывы</a>
-        <a href="#contact">Контакты</a>
+        <a href="#cases" class="nav-link">Кейсы</a>
+        <a href="#reviews" class="nav-link">Отзывы</a>
+        <a href="#contact" class="nav-link">Контакты</a>
     </nav>
 </header>
 
@@ -35,11 +49,10 @@
                 <a href="#contact" class="btn-secondary">Связаться</a>
             </div>
             
-            <!-- СТАТИСТИКА (ссылка на Behance удалена) -->
             <div class="stats-card">
-                <span class="stat-item"><strong class="stat-number">7+</strong> проектов</span>
+                <span class="stat-item"><strong id="projectsCount" class="stat-number">0</strong> проектов</span>
                 <span class="stat-dot">•</span>
-                <span class="stat-item"><strong>4+</strong> года опыта</span>
+                <span class="stat-item"><strong id="expCount" class="stat-number">0</strong> лет опыта</span>
             </div>
         </div>
         <div class="hero-image">
@@ -56,8 +69,9 @@
 <section id="reviews" class="reviews">
     <h2>Отзывы</h2>
     <div class="review-card">
+        <div class="review-avatar">👩‍💼</div>
         <p id="review-text">"Работа выполнена на высоком уровне. Сайт получился современным и удобным."</p>
-        <span id="review-author">— Марина, владелица бизнеса</span>
+        <span id="review-author">— Марина, основательница стартапа</span>
     </div>
 </section>
 
@@ -89,18 +103,86 @@
 </footer>
 
 <script>
+    // ===== ПЕРЕКЛЮЧЕНИЕ ТЕМЫ =====
+    const themeToggle = document.getElementById('themeToggle');
+    
+    function setTheme(theme) {
+        if (theme === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'dark');
+        }
+    }
+    
+    themeToggle.addEventListener('click', () => {
+        const isDark = !document.documentElement.hasAttribute('data-theme');
+        setTheme(isDark ? 'light' : 'dark');
+    });
+    
+    // ===== АНИМАЦИЯ СЧЁТЧИКА =====
+    function animateCounter(element, target, duration = 1500) {
+        if (!element) return;
+        const start = 0;
+        const increment = target / (duration / 16);
+        let current = start;
+        
+        const updateCounter = () => {
+            current += increment;
+            if (current < target) {
+                element.innerText = Math.floor(current);
+                requestAnimationFrame(updateCounter);
+            } else {
+                element.innerText = target;
+            }
+        };
+        updateCounter();
+    }
+    
+    // Запускаем счётчик при загрузке
+    window.addEventListener('load', () => {
+        animateCounter(document.getElementById('projectsCount'), 7);
+        animateCounter(document.getElementById('expCount'), 4);
+    });
+    
+    // ===== ПОДСВЕТКА АКТИВНОГО ПУНКТА МЕНЮ =====
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    window.addEventListener('scroll', () => {
+        let current = '';
+        const scrollPos = window.scrollY + 150;
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionBottom = sectionTop + section.offsetHeight;
+            if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    });
+    
     // ===== АВТО-СМЕНА ОТЗЫВОВ =====
     const reviewsList = [
-        { text: "Очень сильный визуал и продуманный UX. Елена предложила решения, о которых мы не думали.", author: "Алексей, IT-директор" },
-        { text: "Работа выполнена на высоком уровне. Сайт получился современным и удобным.", author: "Марина, владелица бизнеса" },
-        { text: "Современный стиль и внимание к деталям. Приятно работать с профессионалом.", author: "Игорь, маркетолог" },
-        { text: "Понравился подход и результат. Елена быстро поняла нашу аудиторию.", author: "Ольга, основатель стартапа" },
-        { text: "Лучший UX-дизайнер! Клиенты в восторге от интерфейса.", author: "Дмитрий, product manager" }
+        { text: "Очень сильный визуал и продуманный UX. Елена предложила решения, о которых мы не думали.", author: "Алексей, IT-директор", avatar: "👨‍💻" },
+        { text: "Работа выполнена на высоком уровне. Сайт получился современным и удобным.", author: "Марина, основательница стартапа", avatar: "👩‍💼" },
+        { text: "Современный стиль и внимание к деталям. Приятно работать с профессионалом.", author: "Игорь, маркетолог", avatar: "🧑‍💼" },
+        { text: "Понравился подход и результат. Елена быстро поняла нашу аудиторию.", author: "Ольга, владелица бизнеса", avatar: "👩‍💼" },
+        { text: "Лучший UX-дизайнер! Клиенты в восторге от интерфейса.", author: "Дмитрий, CPO", avatar: "👨‍💼" }
     ];
     
     let reviewIndex = 0;
     const reviewText = document.getElementById("review-text");
     const reviewAuthor = document.getElementById("review-author");
+    const reviewAvatar = document.querySelector(".review-avatar");
     
     function updateReview(index) {
         const r = reviewsList[index % reviewsList.length];
@@ -108,6 +190,7 @@
         setTimeout(() => {
             reviewText.innerHTML = `"${r.text}"`;
             reviewAuthor.innerHTML = `— ${r.author}`;
+            if (reviewAvatar) reviewAvatar.innerHTML = r.avatar;
             reviewText.style.opacity = '1';
         }, 200);
     }
@@ -119,13 +202,13 @@
     
     // ===== СЛУЧАЙНЫЕ 4 ПРОЕКТА =====
     const allProjects = [
-        { href: "https://www.behance.net/gallery/248386073/dizajn-lendinga-zhk-legenda", img: "legenda-preview.jpg", title: "ЖК Легенда", desc: "Лендинг жилого комплекса", fallback: "ЖК+Легенда" },
-        { href: "https://www.behance.net/gallery/186421391/Website-for-eco-hotel", img: "ecohotel-preview.jpg", title: "Eco Hotel", desc: "Сайт для эко-отеля", fallback: "Eco+Hotel" },
-        { href: "https://www.behance.net/gallery/182255229/Online-flower-shop-salon", img: "flowershop-preview.jpg", title: "Flower Shop", desc: "Интернет-магазин цветов", fallback: "Flower+Shop" },
-        { href: "https://www.behance.net/gallery/248387797/Yandex-Pet-Day", img: "yandex-petday.jpg", title: "Yandex Pet Day", desc: "Спецпроект для Яндекса", fallback: "Yandex+Pet+Day" },
-        { href: "https://www.behance.net/gallery/194731149/Web-design-for-consulting-company", img: "consulting-preview.jpg", title: "Consulting Company", desc: "Веб-дизайн для консалтинга", fallback: "Consulting+Company" },
-        { href: "https://www.behance.net/gallery/192322247/redizajn-glavnoj-stranicy-dom-sajtov", img: "domsaitov-redesign.jpg", title: "Дом сайтов", desc: "Редизайн главной страницы", fallback: "Дом+сайтов" },
-        { href: "https://www.behance.net/gallery/192315737/glavnye-stranicy-sajtov", img: "mainpages-collection.jpg", title: "Главные страницы", desc: "Коллекция дизайнов", fallback: "Главные+страницы" }
+        { href: "https://www.behance.net/gallery/248386073/dizajn-lendinga-zhk-legenda", img: "legenda-preview.jpg", title: "ЖК Легенда", desc: "Лендинг жилого комплекса • Увеличение заявок +40%", fallback: "ЖК+Легенда" },
+        { href: "https://www.behance.net/gallery/186421391/Website-for-eco-hotel", img: "ecohotel-preview.jpg", title: "Eco Hotel", desc: "Сайт для эко-отеля • Рост бронирований +25%", fallback: "Eco+Hotel" },
+        { href: "https://www.behance.net/gallery/182255229/Online-flower-shop-salon", img: "flowershop-preview.jpg", title: "Flower Shop", desc: "Магазин цветов • Конверсия +35% через 2 месяца", fallback: "Flower+Shop" },
+        { href: "https://www.behance.net/gallery/248387797/Yandex-Pet-Day", img: "yandex-petday.jpg", title: "Yandex Pet Day", desc: "Спецпроект для Яндекса • 50k+ участников", fallback: "Yandex+Pet+Day" },
+        { href: "https://www.behance.net/gallery/194731149/Web-design-for-consulting-company", img: "consulting-preview.jpg", title: "Consulting Company", desc: "Консалтинг • Увеличение лидов на сайт в 2 раза", fallback: "Consulting+Company" },
+        { href: "https://www.behance.net/gallery/192322247/redizajn-glavnoj-stranicy-dom-sajtov", img: "domsaitov-redesign.jpg", title: "Дом сайтов", desc: "Редизайн главной страницы • Удобство +38%", fallback: "Дом+сайтов" },
+        { href: "https://www.behance.net/gallery/192315737/glavnye-stranicy-sajtov", img: "mainpages-collection.jpg", title: "Главные страницы", desc: "Коллекция дизайнов • Лучшие решения для разных ниш", fallback: "Главные+страницы" }
     ];
 
     function getRandomProjects(count = 4) {
@@ -141,8 +224,8 @@
         const container = document.getElementById('casesContainer');
         if (!container) return;
         const projects = getRandomProjects(4);
-        container.innerHTML = projects.map(proj => `
-            <a href="${proj.href}" target="_blank" class="case">
+        container.innerHTML = projects.map((proj, idx) => `
+            <a href="${proj.href}" target="_blank" class="case" style="animation-delay: ${0.05 + idx * 0.05}s">
                 <div class="case-image">
                     <img src="${proj.img}" alt="${proj.title}" onerror="this.src='https://via.placeholder.com/600x400?text=${proj.fallback}'">
                 </div>
@@ -164,19 +247,21 @@
             cursor.style.top = e.clientY + 'px';
         });
         
-        const links = document.querySelectorAll('a, button, .btn-primary, .btn-secondary, .social-link');
-        links.forEach(link => {
-            link.addEventListener('mouseenter', () => {
+        const interactiveElements = document.querySelectorAll('a, button, .btn-primary, .btn-secondary, .social-link, .case, .theme-toggle, .nav-link');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
                 cursor.style.width = '48px';
                 cursor.style.height = '48px';
-                cursor.style.borderColor = '#a5b4fc';
-                cursor.style.background = 'rgba(102,126,234,0.1)';
+                cursor.style.borderColor = 'var(--accent-color)';
+                cursor.style.background = 'rgba(102,126,234,0.15)';
+                cursor.style.backdropFilter = 'blur(4px)';
             });
-            link.addEventListener('mouseleave', () => {
+            el.addEventListener('mouseleave', () => {
                 cursor.style.width = '32px';
                 cursor.style.height = '32px';
-                cursor.style.borderColor = '#667eea';
+                cursor.style.borderColor = 'var(--accent-color)';
                 cursor.style.background = 'transparent';
+                cursor.style.backdropFilter = 'blur(0px)';
             });
         });
     }
