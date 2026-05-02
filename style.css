@@ -394,11 +394,12 @@ nav a:hover {
 }
 
 /* ---------- ПОДВАЛ — ВАРИАНТ 3 (ГРАДИЕНТНЫЙ С GLOW) ---------- */
+/* ---------- ПОДВАЛ — УСИЛЕННЫЙ ГРАДИЕНТ ---------- */
 .footer {
     padding: 50px 20px;
     text-align: center;
-    border-top: 1px solid rgba(102,126,234,0.2);
-    background: linear-gradient(180deg, #0e0e0e, #08080a);
+    border-top: 1px solid rgba(102,126,234,0.3);
+    background: linear-gradient(180deg, #0e0e0e, #0a0a0a);
 }
 
 .footer-content {
@@ -407,9 +408,74 @@ nav a:hover {
 }
 
 .footer-roles {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     margin-bottom: 16px;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.5px;
+}
+
+/* ГРАДИЕНТ ДЛЯ ИМЕНИ ЕЛЕНЫ */
+.role-design {
+    background: linear-gradient(135deg, #a5b4fc, #667eea);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 600;
+    text-shadow: 0 0 12px rgba(102,126,234,0.3);
+}
+
+/* ГРАДИЕНТ ДЛЯ ИМЕНИ ВАЛЕНТИНА */
+.role-frontend {
+    background: linear-gradient(135deg, #c084fc, #a855f7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 600;
+    text-shadow: 0 0 12px rgba(168,85,247,0.3);
+}
+
+.divider {
+    margin: 0 12px;
+    background: linear-gradient(135deg, #667eea, #c084fc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 0.9rem;
+}
+
+/* СЕМЕЙНАЯ ПОДПИСЬ — ТОЖЕ С ЛЁГКИМ ГРАДИЕНТОМ */
+.family-sign {
+    font-size: 0.85rem;
+    background: linear-gradient(135deg, #888, #aaa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transition: all 0.3s;
+}
+
+.family-sign:hover {
+    background: linear-gradient(135deg, #a5b4fc, #c084fc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 8px rgba(102,126,234,0.5);
+}
+
+/* СЕРДЦЕ — ГРАДИЕНТНОЕ И АНИМИРОВАННОЕ */
+.heart {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
+    transition: transform 0.2s;
+}
+
+.family-sign:hover .heart {
+    transform: scale(1.2);
+    background: linear-gradient(135deg, #ff8787, #ffaaaa);
+    -webkit-background-clip: text;
+    background-clip: text;
 }
 
 .role-design {
