@@ -27,12 +27,13 @@ body {
     backdrop-filter: blur(2px);
 }
 
-/* ---------- АНИМИРОВАННЫЙ ГРАДИЕНТНЫЙ ФОН ---------- */
+/* ---------- АНИМИРОВАННЫЙ ГРАДИЕНТ ТОЛЬКО ДЛЯ HERO ---------- */
 .hero {
     padding: 60px 5%;
     background: radial-gradient(circle at 0% 0%, #0e0e0e, #1a1a2e, #2a1a3e);
     animation: gradientShift 10s ease infinite;
     background-size: 200% 200%;
+    border-bottom: 1px solid rgba(102,126,234,0.15);
 }
 
 @keyframes gradientShift {
@@ -188,7 +189,7 @@ nav a:hover {
     background: rgba(255,255,255,0.2);
 }
 
-/* СТАТИСТИКА + ССЫЛКА НА BEHANCE */
+/* СТАТИСТИКА */
 .stats-card {
     display: inline-flex;
     align-items: baseline;
@@ -265,11 +266,12 @@ nav a:hover {
     transform: scale(1.02);
 }
 
-/* ---------- ПРОЕКТЫ ---------- */
+/* ---------- ПРОЕКТЫ (ЧЁРНЫЙ ФОН) ---------- */
 .cases {
     padding: 60px 5%;
     max-width: 1400px;
     margin: 0 auto;
+    background: #0e0e0e;
 }
 
 .cases h2 {
@@ -346,7 +348,7 @@ nav a:hover {
     font-size: 0.9rem;
 }
 
-/* ---------- ОТЗЫВЫ (ФИКСИРОВАННАЯ ВЫСОТА) ---------- */
+/* ---------- ОТЗЫВЫ (ТЁМНО-СЕРЫЙ ФОН) ---------- */
 .reviews {
     padding: 60px 5%;
     text-align: center;
@@ -397,6 +399,7 @@ nav a:hover {
     text-align: center;
     max-width: 700px;
     margin: 0 auto;
+    background: #0e0e0e;
 }
 
 .contact h2 {
@@ -493,12 +496,20 @@ nav a:hover {
     color: #1769FF;
 }
 
-/* ---------- ПОДВАЛ ---------- */
+/* ---------- ПОДВАЛ (ГРАДИЕНТНЫЙ) ---------- */
 .footer {
     padding: 50px 20px;
     text-align: center;
-    border-top: 1px solid rgba(102,126,234,0.3);
-    background: linear-gradient(180deg, #0e0e0e, #0a0a0a);
+    border-top: 1px solid rgba(102,126,234,0.2);
+    background: linear-gradient(180deg, #0a0a0a, #1a1a2e, #0e0e0e);
+    background-size: 200% 200%;
+    animation: footerGradient 8s ease infinite;
+}
+
+@keyframes footerGradient {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
 }
 
 .footer-content {
