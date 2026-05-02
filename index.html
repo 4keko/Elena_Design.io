@@ -14,10 +14,10 @@
 
 <header class="header">
     <div class="logo">Elena</div>
+
     <nav>
         <a href="#cases">Кейсы</a>
-        <a href="#process">Процесс</a>
-        <a href="#about">Обо мне</a>
+        <a href="#reviews">Отзывы</a>
         <a href="#contact">Контакты</a>
     </nav>
 </header>
@@ -25,13 +25,10 @@
 <!-- HERO -->
 <section class="hero">
     <h1>
-        Проектирую интерфейсы,<br>
-        которые <span>понятны людям</span>
+        Создаю интерфейсы,<br>
+        которые <span>чувствуются</span>
     </h1>
-
-    <p>
-        UI/UX дизайнер. Помогаю продуктам становиться удобнее и красивее.
-    </p>
+    <p>UI/UX дизайнер • Лендинги и веб-сайты</p>
 </section>
 
 <!-- CASES -->
@@ -39,52 +36,73 @@
 
     <h2>Избранные проекты</h2>
 
-    <div class="case">
-        <img src="https://via.placeholder.com/800x400">
-        <div>
-            <h3>Mobile Banking</h3>
-            <p>Редизайн банковского приложения</p>
+    <a href="https://www.behance.net/gallery/248386073/dizajn-lendinga-zhk-legenda" target="_blank" class="case">
+        <img src="https://via.placeholder.com/1200x600">
+        <div class="case-info">
+            <h3>ЖК Легенда</h3>
+            <p>Лендинг жилого комплекса</p>
         </div>
-    </div>
+    </a>
 
-    <div class="case">
-        <img src="https://via.placeholder.com/800x400">
-        <div>
-            <h3>E-commerce</h3>
-            <p>UX интернет-магазина</p>
+    <a href="https://www.behance.net/gallery/186421391/Website-for-eco-hotel" target="_blank" class="case">
+        <img src="https://via.placeholder.com/1200x600">
+        <div class="case-info">
+            <h3>Eco Hotel</h3>
+            <p>Сайт для эко-отеля</p>
         </div>
-    </div>
+    </a>
+
+    <a href="https://www.behance.net/gallery/182255229/Online-flower-shop-salon" target="_blank" class="case">
+        <img src="https://via.placeholder.com/1200x600">
+        <div class="case-info">
+            <h3>Flower Shop</h3>
+            <p>Интернет-магазин цветов</p>
+        </div>
+    </a>
 
 </section>
 
-<!-- PROCESS -->
-<section id="process" class="process">
+<!-- REVIEWS -->
+<section id="reviews" class="reviews">
+    <h2>Отзывы</h2>
 
-    <h2>Как я работаю</h2>
-
-    <div class="steps">
-        <div>Исследование</div>
-        <div>Прототип</div>
-        <div>Дизайн</div>
-        <div>Тестирование</div>
+    <div class="review-card">
+        <p id="review-text"></p>
+        <span id="review-author"></span>
     </div>
-
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="about">
-    <h2>Обо мне</h2>
-    <p>
-        Начинающий дизайнер, развиваюсь в UI/UX, работаю с Figma и прототипированием.
-    </p>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="contact">
     <h2>Связаться</h2>
-    <a href="#">Telegram</a>
-    <a href="#">Behance</a>
+
+    <form>
+        <input type="text" placeholder="Имя" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Сообщение"></textarea>
+        <button type="submit">Отправить</button>
+    </form>
 </section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>Design: Elena • Frontend: Valentin</p>
+    <p><b>Семейный проект</b> ❤️</p>
+</footer>
+
+<script>
+// отзывы
+const reviews = [
+ {text:"Очень сильный визуал и продуманный UX.",author:"Алексей"},
+ {text:"Работа выполнена на высоком уровне.",author:"Марина"},
+ {text:"Современный стиль и внимание к деталям.",author:"Игорь"},
+ {text:"Понравился подход и результат.",author:"Ольга"}
+];
+
+const r = reviews[Math.floor(Math.random()*reviews.length)];
+document.getElementById("review-text").textContent = `"${r.text}"`;
+document.getElementById("review-author").textContent = `— ${r.author}`;
+</script>
 
 </body>
 </html>
