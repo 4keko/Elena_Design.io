@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>hel.design — UI/UX Designer</title>
+    
+    <!-- Favicon (будет меняться через JS) -->
+    <link rel="icon" type="image/svg+xml" href="favicon-dark.svg" id="dynamicFavicon">
+    <link rel="alternate icon" href="favicon-dark.svg">
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -11,6 +16,9 @@
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'light') {
             document.documentElement.setAttribute('data-theme', 'light');
+            // Устанавливаем светлый favicon
+            const favicon = document.getElementById('dynamicFavicon');
+            if (favicon) favicon.href = 'favicon-light.svg';
         }
     </script>
 </head>
@@ -100,16 +108,19 @@
 </footer>
 
 <script>
-    // ===== ПЕРЕКЛЮЧЕНИЕ ТЕМЫ =====
+    // ===== ПЕРЕКЛЮЧЕНИЕ ТЕМЫ С ИЗМЕНЕНИЕМ FAVICON =====
     const themeSwitch = document.getElementById('themeSwitch');
+    const favicon = document.getElementById('dynamicFavicon');
     
     function setTheme(theme) {
         if (theme === 'light') {
             document.documentElement.setAttribute('data-theme', 'light');
             localStorage.setItem('theme', 'light');
+            if (favicon) favicon.href = 'favicon-light.svg';
         } else {
             document.documentElement.removeAttribute('data-theme');
             localStorage.setItem('theme', 'dark');
+            if (favicon) favicon.href = 'favicon-dark.svg';
         }
     }
     
