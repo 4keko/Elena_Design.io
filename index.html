@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Elena — UI/UX Designer</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Елена — UI/UX Designer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="header">
-    <div class="logo">Elena</div>
-
+    <div class="logo">hel.design</div>
     <nav>
         <a href="#cases">Кейсы</a>
         <a href="#reviews">Отзывы</a>
@@ -22,7 +18,6 @@
     </nav>
 </header>
 
-<!-- HERO -->
 <section class="hero">
     <h1>
         Создаю интерфейсы,<br>
@@ -31,13 +26,13 @@
     <p>UI/UX дизайнер • Лендинги и веб-сайты</p>
 </section>
 
-<!-- CASES -->
 <section id="cases" class="cases">
-
     <h2>Избранные проекты</h2>
 
     <a href="https://www.behance.net/gallery/248386073/dizajn-lendinga-zhk-legenda" target="_blank" class="case">
-        <img src="https://via.placeholder.com/1200x600">
+        <div class="case-image">
+            <img src="legenda-preview.jpg" alt="ЖК Легенда" onerror="this.src='https://via.placeholder.com/800x500?text=ЖК+Легенда'">
+        </div>
         <div class="case-info">
             <h3>ЖК Легенда</h3>
             <p>Лендинг жилого комплекса</p>
@@ -45,7 +40,9 @@
     </a>
 
     <a href="https://www.behance.net/gallery/186421391/Website-for-eco-hotel" target="_blank" class="case">
-        <img src="https://via.placeholder.com/1200x600">
+        <div class="case-image">
+            <img src="ecohotel-preview.jpg" alt="Eco Hotel" onerror="this.src='https://via.placeholder.com/800x500?text=Eco+Hotel'">
+        </div>
         <div class="case-info">
             <h3>Eco Hotel</h3>
             <p>Сайт для эко-отеля</p>
@@ -53,55 +50,53 @@
     </a>
 
     <a href="https://www.behance.net/gallery/182255229/Online-flower-shop-salon" target="_blank" class="case">
-        <img src="https://via.placeholder.com/1200x600">
+        <div class="case-image">
+            <img src="flowershop-preview.jpg" alt="Flower Shop" onerror="this.src='https://via.placeholder.com/800x500?text=Flower+Shop'">
+        </div>
         <div class="case-info">
             <h3>Flower Shop</h3>
             <p>Интернет-магазин цветов</p>
         </div>
     </a>
-
 </section>
 
-<!-- REVIEWS -->
 <section id="reviews" class="reviews">
     <h2>Отзывы</h2>
-
     <div class="review-card">
-        <p id="review-text"></p>
-        <span id="review-author"></span>
+        <p id="review-text">"Современный стиль и внимание к деталям."</p>
+        <span id="review-author">— Игорь</span>
     </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact" class="contact">
     <h2>Связаться</h2>
-
-    <form>
-        <input type="text" placeholder="Имя" required>
-        <input type="email" placeholder="Email" required>
-        <textarea placeholder="Сообщение"></textarea>
+    <form action="https://formspree.io/f/mkoyonba" method="POST">
+        <input type="text" name="name" placeholder="Имя" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <textarea name="message" rows="4" placeholder="Сообщение" required></textarea>
         <button type="submit">Отправить</button>
     </form>
 </section>
 
-<!-- FOOTER -->
 <footer class="footer">
-    <p>Design: Elena • Frontend: Valentin</p>
-    <p><b>Семейный проект</b> ❤️</p>
+    <p>Дизайн — Елена · Разработка — Валентин</p>
+    <p class="family-sign">Семейный проект ❤️</p>
 </footer>
 
 <script>
-// отзывы
-const reviews = [
- {text:"Очень сильный визуал и продуманный UX.",author:"Алексей"},
- {text:"Работа выполнена на высоком уровне.",author:"Марина"},
- {text:"Современный стиль и внимание к деталям.",author:"Игорь"},
- {text:"Понравился подход и результат.",author:"Ольга"}
-];
-
-const r = reviews[Math.floor(Math.random()*reviews.length)];
-document.getElementById("review-text").textContent = `"${r.text}"`;
-document.getElementById("review-author").textContent = `— ${r.author}`;
+    // Динамические отзывы (обновляются при каждой загрузке)
+    const reviewsList = [
+        { text: "Очень сильный визуал и продуманный UX. Елена предложила решения, о которых мы не думали.", author: "Алексей, IT-директор" },
+        { text: "Работа выполнена на высоком уровне. Сайт получился современным и удобным.", author: "Марина, владелица бизнеса" },
+        { text: "Современный стиль и внимание к деталям. Приятно работать с профессионалом.", author: "Игорь, маркетолог" },
+        { text: "Понравился подход и результат. Елена быстро поняла нашу аудиторию.", author: "Ольга, основатель стартапа" },
+        { text: "Лучший UX-дизайнер! Клиенты в восторге от интерфейса.", author: "Дмитрий, product manager" }
+    ];
+    
+    const randomIndex = Math.floor(Math.random() * reviewsList.length);
+    const selected = reviewsList[randomIndex];
+    document.getElementById("review-text").innerHTML = `"${selected.text}"`;
+    document.getElementById("review-author").innerHTML = `— ${selected.author}`;
 </script>
 
 </body>
