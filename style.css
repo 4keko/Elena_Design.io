@@ -147,3 +147,19 @@ body {
     padding: 60px;
     color: white;
 }
+/* Улучшенная видимость иконок */
+.social-icon svg {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    transition: all 0.2s ease;
+}
+
+/* При наведении — увеличиваем тень и слегка увеличиваем */
+.social-icon:hover svg {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+    transform: scale(1.05);
+}
+
+/* При нажатии — возвращаем обратно */
+.social-icon:active svg {
+    transform: scale(0.85);
+}
