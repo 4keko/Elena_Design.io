@@ -65,9 +65,16 @@
     </div>
 </section>
 
+<!-- ПОДВАЛ — ВАРИАНТ 3 (ГРАДИЕНТНЫЙ С GLOW) -->
 <footer class="footer">
-    <p>Дизайн — Елена · Разработка — Валентин</p>
-    <p class="family-sign">Семейный проект ❤️</p>
+    <div class="footer-content">
+        <p class="footer-roles">
+            <span class="role-design">Design — Elena</span>
+            <span class="divider">✦</span>
+            <span class="role-frontend">Frontend — Valentin</span>
+        </p>
+        <p class="family-sign">Family project <span class="heart">❤️</span> 2024</p>
+    </div>
 </footer>
 
 <script>
@@ -84,7 +91,7 @@
     document.getElementById("review-text").innerHTML = `"${selected.text}"`;
     document.getElementById("review-author").innerHTML = `— ${selected.author}`;
 
-    // ===== СЛУЧАЙНЫЕ 4 ПРОЕКТА ПРИ ЗАГРУЗКЕ =====
+    // ===== СЛУЧАЙНЫЕ 4 ПРОЕКТА =====
     const allProjects = [
         { href: "https://www.behance.net/gallery/248386073/dizajn-lendinga-zhk-legenda", img: "legenda-preview.jpg", title: "ЖК Легенда", desc: "Лендинг жилого комплекса", fallback: "ЖК+Легенда" },
         { href: "https://www.behance.net/gallery/186421391/Website-for-eco-hotel", img: "ecohotel-preview.jpg", title: "Eco Hotel", desc: "Сайт для эко-отеля", fallback: "Eco+Hotel" },
