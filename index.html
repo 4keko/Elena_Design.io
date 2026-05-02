@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elena UI/UX Designer</title>
+    <title>Елена | UI/UX Designer</title>
     <!-- Open Graph для соцсетей -->
     <meta property="og:title" content="Елена — UI/UX Designer">
     <meta property="og:description" content="Создаю удобные и красивые интерфейсы для людей и бизнеса">
@@ -152,19 +152,12 @@
     </div>
 </section>
 
-<!-- ОТЗЫВЫ -->
+<!-- ОТЗЫВЫ (динамические, случайные при загрузке) -->
 <section id="testimonials" class="testimonials">
     <div class="container">
         <h2>Отзывы</h2>
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <div class="testimonial-text">"Елена создала очень удобный и красивый интерфейс для нашего приложения. Работать с ней — одно удовольствие!"</div>
-                <div class="testimonial-author">— Анна, проект Banking App</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-text">"Сайт интернет-магазина стал продавать на 30% больше после редизайна. Спасибо за отличную работу!"</div>
-                <div class="testimonial-author">— Иван, Online Store</div>
-            </div>
+        <div id="testimonialsContainer" class="testimonials-grid">
+            <!-- Сюда JavaScript подставит случайные отзывы -->
         </div>
     </div>
 </section>
@@ -174,12 +167,14 @@
     <div class="container">
         <h2>Написать мне</h2>
         <p>Готова обсудить ваш проект или ответить на вопросы</p>
-        <form action="https://formspree.io/f/YOUR_FORMSPREE_KEY" method="POST" class="contact-form">
+        
+        <form action="https://formspree.io/f/mkoyonba" method="POST" class="contact-form">
             <input type="text" name="name" placeholder="Ваше имя" required>
             <input type="email" name="email" placeholder="Ваш email" required>
             <textarea name="message" rows="4" placeholder="Сообщение..." required></textarea>
             <button type="submit" class="btn primary large">Отправить →</button>
         </form>
+        
         <div class="contact-socials">
             <a href="https://t.me/elena_tgg" target="_blank" class="social-icon"><i class="fab fa-telegram-plane"></i> Telegram</a>
             <a href="https://www.behance.net/32ffd275" target="_blank" class="social-icon"><i class="fab fa-behance"></i> Behance</a>
@@ -189,7 +184,7 @@
 
 <!-- ПОДВАЛ -->
 <footer class="footer">
-    <p>© 2025 · Сделано с ❤️: Elena (UI/UX) + Valentin (Frontend)</p>
+    <p>© 2025 · Дизайн — Елена · Разработка — Валентин</p>
 </footer>
 
 <script>
@@ -232,6 +227,42 @@
             }
         });
     });
+
+    // ===== СЛУЧАЙНЫЕ ОТЗЫВЫ =====
+    const allReviews = [
+        { text: "Елена создала очень удобный и красивый интерфейс для нашего приложения. Работать с ней — одно удовольствие!", author: "— Анна, проект Banking App" },
+        { text: "Сайт интернет-магазина стал продавать на 30% больше после редизайна. Спасибо за отличную работу!", author: "— Иван, Online Store" },
+        { text: "Профессиональный подход и внимание к деталям. Елена предложила решения, о которых мы даже не думали. Рекомендую!", author: "— Мария, стартап FinTech" },
+        { text: "Лучший UX-дизайнер, с которым я работал. Клиенты в восторге от нового интерфейса.", author: "— Алексей, Tech Lead" },
+        { text: "Очень понравилось сотрудничество! Елена быстро поняла нашу целевую аудиторию и сделала именно то, что нужно.", author: "— Ольга, маркетолог Travel Agency" },
+        { text: "Дизайн лендинга превзошёл ожидания. Конверсия выросла на 50% за первый месяц.", author: "— Дмитрий, владелец бизнеса" },
+        { text: "Елена — настоящий профессионал. Создала понятную дизайн-систему, которую мы легко масштабируем.", author: "— Екатерина, Product Manager" }
+    ];
+
+    function getRandomReviews(count = 3) {
+        const shuffled = [...allReviews];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled.slice(0, count);
+    }
+
+    function renderTestimonials() {
+        const container = document.getElementById('testimonialsContainer');
+        if (!container) return;
+        
+        const reviewsToShow = getRandomReviews(3);
+        container.innerHTML = reviewsToShow.map(review => `
+            <div class="testimonial-card">
+                <div class="testimonial-text">"${review.text}"</div>
+                <div class="testimonial-author">${review.author}</div>
+            </div>
+        `).join('');
+    }
+
+    // Загружаем случайные отзывы при загрузке страницы
+    renderTestimonials();
 </script>
 </body>
 </html>
