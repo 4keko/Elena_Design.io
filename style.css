@@ -8,138 +8,286 @@ body {
     font-family: 'Inter', sans-serif;
     background: #0e0e0e;
     color: #fff;
+    scroll-behavior: smooth;
 }
 
-/* HEADER */
+/* ---------- HEADER ---------- */
 .header {
     position: sticky;
     top: 0;
-    backdrop-filter: blur(10px);
-    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(12px);
+    background: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 20px 60px;
+    z-index: 100;
 }
 
-.header a {
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+nav a {
     color: #aaa;
-    margin-left: 20px;
+    margin-left: 24px;
     text-decoration: none;
+    transition: color 0.2s;
 }
 
-.header a:hover {
+nav a:hover {
     color: #fff;
 }
 
-/* HERO */
+/* ---------- HERO ---------- */
 .hero {
     padding: 140px 60px;
+    max-width: 1200px;
 }
 
 .hero h1 {
-    font-size: 64px;
+    font-size: clamp(2.5rem, 6vw, 4rem);
     line-height: 1.2;
+    margin-bottom: 1rem;
 }
 
 .hero span {
     color: #667eea;
+    background: linear-gradient(135deg, #667eea, #a5b4fc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .hero p {
     margin-top: 20px;
     color: #aaa;
+    font-size: 1.2rem;
 }
 
-/* CASES */
+/* ---------- CASES (ПРОЕКТЫ) ---------- */
 .cases {
     padding: 80px 60px;
+    max-width: 1200px;
 }
 
 .cases h2 {
-    margin-bottom: 40px;
+    margin-bottom: 48px;
+    font-size: 2rem;
 }
 
 .case {
-    display: block;
-    margin-bottom: 60px;
+    display: flex;
+    background: #1a1a1a;
+    border-radius: 24px;
+    overflow: hidden;
+    margin-bottom: 48px;
     text-decoration: none;
     color: white;
-    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.case img {
+.case:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4);
+}
+
+.case-image {
+    flex: 1.2;
+    min-width: 240px;
+}
+
+.case-image img {
     width: 100%;
-    border-radius: 20px;
-    transition: 0.5s;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s;
 }
 
-.case:hover img {
+.case:hover .case-image img {
     transform: scale(1.02);
 }
 
 .case-info {
-    position: absolute;
-    bottom: 30px;
-    left: 30px;
+    flex: 1;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-/* REVIEWS */
+.case-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+}
+
+.case-info p {
+    color: #aaa;
+}
+
+/* ---------- REVIEWS ---------- */
 .reviews {
     padding: 80px 60px;
     text-align: center;
+    background: #0a0a0a;
+}
+
+.reviews h2 {
+    margin-bottom: 32px;
+    font-size: 2rem;
 }
 
 .review-card {
-    margin-top: 20px;
-    font-size: 20px;
-    color: #ccc;
+    max-width: 700px;
+    margin: 0 auto;
+    background: #1a1a1a;
+    padding: 2rem;
+    border-radius: 32px;
 }
 
-/* CONTACT */
+.review-card p {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    font-style: italic;
+    color: #ddd;
+}
+
+.review-card span {
+    font-weight: 600;
+    color: #667eea;
+}
+
+/* ---------- CONTACT + FORM ---------- */
 .contact {
     padding: 80px 60px;
+    max-width: 600px;
+}
+
+.contact h2 {
+    margin-bottom: 32px;
+    font-size: 2rem;
 }
 
 form {
-    max-width: 400px;
     display: flex;
     flex-direction: column;
+    gap: 16px;
 }
 
 input, textarea {
-    margin-bottom: 15px;
-    padding: 12px;
-    border-radius: 10px;
+    padding: 14px 18px;
+    border-radius: 30px;
     border: none;
+    background: #1e1e1e;
+    color: white;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: 0.2s;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    background: #2a2a2a;
+    box-shadow: 0 0 0 2px #667eea;
 }
 
 button {
-    padding: 12px;
-    border-radius: 10px;
+    padding: 14px;
+    border-radius: 40px;
     border: none;
-    background: #667eea;
+    background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
+    font-weight: 600;
     cursor: pointer;
+    transition: 0.2s;
 }
 
-/* FOOTER */
+button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+}
+
+/* ---------- FOOTER ---------- */
 .footer {
     padding: 40px;
     text-align: center;
     color: #777;
+    border-top: 1px solid #222;
 }
 
-/* ADAPTIVE */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 40px;
-    }
+.family-sign {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
 
+/* ---------- АДАПТАЦИЯ (ПЛАНШЕТЫ / ТЕЛЕФОНЫ) ---------- */
+@media (max-width: 900px) {
     .header {
-        padding: 20px;
+        padding: 16px 30px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
     }
-
+    
+    nav a {
+        margin-left: 16px;
+    }
+    
+    .hero {
+        padding: 100px 30px;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
     .cases {
-        padding: 40px;
+        padding: 50px 30px;
+    }
+    
+    .case {
+        flex-direction: column;
+    }
+    
+    .case-image {
+        height: 220px;
+    }
+    
+    .case-info {
+        padding: 24px;
+    }
+    
+    .reviews {
+        padding: 50px 30px;
+    }
+    
+    .contact {
+        padding: 50px 30px;
+    }
+}
+
+@media (max-width: 550px) {
+    .hero {
+        padding: 80px 20px;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .case-info h3 {
+        font-size: 1.4rem;
+    }
+    
+    .review-card p {
+        font-size: 1rem;
     }
 }
