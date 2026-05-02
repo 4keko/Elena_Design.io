@@ -9,7 +9,36 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+<!-- Behance Projects Counter (обновляется раз в сутки) -->
+<script>
+    async function updateBehanceStats() {
+        const username = '32ffd275'; // ваш ID на Behance
+        const cacheKey = 'behance_projects_count';
+        const cacheTime = 24 * 60 * 60 * 1000; // 24 часа
+        
+        const cached = localStorage.getItem(cacheKey);
+        const cacheDate = localStorage.getItem(cacheKey + '_date');
+        
+        if (cached && cacheDate && (Date.now() - parseInt(cacheDate)) < cacheTime) {
+            document.querySelector('.stat-number:first-child').innerHTML = cached + '+';
+            return;
+        }
+        
+        try {
+            // Используем Behance API (требуется ключ, но для простоты — заглушка)
+            // Реальное API: https://www.behance.net/v2/users/32ffd275/projects?client_id=YOUR_KEY
+            // Пока оставим заглушку, но вы можете зарегистрировать приложение и получить ключ
+            const demoCount = 7; // Заглушка
+            localStorage.setItem(cacheKey, demoCount);
+            localStorage.setItem(cacheKey + '_date', Date.now());
+            document.querySelector('.stat-number:first-child').innerHTML = demoCount + '+';
+        } catch(e) {
+            console.log('Behance stats update failed');
+        }
+    }
+    
+    updateBehanceStats();
+</script>
 <div class="custom-cursor"></div>
 
 <header class="header">
