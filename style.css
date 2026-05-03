@@ -540,11 +540,12 @@ nav {
     border-color: var(--accent-color);
 }
 
+/* ===== КОНТАКТЫ (С УВЕЛИЧЕННЫМ НИЖНИМ ОТСТУПОМ) ===== */
 .contact {
     max-width: 700px;
     margin: 0 auto;
     text-align: center;
-    padding: 60px 20px;
+    padding: 60px 20px 120px;
 }
 
 .contact h2 {
@@ -641,6 +642,7 @@ nav {
     color: white !important;
 }
 
+/* ===== ПОДВАЛ ===== */
 .footer {
     text-align: center;
     padding: 30px 20px 40px;
@@ -700,6 +702,7 @@ nav {
     transform: scale(1.2);
 }
 
+/* ===== АДАПТАЦИЯ ===== */
 @media (max-width: 900px) {
     .hero-container {
         flex-direction: column;
@@ -747,7 +750,7 @@ nav {
         padding: 2rem 1rem;
     }
     .contact {
-        padding: 40px 20px;
+        padding: 40px 20px 100px;
     }
     .contact-socials {
         gap: 20px;
@@ -784,5 +787,8 @@ nav {
     .btn-primary, .btn-secondary {
         padding: 8px 18px;
         font-size: 0.85rem;
+    }
+    .contact {
+        padding: 40px 20px 80px;
     }
 }
