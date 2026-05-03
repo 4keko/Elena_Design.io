@@ -265,6 +265,7 @@ nav {
     margin-bottom: 24px;
 }
 
+/* ===== ПЕРЕЛИВАЮЩИЕСЯ КНОПКИ ===== */
 .btn-primary, .btn-secondary, .btn-submit, .btn-glass {
     padding: 10px 24px;
     border-radius: 40px;
@@ -276,11 +277,14 @@ nav {
     display: inline-block;
     border: none;
     cursor: pointer;
+    background-size: 200% auto;
 }
 
 .btn-primary, .btn-submit {
-    background: var(--accent-gradient);
+    background: linear-gradient(135deg, #667eea, #764ba2, #a5b4fc, #667eea);
+    background-size: 300% 300%;
     color: white;
+    animation: buttonShimmer 4s ease infinite;
 }
 
 .btn-primary::after, .btn-submit::after {
@@ -304,18 +308,41 @@ nav {
 .btn-primary:hover, .btn-submit:hover {
     transform: translateY(-2px);
     filter: brightness(1.05);
+    animation: buttonShimmer 1.5s ease infinite;
 }
 
 .btn-glass {
-    background: rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05), rgba(255,255,255,0.15));
+    background-size: 200% 200%;
     backdrop-filter: blur(8px);
     color: var(--text-primary);
     border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: glassShimmer 4s ease infinite;
 }
 
 .btn-glass:hover {
     background: rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
+    animation: glassShimmer 1.5s ease infinite;
+}
+
+@keyframes buttonShimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes glassShimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+[data-theme="light"] .btn-primary, 
+[data-theme="light"] .btn-submit {
+    background: linear-gradient(135deg, #2d5a2c, #4a7c48, #6a9c68, #2d5a2c);
+    background-size: 300% 300%;
+    animation: buttonShimmer 4s ease infinite;
 }
 
 .hero-shape {
@@ -814,6 +841,7 @@ nav {
     transform: scale(1.2);
 }
 
+/* ===== СТРАНИЦА "ОБО МНЕ" ===== */
 .about-hero {
     min-height: 60vh;
     display: flex;
