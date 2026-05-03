@@ -11,6 +11,7 @@
     <link rel="alternate icon" href="favicon-dark.svg">
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     
@@ -28,7 +29,7 @@
 <div class="custom-cursor"></div>
 
 <header class="header">
-    <a href="#" class="logo">hel.design</a>
+    <a href="#" class="logo">hel.<span class="logo-serif">design</span></a>
     <div class="theme-switch" id="themeSwitch">
         <div class="theme-switch-track"></div>
         <div class="theme-switch-thumb">
@@ -49,8 +50,8 @@
             <h1>Проектирую интерфейсы для <span>SaaS, e‑commerce и стартапов</span></h1>
             <p>Помогаю бизнесу расти: исследования → прототипы → дизайн → тестирование</p>
             <div class="hero-buttons">
-                <a href="#contact" class="btn-primary">Обсудить проект →</a>
-                <a href="#cases" class="btn-secondary">Смотреть кейсы</a>
+                <a href="#contact" class="btn-primary">Обсудить проект</a>
+                <a href="#cases" class="btn-glass">Смотреть кейсы</a>
             </div>
         </div>
         <div class="hero-image">
@@ -61,7 +62,7 @@
 
 <section id="cases" class="cases">
     <h2>Кейсы</h2>
-    <p class="cases-note">✨ 4 случайных проекта при каждом визите. Один из них — избранный ⭐</p>
+    <p class="cases-note">✨ 4 случайных проекта при каждом визите. Один из них — избранный ✦</p>
     <div id="casesContainer" class="cases-grid"></div>
 </section>
 
@@ -188,7 +189,7 @@
             const delay = (idx % 4) * 0.05;
             const isFeatured = (idx === featuredIndex);
             const featuredClass = isFeatured ? 'case-featured' : '';
-            const featuredBadge = isFeatured ? '<div class="featured-badge">⭐ Избранное</div>' : '';
+            const featuredBadge = isFeatured ? '<div class="featured-badge">✦ Избранное</div>' : '';
             
             return `
                 <a href="${proj.href}" target="_blank" class="case ${sizeClass} ${offsetClass} ${featuredClass}" style="animation-delay: ${delay}s">
@@ -258,7 +259,7 @@
             cursor.style.left = e.clientX + 'px';
             cursor.style.top = e.clientY + 'px';
         });
-        const interactive = document.querySelectorAll('a, button, .btn-primary, .btn-secondary, .social-link, .case, .theme-switch, .nav-link, .btn-submit');
+        const interactive = document.querySelectorAll('a, button, .btn-primary, .btn-secondary, .social-link, .case, .theme-switch, .nav-link, .btn-submit, .btn-glass');
         interactive.forEach(el => {
             el.addEventListener('mouseenter', () => {
                 cursor.style.width = '40px';
