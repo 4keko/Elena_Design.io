@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap');
 
 :root {
     --bg-primary: #0e0e0e;
@@ -237,10 +237,10 @@ nav {
 }
 
 .futuristic-title {
-    font-family: 'Space Grotesk', 'Inter', sans-serif;
-    font-weight: 600;
+    font-family: 'Manrope', 'Inter', sans-serif;
+    font-weight: 700;
     letter-spacing: -0.02em;
-    font-size: clamp(2.2rem, 6vw, 3.5rem);
+    font-size: clamp(2rem, 6vw, 3.5rem);
     line-height: 1.2;
     margin-bottom: 20px;
 }
@@ -485,7 +485,7 @@ nav {
 }
 
 .case:hover {
-    transform: translateY(-6px) rotateX(2deg) rotateY(2deg) scale(1.02);
+    transform: translateY(-8px) rotateX(3deg) rotateY(3deg) scale(1.02);
     box-shadow: 0 25px 35px rgba(0,0,0,0.3);
 }
 
@@ -541,11 +541,11 @@ nav {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s;
+    transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
 }
 
 .case:hover .case-image img {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 .case-info {
@@ -581,8 +581,12 @@ nav {
 }
 
 .case-featured:hover {
-    transform: translateY(-6px) rotateX(2deg) rotateY(2deg) scale(1.03);
+    transform: translateY(-8px) rotateX(3deg) rotateY(3deg) scale(1.03);
     box-shadow: 0 0 30px rgba(102, 126, 234, 0.6);
+}
+
+.case-featured:hover .case-image img {
+    transform: scale(1.08);
 }
 
 .featured-badge {
@@ -813,6 +817,7 @@ nav {
 .about-hero {
     min-height: 60vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 80px 5% 40px;
@@ -896,9 +901,10 @@ nav {
     margin-bottom: 0;
 }
 
-.about-footer {
+.about-button-wrapper {
     text-align: center;
-    padding: 40px 20px 80px;
+    margin-top: 50px;
+    margin-bottom: 40px;
 }
 
 @media (max-width: 900px) {
@@ -994,6 +1000,10 @@ nav {
     .about-text h1 {
         font-size: 2rem;
     }
+    .about-button-wrapper {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1020,45 +1030,8 @@ nav {
         width: 180px;
         height: 180px;
     }
-}
-/* ===== КНОПКА НА СТРАНИЦЕ "ОБО МНЕ" ПО ЦЕНТРУ ===== */
-.about-button-wrapper {
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
-}
-
-/* ===== УСИЛЕННЫЙ 3D-ЭФФЕКТ ДЛЯ КАРТОЧЕК ===== */
-.case {
-    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-    transform-style: preserve-3d;
-    perspective: 1000px;
-}
-
-.case:hover {
-    transform: translateY(-8px) rotateX(3deg) rotateY(3deg) scale(1.02);
-    box-shadow: 0 25px 35px rgba(0,0,0,0.3);
-}
-
-/* ===== ПЛАВНОЕ УВЕЛИЧЕНИЕ КАРТИНКИ ВНУТРИ РАМКИ ===== */
-.case-image {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-}
-
-.case-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-}
-
-.case:hover .case-image img {
-    transform: scale(1.08);
-}
-
-/* ===== ДОПОЛНИТЕЛЬНО: УВЕЛИЧЕНИЕ И ДЛЯ ИЗБРАННОГО КЕЙСА ===== */
-.case-featured:hover .case-image img {
-    transform: scale(1.08);
+    .about-button-wrapper {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
 }
