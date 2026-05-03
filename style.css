@@ -335,12 +335,58 @@ nav {
     text-align: center;
 }
 
+/* ===== ПЕРЕЛИВАЮЩАЯСЯ ПОДПИСЬ К КЕЙСАМ ===== */
 .cases-note {
     text-align: center;
-    font-size: 0.8rem;
-    color: var(--text-secondary);
+    font-size: 0.85rem;
     margin-bottom: 40px;
-    opacity: 0.7;
+    opacity: 1;
+    font-weight: 500;
+    background: linear-gradient(135deg, #667eea, #764ba2, #a5b4fc, #667eea);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gentleGlow 4s ease infinite;
+}
+
+[data-theme="light"] .cases-note {
+    background: linear-gradient(135deg, #2d5a2c, #4a7c48, #6a9c68, #2d5a2c);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gentleGlowLight 4s ease infinite;
+}
+
+@keyframes gentleGlow {
+    0% {
+        background-position: 0% 50%;
+        text-shadow: 0 0 2px rgba(102,126,234,0.2);
+    }
+    50% {
+        background-position: 100% 50%;
+        text-shadow: 0 0 8px rgba(102,126,234,0.3);
+    }
+    100% {
+        background-position: 0% 50%;
+        text-shadow: 0 0 2px rgba(102,126,234,0.2);
+    }
+}
+
+@keyframes gentleGlowLight {
+    0% {
+        background-position: 0% 50%;
+        text-shadow: 0 0 2px rgba(45,90,44,0.15);
+    }
+    50% {
+        background-position: 100% 50%;
+        text-shadow: 0 0 8px rgba(45,90,44,0.25);
+    }
+    100% {
+        background-position: 0% 50%;
+        text-shadow: 0 0 2px rgba(45,90,44,0.15);
+    }
 }
 
 .cases-grid {
@@ -453,6 +499,44 @@ nav {
     padding: 0.2rem 0.8rem;
     border-radius: 20px;
     margin-top: 0.5rem;
+}
+
+/* ===== ВЫДЕЛЕННЫЙ КЕЙС (FEATURED) ===== */
+.case-featured {
+    position: relative;
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
+    transform: scale(1.02);
+}
+
+.case-featured:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 0 30px rgba(102, 126, 234, 0.6);
+}
+
+.featured-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--accent-gradient);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    z-index: 10;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    letter-spacing: 0.5px;
+}
+
+[data-theme="light"] .case-featured {
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 0 20px rgba(45, 90, 44, 0.3);
+}
+
+[data-theme="light"] .case-featured:hover {
+    box-shadow: 0 0 30px rgba(45, 90, 44, 0.5);
 }
 
 .stack {
@@ -693,6 +777,18 @@ nav {
     .size-wide, .size-large {
         grid-column: span 1;
         grid-row: span 1;
+    }
+    .case-featured {
+        transform: scale(1);
+    }
+    .case-featured:hover {
+        transform: translateY(-4px) scale(1);
+    }
+    .featured-badge {
+        top: 8px;
+        right: 8px;
+        font-size: 0.6rem;
+        padding: 3px 10px;
     }
     .margin-top-20, .margin-top-40, .margin-top--20, .margin-top--40 {
         margin-top: 0;
