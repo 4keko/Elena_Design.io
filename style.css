@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 :root {
     --bg-primary: #0e0e0e;
@@ -235,13 +236,17 @@ nav {
     min-width: 260px;
 }
 
-.hero-text h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
-    line-height: 1.3;
+/* Футуристичный шрифт для заголовка */
+.futuristic-title {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    font-size: clamp(2.2rem, 6vw, 3.5rem);
+    line-height: 1.2;
     margin-bottom: 20px;
 }
 
-.hero-text h1 span {
+.gradient-text {
     background: var(--accent-gradient);
     -webkit-background-clip: text;
     background-clip: text;
@@ -314,21 +319,80 @@ nav {
     transform: translateY(-2px);
 }
 
-.hero-image {
+/* Анимированная градиентная фигура */
+.hero-shape {
     flex: 1;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 280px;
 }
 
-.hero-image img {
-    max-width: 100%;
+.glowing-sphere {
+    position: relative;
     width: 280px;
-    border-radius: 40% 60% 60% 40%;
-    box-shadow: 0 25px 40px rgba(0,0,0,0.4);
-    transition: transform 0.3s;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.hero-image img:hover {
-    transform: scale(1.02);
+.sphere-core {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, var(--accent-color) 0%, rgba(102,126,234,0.2) 70%);
+    border-radius: 50%;
+    filter: blur(20px);
+    opacity: 0.7;
+    animation: pulse 3s ease infinite;
+}
+
+.sphere-ring {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    border: 2px solid var(--accent-color);
+    border-radius: 50%;
+    animation: rotate 8s linear infinite;
+}
+
+.sphere-ring::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 12px var(--accent-color);
+}
+
+.sphere-particles {
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(102,126,234,0.3) 1%, transparent 1%);
+    background-size: 20px 20px;
+    border-radius: 50%;
+    animation: rotateReverse 12s linear infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.1); opacity: 0.9; }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes rotateReverse {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
 }
 
 .cases {
@@ -756,8 +820,9 @@ nav {
     .hero-buttons {
         justify-content: center;
     }
-    .hero-image img {
-        width: 240px;
+    .glowing-sphere {
+        width: 220px;
+        height: 220px;
     }
 }
 
@@ -851,5 +916,9 @@ nav {
         padding: 3px 6px;
         top: 6px;
         right: 6px;
+    }
+    .glowing-sphere {
+        width: 180px;
+        height: 180px;
     }
 }
