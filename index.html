@@ -7,7 +7,6 @@
     <meta name="description" content="UI/UX дизайнер. Проектирую интерфейсы для SaaS, e-commerce и стартапов. Figma, Webflow, прототипирование.">
     <meta name="keywords" content="UI/UX дизайнер, интерфейсы, Figma, Webflow, прототипы">
     
-    <!-- FAVICON с надёжным fallback -->
     <link rel="icon" type="image/svg+xml" href="favicon-dark.svg" id="dynamicFavicon">
     <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230e0e0e'/%3E%3Ctext x='50' y='68' font-family='Arial' font-size='56' font-weight='bold' fill='%23667eea' text-anchor='middle'%3Ehd%3C/text%3E%3C/svg%3E">
     <link rel="alternate icon" href="favicon-dark.svg">
@@ -62,13 +61,11 @@
     </div>
 </section>
 
-<!-- КЕЙСЫ С BEHANCE (7 проектов) -->
 <section id="cases" class="cases">
     <h2>Кейсы</h2>
     <div id="casesContainer" class="cases-grid"></div>
 </section>
 
-<!-- СТЕК И УСЛУГИ -->
 <section id="stack" class="stack">
     <h2>Стек и услуги</h2>
     <div class="stack-grid">
@@ -95,7 +92,6 @@
     </div>
 </section>
 
-<!-- ОТЗЫВЫ (ЗАГЛУШКА) -->
 <section id="reviews" class="reviews">
     <h2>Отзывы</h2>
     <div class="review-placeholder">
@@ -133,7 +129,6 @@
 </footer>
 
 <script>
-    // ===== ПЕРЕКЛЮЧЕНИЕ ТЕМЫ + FAVICON =====
     const themeSwitch = document.getElementById('themeSwitch');
     const favicon = document.getElementById('dynamicFavicon');
     
@@ -153,15 +148,16 @@
         setTheme(isDark ? 'light' : 'dark');
     });
     
-    // ===== 7 РЕАЛЬНЫХ ПРОЕКТОВ С BEHANCE =====
+    // ===== 8 КЕЙСОВ (с актуальными ссылками) =====
     const allProjects = [
-        { href: "https://www.behance.net/gallery/248386073/dizajn-lendinga-zhk-legenda", img: "legenda-preview.jpg", title: "ЖК Легенда", desc: "Лендинг жилого комплекса с фокусом на преимущества и планировки", tag: "Landing · UI", fallback: "ЖК+Легенда" },
-        { href: "https://www.behance.net/gallery/186421391/Website-for-eco-hotel", img: "ecohotel-preview.jpg", title: "Eco Hotel", desc: "Сайт для эко-отеля с акцентом на природу и атмосферу", tag: "Web · UI/UX", fallback: "Eco+Hotel" },
-        { href: "https://www.behance.net/gallery/182255229/Online-flower-shop-salon", img: "flowershop-preview.jpg", title: "Flower Shop", desc: "Дизайн интернет-магазина цветов с акцентом на эмоции", tag: "E‑commerce · UI", fallback: "Flower+Shop" },
-        { href: "https://www.behance.net/gallery/248387797/Yandex-Pet-Day", img: "yandex-petday.jpg", title: "Yandex Pet Day", desc: "Спецпроект для Яндекса: регистрация, афиша, лента новостей", tag: "Event · UI/UX", fallback: "Yandex+Pet+Day" },
-        { href: "https://www.behance.net/gallery/194731149/Web-design-for-consulting-company", img: "consulting-preview.jpg", title: "Consulting Company", desc: "Сайт консалтинговой компании: экспертиза, кейсы, контакты", tag: "Corporate · UX", fallback: "Consulting+Company" },
-        { href: "https://www.behance.net/gallery/192322247/redizajn-glavnoj-stranicy-dom-sajtov", img: "domsaitov-redesign.jpg", title: "Дом сайтов", desc: "Редизайн главной страницы веб-студии, упор на портфолио", tag: "Redesign · UI", fallback: "Дом+сайтов" },
-        { href: "https://www.behance.net/gallery/192315737/glavnye-stranicy-sajtov", img: "mainpages-collection.jpg", title: "Главные страницы", desc: "Коллекция концептов первых экранов для разных ниш", tag: "Concept · UI", fallback: "Главные+страницы" }
+        { href: "https://www.behance.net/gallery/248387797/Yandex-Pet-Day", img: "yandex-petday.jpg", title: "Yandex Pet Day", desc: "Сайт конференции о животных: регистрация, программа, спикеры", tag: "Event · UI/UX", fallback: "Yandex+Pet+Day" },
+        { href: "https://www.behance.net/gallery/248386073/dizajn-lendinga-zhk-legenda", img: "legenda-preview.jpg", title: "Сервис BMW", desc: "Сайт о сервисе и обслуживании автомобилей BMW", tag: "Auto · UI", fallback: "BMW+Service" },
+        { href: "https://www.behance.net/gallery/192315737/glavnye-stranicy-sajtov", img: "mainpages-collection.jpg", title: "Туризм в Ирландию", desc: "Туристический портал о путешествиях по Ирландии", tag: "Travel · UI/UX", fallback: "Ireland+Travel" },
+        { href: "#", img: "cosmetics.jpg", title: "Косметика", desc: "Карточка главного экрана сайта косметического бренда", tag: "E‑commerce · UI", fallback: "Cosmetics" },
+        { href: "https://www.behance.net/gallery/186421391/Website-for-eco-hotel", img: "ecohotel-preview.jpg", title: "Эко туризм", desc: "Сайт об экологическом туризме и заповедниках", tag: "Eco · UI/UX", fallback: "Eco+Tourism" },
+        { href: "https://www.behance.net/gallery/182255229/Online-flower-shop-salon", img: "flowershop-preview.jpg", title: "Цветочный салон", desc: "Интернет-магазин цветов с акцентом на эмоции", tag: "E‑commerce · UI", fallback: "Flower+Shop" },
+        { href: "https://www.behance.net/gallery/194731149/Web-design-for-consulting-company", img: "consulting-preview.jpg", title: "Портфолио дизайнера", desc: "Тестовое портфолио с работами и кейсами", tag: "Portfolio · UI", fallback: "Designer+Portfolio" },
+        { href: "https://www.behance.net/gallery/184280657/Yandex-Pharma-Day", img: "medical-conf.jpg", title: "Yandex Pharma Day", desc: "Сайт медицинской конференции: программа, спикеры, регистрация", tag: "Event · UX", fallback: "Medical+Conf" }
     ];
 
     function shuffleArray(arr) {
@@ -209,7 +205,7 @@
 
     renderProjects();
     
-    // ===== ПОДСВЕТКА АКТИВНОГО ПУНКТА МЕНЮ (С ПОПРАВКОЙ ДЛЯ КОНЦА СТРАНИЦЫ) =====
+    // ===== ПОДСВЕТКА МЕНЮ =====
     const sections = document.querySelectorAll('#cases, #stack, #reviews, #contact');
     const navLinks = document.querySelectorAll('.nav-link');
     
@@ -219,7 +215,6 @@
         const scrollBottom = window.scrollY + window.innerHeight;
         const documentHeight = document.documentElement.scrollHeight;
         
-        // Если доскроллили до самого низа (с погрешностью 10px)
         if (scrollBottom + 10 >= documentHeight) {
             current = 'contact';
         } else {
@@ -253,7 +248,7 @@
         });
     });
     
-    // ===== КУРСОР (только для десктопа) =====
+    // ===== КУРСОР =====
     const cursor = document.querySelector('.custom-cursor');
     if (cursor && window.innerWidth > 768) {
         document.addEventListener('mousemove', (e) => {
