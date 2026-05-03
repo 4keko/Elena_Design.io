@@ -50,7 +50,6 @@
                 <a href="#cases" class="btn-primary">Смотреть кейсы →</a>
                 <a href="#contact" class="btn-secondary">Обсудить проект</a>
             </div>
-            <!-- Убрали "0 проектов", оставили только кнопки -->
         </div>
         <div class="hero-image">
             <img src="Helena.jpeg" alt="Елена" onerror="this.src='https://via.placeholder.com/400x400?text=Elena+Design'">
@@ -58,10 +57,10 @@
     </div>
 </section>
 
-<!-- УЧЕБНЫЕ / ЛИЧНЫЕ КЕЙСЫ (временно, пока нет коммерческих) -->
+<!-- КЕЙСЫ С ХАОТИЧНОЙ СЕТКОЙ (Masonry) -->
 <section id="cases" class="cases">
     <h2>Кейсы</h2>
-    <div class="cases-grid" id="casesContainer"></div>
+    <div id="casesContainer" class="cases-grid"></div>
     <p class="cases-note">* Это учебные проекты, показывающие мой подход. Коммерческие работы появятся в портфолио после согласования с заказчиками.</p>
 </section>
 
@@ -154,28 +153,58 @@
         setTheme(isDark ? 'light' : 'dark');
     });
     
-    // ===== УЧЕБНЫЕ КЕЙСЫ (замените на свои) =====
+    // ===== ХАОТИЧНАЯ СЕТКА (Masonry + случайные размеры и отступы) =====
     const allProjects = [
-        { href: "#", img: "banking-app.jpg", title: "Финтех-приложение", desc: "Редизайн онбординга и личного кабинета. Упростил сценарий пополнения счёта.", tag: "UI/UX", fallback: "Кейс+1" },
-        { href: "#", img: "online-store.jpg", title: "Интернет-магазин одежды", desc: "Дизайн каталога и карточки товара. Добавил фильтры и сравнение.", tag: "UI/UX", fallback: "Кейс+2" },
-        { href: "#", img: "travel-landing.jpg", title: "Лендинг турагентства", desc: "Главная страница с фокусом на подбор тура и бронирование.", tag: "UI", fallback: "Кейс+3" }
+        { img: "banking-app.jpg", title: "Финтех-приложение", desc: "Редизайн онбординга и личного кабинета. Упростил сценарий пополнения счёта.", tag: "UI/UX", fallback: "Кейс+1" },
+        { img: "online-store.jpg", title: "Интернет-магазин одежды", desc: "Дизайн каталога и карточки товара. Добавил фильтры и сравнение.", tag: "UI/UX", fallback: "Кейс+2" },
+        { img: "travel-landing.jpg", title: "Лендинг турагентства", desc: "Главная страница с фокусом на подбор тура и бронирование.", tag: "UI", fallback: "Кейс+3" },
+        { img: "dashboard-preview.jpg", title: "Дашборд аналитики", desc: "Проектирование системы графиков и фильтров для маркетологов.", tag: "UX", fallback: "Кейс+4" },
+        { img: "mobile-app.jpg", title: "Мобильное приложение", desc: "Дизайн профиля, ленты и уведомлений.", tag: "UI/UX", fallback: "Кейс+5" }
     ];
+
+    function shuffleArray(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+    }
+
+    function getRandomSizeClass() {
+        const sizes = ['size-small', 'size-normal', 'size-large', 'size-wide'];
+        return sizes[Math.floor(Math.random() * sizes.length)];
+    }
+
+    function getRandomOffsetClass() {
+        const offsets = ['margin-top-20', 'margin-top-40', 'margin-top--20', ''];
+        return offsets[Math.floor(Math.random() * offsets.length)];
+    }
+
     function renderProjects() {
         const container = document.getElementById('casesContainer');
         if (!container) return;
-        container.innerHTML = allProjects.map(proj => `
-            <div class="case">
-                <div class="case-image">
-                    <img src="${proj.img}" alt="${proj.title}" onerror="this.src='https://via.placeholder.com/600x400?text=${proj.fallback}'">
+        
+        const shuffled = shuffleArray([...allProjects]);
+        
+        container.innerHTML = shuffled.map((proj, idx) => {
+            const sizeClass = getRandomSizeClass();
+            const offsetClass = getRandomOffsetClass();
+            const delay = (idx % 4) * 0.05;
+            return `
+                <div class="case ${sizeClass} ${offsetClass}" style="animation-delay: ${delay}s">
+                    <div class="case-image">
+                        <img src="${proj.img}" alt="${proj.title}" onerror="this.src='https://via.placeholder.com/600x400?text=${proj.fallback}'">
+                    </div>
+                    <div class="case-info">
+                        <h3>${proj.title}</h3>
+                        <p>${proj.desc}</p>
+                        <span class="tag">${proj.tag}</span>
+                    </div>
                 </div>
-                <div class="case-info">
-                    <h3>${proj.title}</h3>
-                    <p>${proj.desc}</p>
-                    <span class="tag">${proj.tag}</span>
-                </div>
-            </div>
-        `).join('');
+            `;
+        }).join('');
     }
+
     renderProjects();
     
     // ===== ПОДСВЕТКА МЕНЮ И ПЛАВНАЯ ПРОКРУТКА =====
@@ -213,7 +242,7 @@
         });
     });
     
-    // ===== ОТЗЫВЫ =====
+    // ===== АВТО-СМЕНА ОТЗЫВОВ =====
     const reviewsList = [
         { text: "Вдумчивый подход и внимание к деталям. Елена предложила решения проблем, о которых я не думал.", author: "Алексей, IT-директор", avatar: "👨‍💻" },
         { text: "Отличная коммуникация и быстрые прототипы. Работали удалённо — всё чётко.", author: "Иван, основатель стартапа", avatar: "🧑‍💼" },
@@ -239,14 +268,14 @@
         updateReview(reviewIndex);
     }, 6000);
     
-    // ===== КУРСОР =====
+    // ===== КУРСОР (только для десктопа) =====
     const cursor = document.querySelector('.custom-cursor');
     if (cursor && window.innerWidth > 768) {
         document.addEventListener('mousemove', (e) => {
             cursor.style.left = e.clientX + 'px';
             cursor.style.top = e.clientY + 'px';
         });
-        const interactive = document.querySelectorAll('a, button, .btn-primary, .btn-secondary, .social-link, .case, .theme-switch');
+        const interactive = document.querySelectorAll('a, button, .btn-primary, .btn-secondary, .social-link, .case, .theme-switch, .nav-link');
         interactive.forEach(el => {
             el.addEventListener('mouseenter', () => {
                 cursor.style.width = '40px';
