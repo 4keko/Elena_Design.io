@@ -368,7 +368,6 @@ nav {
     }
 }
 
-/* Разные размеры карточек */
 .size-small {
     grid-row: span 1;
     opacity: 0.9;
@@ -391,7 +390,6 @@ nav {
     grid-row: span 1;
 }
 
-/* Хаотичные отступы */
 .margin-top-20 {
     margin-top: 1.25rem;
 }
@@ -447,15 +445,6 @@ nav {
     margin-top: 0.5rem;
 }
 
-.cases-note {
-    text-align: center;
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    margin-top: 2rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--border-color);
-}
-
 /* ===== СТЕК ===== */
 .stack {
     padding: 60px 5%;
@@ -504,92 +493,58 @@ nav {
     color: var(--text-secondary);
 }
 
-/* ===== ОТЗЫВЫ ===== */
+/* ===== ЗАГЛУШКА ДЛЯ ОТЗЫВОВ ===== */
 .reviews {
     padding: 60px 5%;
     text-align: center;
     background: var(--bg-secondary);
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
 }
 
 .reviews h2 {
-    margin-bottom: 0;
+    margin-bottom: 2rem;
     font-size: 1.8rem;
 }
 
-.review-card {
-    max-width: 700px;
+.review-placeholder {
+    max-width: 600px;
     margin: 0 auto;
+    text-align: center;
+    padding: 3rem 2rem;
     background: var(--bg-card);
-    padding: 2rem;
     border-radius: 32px;
-    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-    min-height: 180px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     border: 1px solid var(--border-color);
+    transition: all 0.3s;
 }
 
-.review-card:hover {
+.review-placeholder-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.7;
+}
+
+.review-placeholder-text {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-style: normal;
+}
+
+.review-placeholder-sub {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.review-placeholder:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-}
-
-.review-avatar {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-.review-card p {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-    font-style: italic;
-    color: var(--text-primary);
-    transition: opacity 0.25s ease;
-}
-
-.review-card span {
-    font-weight: 600;
-    color: var(--accent-color);
-}
-
-/* ===== КОНТАКТЫ ===== */
-.gradient-section {
-    background: linear-gradient(180deg, 
-        var(--gradient-start) 0%, 
-        var(--gradient-end) 100%);
-    background-size: 100% 200%;
-    animation: bottomGradientShift 8s ease infinite;
-    border-radius: 40px 40px 0 0;
-    margin-top: 0;
-    padding-top: 20px;
-}
-
-@keyframes bottomGradientShift {
-    0% { background-position: 0% 0%; }
-    50% { background-position: 0% 100%; }
-    100% { background-position: 0% 0%; }
-}
-
-[data-theme="dark"] .gradient-section {
-    --gradient-start: #1a1a2e;
-    --gradient-end: #0a0a0a;
-}
-
-[data-theme="light"] .gradient-section {
-    --gradient-start: #e8dfd5;
-    --gradient-end: #dad0c4;
+    border-color: var(--accent-color);
 }
 
 .contact {
     max-width: 700px;
     margin: 0 auto;
     text-align: center;
-    padding: 40px 20px 30px;
+    padding: 60px 20px;
 }
 
 .contact h2 {
@@ -686,11 +641,11 @@ nav {
     color: white !important;
 }
 
-/* ===== ПОДВАЛ ===== */
 .footer {
     text-align: center;
     padding: 30px 20px 40px;
-    background: transparent;
+    background: var(--bg-primary);
+    border-top: 1px solid var(--border-color);
 }
 
 .footer-content {
@@ -745,7 +700,6 @@ nav {
     transform: scale(1.2);
 }
 
-/* ===== АДАПТАЦИЯ ===== */
 @media (max-width: 900px) {
     .hero-container {
         flex-direction: column;
@@ -783,56 +737,4 @@ nav {
         flex-direction: column;
     }
     .size-wide, .size-large {
-        grid-column: span 1;
-        grid-row: span 1;
-    }
-    .margin-top-20, .margin-top-40, .margin-top--20, .margin-top--40 {
-        margin-top: 0;
-    }
-    .review-card {
-        min-height: auto;
-        padding: 1.5rem;
-    }
-    .review-card p {
-        font-size: 0.9rem;
-    }
-    .contact {
-        padding: 30px 20px;
-    }
-    .contact-socials {
-        gap: 20px;
-    }
-    .social-link {
-        width: 44px;
-        height: 44px;
-    }
-    .social-link i {
-        font-size: 1.3rem;
-    }
-    .footer-roles {
-        font-size: 0.7rem;
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-    }
-    .divider {
-        display: none;
-    }
-    .stack-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero {
-        padding: 40px 20px;
-    }
-    .hero-text h1 {
-        font-size: 1.5rem;
-    }
-    .btn-primary, .btn-secondary {
-        padding: 8px 18px;
-        font-size: 0.85rem;
-    }
-}
+        grid-column:
