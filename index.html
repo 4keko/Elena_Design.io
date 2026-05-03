@@ -131,7 +131,6 @@
 </footer>
 
 <script>
-    // ===== ПЕРЕКЛЮЧЕНИЕ ТЕМЫ + FAVICON =====
     const themeSwitch = document.getElementById('themeSwitch');
     const favicon = document.getElementById('dynamicFavicon');
     
@@ -146,13 +145,11 @@
             if (favicon) favicon.href = 'favicon-dark.svg';
         }
     }
-    
     themeSwitch.addEventListener('click', () => {
         const isDark = !document.documentElement.hasAttribute('data-theme');
         setTheme(isDark ? 'light' : 'dark');
     });
     
-    // ===== 8 КЕЙСОВ =====
     const allProjects = [
         { href: "https://www.behance.net/gallery/248387797/Yandex-Pet-Day", img: "yandex-petday.jpg", title: "Yandex Pet Day", desc: "Сайт конференции о животных", tag: "Event · UI/UX", fallback: "Yandex+Pet+Day" },
         { href: "https://www.behance.net/gallery/248386073/dizajn-lendinga-zhk-legenda", img: "legenda-preview.jpg", title: "Сервис BMW", desc: "Сайт о сервисе BMW", tag: "Auto · UI", fallback: "BMW+Service" },
@@ -216,7 +213,6 @@
 
     renderProjects();
     
-    // ===== ПОДСВЕТКА МЕНЮ =====
     const sections = document.querySelectorAll('#cases, #stack, #contact');
     const navLinks = document.querySelectorAll('.nav-link');
     
@@ -241,7 +237,7 @@
         
         navLinks.forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}` || (link.getAttribute('href') === 'index.html' && !current)) {
+            if (link.getAttribute('href') === `#${current}`) {
                 link.classList.add('active');
             }
         });
@@ -259,7 +255,6 @@
         });
     });
     
-    // ===== КУРСОР =====
     const cursor = document.querySelector('.custom-cursor');
     if (cursor && window.innerWidth > 768) {
         document.addEventListener('mousemove', (e) => {
