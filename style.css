@@ -236,7 +236,6 @@ nav {
     min-width: 260px;
 }
 
-/* Футуристичный шрифт для заголовка */
 .futuristic-title {
     font-family: 'Space Grotesk', 'Inter', sans-serif;
     font-weight: 600;
@@ -319,7 +318,6 @@ nav {
     transform: translateY(-2px);
 }
 
-/* Анимированная градиентная фигура */
 .hero-shape {
     flex: 1;
     display: flex;
@@ -812,117 +810,6 @@ nav {
     transform: scale(1.2);
 }
 
-@media (max-width: 900px) {
-    .hero-container {
-        flex-direction: column;
-        text-align: center;
-    }
-    .hero-buttons {
-        justify-content: center;
-    }
-    .glowing-sphere {
-        width: 220px;
-        height: 220px;
-    }
-}
-
-@media (max-width: 768px) {
-    .custom-cursor {
-        display: none;
-    }
-    .header {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-    nav {
-        order: 3;
-        width: 100%;
-        justify-content: center;
-    }
-    .theme-switch {
-        order: 2;
-    }
-    .logo {
-        order: 1;
-    }
-    .cases-grid {
-        display: flex;
-        flex-direction: column;
-    }
-    .size-wide, .size-large {
-        grid-column: span 1;
-        grid-row: span 1;
-    }
-    .case-featured {
-        transform: scale(1);
-    }
-    .case-featured:hover {
-        transform: translateY(-4px) scale(1);
-    }
-    .featured-badge {
-        top: 8px;
-        right: 8px;
-        font-size: 0.6rem;
-        padding: 3px 8px;
-        white-space: nowrap;
-    }
-    .margin-top-20, .margin-top-40, .margin-top--20, .margin-top--40 {
-        margin-top: 0;
-    }
-    .contact {
-        padding: 40px 20px 100px;
-    }
-    .contact-socials {
-        gap: 20px;
-    }
-    .social-link {
-        width: 44px;
-        height: 44px;
-    }
-    .social-link i {
-        font-size: 1.3rem;
-    }
-    .footer-roles {
-        font-size: 0.7rem;
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-    }
-    .divider {
-        display: none;
-    }
-    .stack-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero {
-        padding: 40px 20px;
-    }
-    .hero-text h1 {
-        font-size: 1.5rem;
-    }
-    .btn-primary, .btn-secondary, .btn-submit, .btn-glass {
-        padding: 8px 18px;
-        font-size: 0.85rem;
-    }
-    .contact {
-        padding: 40px 20px 80px;
-    }
-    .featured-badge {
-        font-size: 0.55rem;
-        padding: 3px 6px;
-        top: 6px;
-        right: 6px;
-    }
-    .glowing-sphere {
-        width: 180px;
-        height: 180px;
-    }
-}
-/* ===== СТРАНИЦА "ОБО МНЕ" ===== */
 .about-hero {
     min-height: 60vh;
     display: flex;
@@ -1014,7 +901,89 @@ nav {
     padding: 40px 20px 80px;
 }
 
+@media (max-width: 900px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-buttons {
+        justify-content: center;
+    }
+    .glowing-sphere {
+        width: 220px;
+        height: 220px;
+    }
+}
+
 @media (max-width: 768px) {
+    .custom-cursor {
+        display: none;
+    }
+    .header {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+    }
+    .theme-switch {
+        order: 2;
+    }
+    .logo {
+        order: 1;
+    }
+    .cases-grid {
+        display: flex;
+        flex-direction: column;
+    }
+    .size-wide, .size-large {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+    .case-featured {
+        transform: scale(1);
+    }
+    .case-featured:hover {
+        transform: translateY(-4px) scale(1);
+    }
+    .featured-badge {
+        top: 8px;
+        right: 8px;
+        font-size: 0.6rem;
+        padding: 3px 8px;
+        white-space: nowrap;
+    }
+    .margin-top-20, .margin-top-40, .margin-top--20, .margin-top--40 {
+        margin-top: 0;
+    }
+    .contact {
+        padding: 40px 20px 100px;
+    }
+    .contact-socials {
+        gap: 20px;
+    }
+    .social-link {
+        width: 44px;
+        height: 44px;
+    }
+    .social-link i {
+        font-size: 1.3rem;
+    }
+    .footer-roles {
+        font-size: 0.7rem;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+    .divider {
+        display: none;
+    }
+    .stack-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
     .about-container {
         flex-direction: column;
         text-align: center;
@@ -1024,5 +993,31 @@ nav {
     }
     .about-text h1 {
         font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 40px 20px;
+    }
+    .hero-text h1 {
+        font-size: 1.5rem;
+    }
+    .btn-primary, .btn-secondary, .btn-submit, .btn-glass {
+        padding: 8px 18px;
+        font-size: 0.85rem;
+    }
+    .contact {
+        padding: 40px 20px 80px;
+    }
+    .featured-badge {
+        font-size: 0.55rem;
+        padding: 3px 6px;
+        top: 6px;
+        right: 6px;
+    }
+    .glowing-sphere {
+        width: 180px;
+        height: 180px;
     }
 }
