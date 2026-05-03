@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>hel.design — UI/UX Designer</title>
+    <title>hel.design — проектирую интерфейсы для бизнеса</title>
+    <meta name="description" content="UI/UX дизайнер. Проектирую интерфейсы для SaaS, e-commerce и стартапов. Figma, Webflow, прототипирование.">
+    <meta name="keywords" content="UI/UX дизайнер, интерфейсы, Figma, Webflow, прототипы">
     <link rel="icon" type="image/svg+xml" href="favicon-dark.svg" id="dynamicFavicon">
     <link rel="alternate icon" href="favicon-dark.svg">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
@@ -33,6 +35,7 @@
     </div>
     <nav>
         <a href="#cases" class="nav-link">Кейсы</a>
+        <a href="#stack" class="nav-link">Стек</a>
         <a href="#reviews" class="nav-link">Отзывы</a>
         <a href="#contact" class="nav-link">Контакты</a>
     </nav>
@@ -41,17 +44,13 @@
 <section class="hero">
     <div class="hero-container">
         <div class="hero-text">
-            <h1>Создаю интерфейсы,<br>которые <span>чувствуются</span></h1>
-            <p>UI/UX дизайнер • Лендинги и веб-сайты</p>
+            <h1>Проектирую интерфейсы<br>для <span>SaaS, e‑commerce и стартапов</span></h1>
+            <p>UI/UX дизайнер • Исследую, прототипирую, проверяю гипотезы</p>
             <div class="hero-buttons">
-                <a href="#cases" class="btn-primary">Смотреть работы →</a>
-                <a href="#contact" class="btn-secondary">Связаться</a>
+                <a href="#cases" class="btn-primary">Смотреть кейсы →</a>
+                <a href="#contact" class="btn-secondary">Обсудить проект</a>
             </div>
-            <div class="stats-card">
-                <span class="stat-item"><strong id="projectsCount" class="stat-number">0</strong> проектов</span>
-                <span class="stat-dot">•</span>
-                <span class="stat-item"><strong id="expCount" class="stat-number">0</strong> лет опыта</span>
-            </div>
+            <!-- Убрали "0 проектов", оставили только кнопки -->
         </div>
         <div class="hero-image">
             <img src="Helena.jpeg" alt="Елена" onerror="this.src='https://via.placeholder.com/400x400?text=Elena+Design'">
@@ -59,52 +58,83 @@
     </div>
 </section>
 
+<!-- УЧЕБНЫЕ / ЛИЧНЫЕ КЕЙСЫ (временно, пока нет коммерческих) -->
 <section id="cases" class="cases">
-    <h2>Избранные проекты</h2>
-    <div id="casesContainer" class="cases-grid"></div>
+    <h2>Кейсы</h2>
+    <div class="cases-grid" id="casesContainer"></div>
+    <p class="cases-note">* Это учебные проекты, показывающие мой подход. Коммерческие работы появятся в портфолио после согласования с заказчиками.</p>
+</section>
+
+<!-- СТЕК И УСЛУГИ -->
+<section id="stack" class="stack">
+    <h2>Стек и услуги</h2>
+    <div class="stack-grid">
+        <div class="stack-item">
+            <i class="fas fa-pencil-ruler"></i>
+            <h3>UI/UX дизайн</h3>
+            <p>Figma, Sketch, Adobe XD</p>
+        </div>
+        <div class="stack-item">
+            <i class="fas fa-mobile-alt"></i>
+            <h3>Прототипирование</h3>
+            <p>Protopie, Figma, Axure</p>
+        </div>
+        <div class="stack-item">
+            <i class="fas fa-chart-line"></i>
+            <h3>Аналитика</h3>
+            <p>Maze, Hotjar, Google Analytics</p>
+        </div>
+        <div class="stack-item">
+            <i class="fas fa-code"></i>
+            <h3>Адаптивная вёрстка</h3>
+            <p>Webflow, Tilda, HTML/CSS</p>
+        </div>
+    </div>
 </section>
 
 <section id="reviews" class="reviews">
     <h2>Отзывы</h2>
     <div class="review-card">
         <div class="review-avatar">👩‍💼</div>
-        <p id="review-text">"Работа выполнена на высоком уровне. Сайт получился современным и удобным."</p>
-        <span id="review-author">— Марина, основательница стартапа</span>
+        <p id="review-text">"Вдумчивый подход и внимание к деталям. Елена предложила решения проблем, о которых я не думал."</p>
+        <span id="review-author">— Алексей, IT-директор</span>
+    </div>
+    <div class="review-card">
+        <div class="review-avatar">🧑‍💻</div>
+        <p>"Отличная коммуникация и быстрые прототипы. Работали удалённо — всё чётко."</p>
+        <span>— Иван, основатель стартапа</span>
     </div>
 </section>
 
-<!-- Объединённый блок: контакты + подвал теперь в одном градиенте -->
-<section class="gradient-section">
-    <div id="contact" class="contact">
-        <h2>Связаться</h2>
-        <p class="contact-subtitle">Напишите мне — отвечу в течение дня</p>
-        <a href="mailto:Shmeleva.design@gmail.com?subject=Привет!%20Хочу%20обсудить%20проект" class="btn-email">
-            📧 Написать письмо
+<section id="contact" class="contact">
+    <h2>Обсудить проект</h2>
+    <p class="contact-subtitle">Расскажите о задаче — я предложу решение</p>
+    <a href="mailto:Shmeleva.design@gmail.com?subject=Привет!%20Хочу%20обсудить%20проект" class="btn-email">
+        📧 Написать письмо
+    </a>
+    <div class="contact-socials">
+        <a href="https://t.me/elena_tgg" target="_blank" class="social-link" aria-label="Telegram">
+            <i class="fab fa-telegram-plane"></i>
         </a>
-        <div class="contact-socials">
-            <a href="https://t.me/elena_tgg" target="_blank" class="social-link" aria-label="Telegram">
-                <i class="fab fa-telegram-plane"></i>
-            </a>
-            <a href="https://www.behance.net/32ffd275" target="_blank" class="social-link" aria-label="Behance">
-                <i class="fab fa-behance"></i>
-            </a>
-        </div>
+        <a href="https://www.behance.net/32ffd275" target="_blank" class="social-link" aria-label="Behance">
+            <i class="fab fa-behance"></i>
+        </a>
     </div>
-
-    <footer class="footer">
-        <div class="footer-content">
-            <p class="footer-roles">
-                <span class="role-design">UI/UX Designer — Elena</span>
-                <span class="divider">✦</span>
-                <span class="role-frontend">Frontend Developer — Valentin</span>
-            </p>
-            <p class="family-sign">Family project <span class="heart">❤️</span> 2025</p>
-        </div>
-    </footer>
 </section>
+
+<footer class="footer">
+    <div class="footer-content">
+        <p class="footer-roles">
+            <span class="role-design">Design — Elena</span>
+            <span class="divider">✦</span>
+            <span class="role-frontend">Frontend — Valentin</span>
+        </p>
+        <p class="family-sign">Family project <span class="heart">❤️</span> 2025</p>
+    </div>
+</footer>
 
 <script>
-    // ===== ПЕРЕКЛЮЧЕНИЕ ТЕМЫ + СМЕНА FAVICON =====
+    // ===== ПЕРЕКЛЮЧЕНИЕ ТЕМЫ + FAVICON =====
     const themeSwitch = document.getElementById('themeSwitch');
     const favicon = document.getElementById('dynamicFavicon');
     
@@ -119,40 +149,37 @@
             if (favicon) favicon.href = 'favicon-dark.svg';
         }
     }
-    
     themeSwitch.addEventListener('click', () => {
         const isDark = !document.documentElement.hasAttribute('data-theme');
         setTheme(isDark ? 'light' : 'dark');
     });
     
-    // ===== АНИМАЦИЯ СЧЁТЧИКА =====
-    function animateCounter(element, target, duration = 1500) {
-        if (!element) return;
-        const increment = target / (duration / 16);
-        let current = 0;
-        const updateCounter = () => {
-            current += increment;
-            if (current < target) {
-                element.innerText = Math.floor(current);
-                requestAnimationFrame(updateCounter);
-            } else {
-                element.innerText = target;
-            }
-        };
-        updateCounter();
-    }
-    
-    window.addEventListener('load', () => {
-        animateCounter(document.getElementById('projectsCount'), 7);
-        animateCounter(document.getElementById('expCount'), 4);
-    });
-    
-    // ===== ПОДСВЕТКА АКТИВНОГО ПУНКТА МЕНЮ =====
-    const sections = [
-        document.getElementById('cases'),
-        document.getElementById('reviews'),
-        document.getElementById('contact')
+    // ===== УЧЕБНЫЕ КЕЙСЫ (замените на свои) =====
+    const allProjects = [
+        { href: "#", img: "banking-app.jpg", title: "Финтех-приложение", desc: "Редизайн онбординга и личного кабинета. Упростил сценарий пополнения счёта.", tag: "UI/UX", fallback: "Кейс+1" },
+        { href: "#", img: "online-store.jpg", title: "Интернет-магазин одежды", desc: "Дизайн каталога и карточки товара. Добавил фильтры и сравнение.", tag: "UI/UX", fallback: "Кейс+2" },
+        { href: "#", img: "travel-landing.jpg", title: "Лендинг турагентства", desc: "Главная страница с фокусом на подбор тура и бронирование.", tag: "UI", fallback: "Кейс+3" }
     ];
+    function renderProjects() {
+        const container = document.getElementById('casesContainer');
+        if (!container) return;
+        container.innerHTML = allProjects.map(proj => `
+            <div class="case">
+                <div class="case-image">
+                    <img src="${proj.img}" alt="${proj.title}" onerror="this.src='https://via.placeholder.com/600x400?text=${proj.fallback}'">
+                </div>
+                <div class="case-info">
+                    <h3>${proj.title}</h3>
+                    <p>${proj.desc}</p>
+                    <span class="tag">${proj.tag}</span>
+                </div>
+            </div>
+        `).join('');
+    }
+    renderProjects();
+    
+    // ===== ПОДСВЕТКА МЕНЮ И ПЛАВНАЯ ПРОКРУТКА =====
+    const sections = document.querySelectorAll('#cases, #stack, #reviews, #contact');
     const navLinks = document.querySelectorAll('.nav-link');
     
     window.addEventListener('scroll', () => {
@@ -174,7 +201,6 @@
         });
     });
     
-    // ===== ПЛАВНАЯ ПРОКРУТКА =====
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const targetId = this.getAttribute('href');
@@ -187,15 +213,12 @@
         });
     });
     
-    // ===== АВТО-СМЕНА ОТЗЫВОВ =====
+    // ===== ОТЗЫВЫ =====
     const reviewsList = [
-        { text: "Очень сильный визуал и продуманный UX. Елена предложила решения, о которых мы не думали.", author: "Алексей, IT-директор", avatar: "👨‍💻" },
-        { text: "Работа выполнена на высоком уровне. Сайт получился современным и удобным.", author: "Марина, основательница стартапа", avatar: "👩‍💼" },
-        { text: "Современный стиль и внимание к деталям. Приятно работать с профессионалом.", author: "Игорь, маркетолог", avatar: "🧑‍💼" },
-        { text: "Понравился подход и результат. Елена быстро поняла нашу аудиторию.", author: "Ольга, владелица бизнеса", avatar: "👩‍💼" },
-        { text: "Лучший UX-дизайнер! Клиенты в восторге от интерфейса.", author: "Дмитрий, CPO", avatar: "👨‍💼" }
+        { text: "Вдумчивый подход и внимание к деталям. Елена предложила решения проблем, о которых я не думал.", author: "Алексей, IT-директор", avatar: "👨‍💻" },
+        { text: "Отличная коммуникация и быстрые прототипы. Работали удалённо — всё чётко.", author: "Иван, основатель стартапа", avatar: "🧑‍💼" },
+        { text: "Понравился анализ аудитории перед стартом. Учли даже мелкие боли пользователей.", author: "Ольга, project manager", avatar: "👩‍💼" }
     ];
-    
     let reviewIndex = 0;
     const reviewText = document.getElementById("review-text");
     const reviewAuthor = document.getElementById("review-author");
@@ -211,50 +234,10 @@
             reviewText.style.opacity = '1';
         }, 200);
     }
-    
     setInterval(() => {
         reviewIndex++;
         updateReview(reviewIndex);
-    }, 5000);
-    
-    // ===== СЛУЧАЙНЫЕ 4 ПРОЕКТА =====
-    const allProjects = [
-        { href: "https://www.behance.net/gallery/248386073/dizajn-lendinga-zhk-legenda", img: "legenda-preview.jpg", title: "ЖК Легенда", desc: "Лендинг жилого комплекса • Увеличение заявок +40%", fallback: "ЖК+Легенда" },
-        { href: "https://www.behance.net/gallery/186421391/Website-for-eco-hotel", img: "ecohotel-preview.jpg", title: "Eco Hotel", desc: "Сайт для эко-отеля • Рост бронирований +25%", fallback: "Eco+Hotel" },
-        { href: "https://www.behance.net/gallery/182255229/Online-flower-shop-salon", img: "flowershop-preview.jpg", title: "Flower Shop", desc: "Магазин цветов • Конверсия +35% через 2 месяца", fallback: "Flower+Shop" },
-        { href: "https://www.behance.net/gallery/248387797/Yandex-Pet-Day", img: "yandex-petday.jpg", title: "Yandex Pet Day", desc: "Спецпроект для Яндекса • 50k+ участников", fallback: "Yandex+Pet+Day" },
-        { href: "https://www.behance.net/gallery/194731149/Web-design-for-consulting-company", img: "consulting-preview.jpg", title: "Consulting Company", desc: "Консалтинг • Увеличение лидов на сайт в 2 раза", fallback: "Consulting+Company" },
-        { href: "https://www.behance.net/gallery/192322247/redizajn-glavnoj-stranicy-dom-sajtov", img: "domsaitov-redesign.jpg", title: "Дом сайтов", desc: "Редизайн главной страницы • Удобство +38%", fallback: "Дом+сайтов" },
-        { href: "https://www.behance.net/gallery/192315737/glavnye-stranicy-sajtov", img: "mainpages-collection.jpg", title: "Главные страницы", desc: "Коллекция дизайнов • Лучшие решения для разных ниш", fallback: "Главные+страницы" }
-    ];
-
-    function getRandomProjects(count = 4) {
-        const shuffled = [...allProjects];
-        for (let i = shuffled.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-        }
-        return shuffled.slice(0, count);
-    }
-
-    function renderProjects() {
-        const container = document.getElementById('casesContainer');
-        if (!container) return;
-        const projects = getRandomProjects(4);
-        container.innerHTML = projects.map((proj, idx) => `
-            <a href="${proj.href}" target="_blank" class="case" style="animation-delay: ${0.05 + idx * 0.05}s">
-                <div class="case-image">
-                    <img src="${proj.img}" alt="${proj.title}" onerror="this.src='https://via.placeholder.com/600x400?text=${proj.fallback}'">
-                </div>
-                <div class="case-info">
-                    <h3>${proj.title}</h3>
-                    <p>${proj.desc}</p>
-                </div>
-            </a>
-        `).join('');
-    }
-
-    renderProjects();
+    }, 6000);
     
     // ===== КУРСОР =====
     const cursor = document.querySelector('.custom-cursor');
@@ -263,9 +246,8 @@
             cursor.style.left = e.clientX + 'px';
             cursor.style.top = e.clientY + 'px';
         });
-        
-        const interactiveElements = document.querySelectorAll('a, button, .btn-primary, .btn-secondary, .social-link, .case, .theme-switch, .nav-link');
-        interactiveElements.forEach(el => {
+        const interactive = document.querySelectorAll('a, button, .btn-primary, .btn-secondary, .social-link, .case, .theme-switch');
+        interactive.forEach(el => {
             el.addEventListener('mouseenter', () => {
                 cursor.style.width = '40px';
                 cursor.style.height = '40px';
