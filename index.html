@@ -7,8 +7,8 @@
     <meta name="description" content="UI/UX дизайнер. Проектирую интерфейсы для SaaS, e-commerce и стартапов. Figma, Webflow, прототипирование.">
     <meta name="keywords" content="UI/UX дизайнер, интерфейсы, Figma, Webflow, прототипы">
     
+    <!-- FAVICON упрощён -->
     <link rel="icon" type="image/svg+xml" href="favicon-dark.svg" id="dynamicFavicon">
-    <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230e0e0e'/%3E%3Ctext x='50' y='68' font-family='Arial' font-size='56' font-weight='bold' fill='%23667eea' text-anchor='middle'%3Ehd%3C/text%3E%3C/svg%3E">
     <link rel="alternate icon" href="favicon-dark.svg">
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
@@ -40,7 +40,6 @@
     <nav>
         <a href="#cases" class="nav-link">Кейсы</a>
         <a href="#stack" class="nav-link">Стек</a>
-        <a href="#reviews" class="nav-link">Отзывы</a>
         <a href="#contact" class="nav-link">Контакты</a>
     </nav>
 </header>
@@ -48,11 +47,11 @@
 <section class="hero">
     <div class="hero-container">
         <div class="hero-text">
-            <h1>Проектирую интерфейсы<br>для <span>SaaS, e‑commerce и стартапов</span></h1>
-            <p>UI/UX дизайнер • Исследую, прототипирую, проверяю гипотезы</p>
+            <h1>Проектирую интерфейсы для <span>SaaS, e‑commerce и стартапов</span></h1>
+            <p>Помогаю бизнесу расти: исследования → прототипы → дизайн → тестирование</p>
             <div class="hero-buttons">
-                <a href="#cases" class="btn-primary">Смотреть кейсы →</a>
-                <a href="#contact" class="btn-secondary">Обсудить проект</a>
+                <a href="#contact" class="btn-primary">Обсудить проект →</a>
+                <a href="#cases" class="btn-secondary">Смотреть кейсы</a>
             </div>
         </div>
         <div class="hero-image">
@@ -61,11 +60,14 @@
     </div>
 </section>
 
+<!-- КЕЙСЫ (8 ПРОЕКТОВ) -->
 <section id="cases" class="cases">
     <h2>Кейсы</h2>
+    <p class="cases-note">✨ Проекты обновляются при каждом визите — так интереснее</p>
     <div id="casesContainer" class="cases-grid"></div>
 </section>
 
+<!-- СТЕК И УСЛУГИ -->
 <section id="stack" class="stack">
     <h2>Стек и услуги</h2>
     <div class="stack-grid">
@@ -75,14 +77,14 @@
             <p>Figma, Sketch, Adobe XD</p>
         </div>
         <div class="stack-item">
+            <i class="fas fa-chart-line"></i>
+            <h3>Аналитика</h3>
+            <p>A/B тесты + Maze → повышение конверсии до 35%</p>
+        </div>
+        <div class="stack-item">
             <i class="fas fa-mobile-alt"></i>
             <h3>Прототипирование</h3>
             <p>Protopie, Figma, Axure</p>
-        </div>
-        <div class="stack-item">
-            <i class="fas fa-chart-line"></i>
-            <h3>Аналитика</h3>
-            <p>Maze, Hotjar, Google Analytics</p>
         </div>
         <div class="stack-item">
             <i class="fas fa-code"></i>
@@ -92,21 +94,18 @@
     </div>
 </section>
 
-<section id="reviews" class="reviews">
-    <h2>Отзывы</h2>
-    <div class="review-placeholder">
-        <div class="review-placeholder-icon">💬</div>
-        <p class="review-placeholder-text">Здесь скоро появится ваш тёплый отзыв о моей работе</p>
-        <p class="review-placeholder-sub">Я ценю обратную связь и открыта к сотрудничеству</p>
-    </div>
-</section>
-
+<!-- КОНТАКТЫ С ФОРМОЙ (FORMSPREE) -->
 <section id="contact" class="contact">
     <h2>Обсудить проект</h2>
     <p class="contact-subtitle">Расскажите о задаче — я предложу решение</p>
-    <a href="mailto:Shmeleva.design@gmail.com?subject=Привет!%20Хочу%20обсудить%20проект" class="btn-email">
-        📧 Написать письмо
-    </a>
+    
+    <form action="https://formspree.io/f/mkoyonba" method="POST" class="contact-form">
+        <input type="text" name="name" placeholder="Ваше имя" required>
+        <input type="email" name="email" placeholder="Ваш email" required>
+        <textarea name="message" rows="4" placeholder="Опишите задачу или идею" required></textarea>
+        <button type="submit" class="btn-submit">Отправить →</button>
+    </form>
+    
     <div class="contact-socials">
         <a href="https://t.me/elena_tgg" target="_blank" class="social-link" aria-label="Telegram">
             <i class="fab fa-telegram-plane"></i>
@@ -129,6 +128,7 @@
 </footer>
 
 <script>
+    // ===== ПЕРЕКЛЮЧЕНИЕ ТЕМЫ + FAVICON =====
     const themeSwitch = document.getElementById('themeSwitch');
     const favicon = document.getElementById('dynamicFavicon');
     
@@ -148,7 +148,7 @@
         setTheme(isDark ? 'light' : 'dark');
     });
     
-    // ===== 8 КЕЙСОВ (с актуальными ссылками) =====
+    // ===== 8 КЕЙСОВ =====
     const allProjects = [
         { href: "https://www.behance.net/gallery/248387797/Yandex-Pet-Day", img: "yandex-petday.jpg", title: "Yandex Pet Day", desc: "Сайт конференции о животных: регистрация, программа, спикеры", tag: "Event · UI/UX", fallback: "Yandex+Pet+Day" },
         { href: "https://www.behance.net/gallery/248386073/dizajn-lendinga-zhk-legenda", img: "legenda-preview.jpg", title: "Сервис BMW", desc: "Сайт о сервисе и обслуживании автомобилей BMW", tag: "Auto · UI", fallback: "BMW+Service" },
@@ -191,7 +191,7 @@
             return `
                 <a href="${proj.href}" target="_blank" class="case ${sizeClass} ${offsetClass}" style="animation-delay: ${delay}s">
                     <div class="case-image">
-                        <img src="${proj.img}" alt="${proj.title}" onerror="this.src='https://via.placeholder.com/600x400?text=${proj.fallback}'">
+                        <img src="${proj.img}" alt="${proj.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/600x400?text=${proj.fallback}'">
                     </div>
                     <div class="case-info">
                         <h3>${proj.title}</h3>
@@ -206,7 +206,7 @@
     renderProjects();
     
     // ===== ПОДСВЕТКА МЕНЮ =====
-    const sections = document.querySelectorAll('#cases, #stack, #reviews, #contact');
+    const sections = document.querySelectorAll('#cases, #stack, #contact');
     const navLinks = document.querySelectorAll('.nav-link');
     
     window.addEventListener('scroll', () => {
@@ -255,7 +255,7 @@
             cursor.style.left = e.clientX + 'px';
             cursor.style.top = e.clientY + 'px';
         });
-        const interactive = document.querySelectorAll('a, button, .btn-primary, .btn-secondary, .social-link, .case, .theme-switch, .nav-link');
+        const interactive = document.querySelectorAll('a, button, .btn-primary, .btn-secondary, .social-link, .case, .theme-switch, .nav-link, .btn-submit');
         interactive.forEach(el => {
             el.addEventListener('mouseenter', () => {
                 cursor.style.width = '40px';
