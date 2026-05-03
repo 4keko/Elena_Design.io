@@ -922,3 +922,107 @@ nav {
         height: 180px;
     }
 }
+/* ===== СТРАНИЦА "ОБО МНЕ" ===== */
+.about-hero {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 5% 40px;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.about-image {
+    flex: 1;
+    text-align: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    width: 320px;
+    border-radius: 40% 60% 60% 40%;
+    box-shadow: 0 25px 40px rgba(0,0,0,0.4);
+    border: 2px solid var(--accent-color);
+}
+
+.about-text {
+    flex: 1.5;
+}
+
+.about-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 24px;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.about-text p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.values {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.value-item {
+    flex: 1;
+    background: var(--bg-card);
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s;
+}
+
+.value-item:hover {
+    transform: translateY(-5px);
+}
+
+.value-item i {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 12px;
+}
+
+.value-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.value-item p {
+    font-size: 0.85rem;
+    margin-bottom: 0;
+}
+
+.about-footer {
+    text-align: center;
+    padding: 40px 20px 80px;
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-image img {
+        width: 240px;
+    }
+    .about-text h1 {
+        font-size: 2rem;
+    }
+}
