@@ -1021,3 +1021,44 @@ nav {
         height: 180px;
     }
 }
+/* ===== КНОПКА НА СТРАНИЦЕ "ОБО МНЕ" ПО ЦЕНТРУ ===== */
+.about-button-wrapper {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+/* ===== УСИЛЕННЫЙ 3D-ЭФФЕКТ ДЛЯ КАРТОЧЕК ===== */
+.case {
+    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.case:hover {
+    transform: translateY(-8px) rotateX(3deg) rotateY(3deg) scale(1.02);
+    box-shadow: 0 25px 35px rgba(0,0,0,0.3);
+}
+
+/* ===== ПЛАВНОЕ УВЕЛИЧЕНИЕ КАРТИНКИ ВНУТРИ РАМКИ ===== */
+.case-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+.case-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.case:hover .case-image img {
+    transform: scale(1.08);
+}
+
+/* ===== ДОПОЛНИТЕЛЬНО: УВЕЛИЧЕНИЕ И ДЛЯ ИЗБРАННОГО КЕЙСА ===== */
+.case-featured:hover .case-image img {
+    transform: scale(1.08);
+}
