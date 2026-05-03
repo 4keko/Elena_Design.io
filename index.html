@@ -7,7 +7,6 @@
     <meta name="description" content="UI/UX дизайнер. Проектирую интерфейсы для SaaS, e-commerce и стартапов. Figma, Webflow, прототипирование.">
     <meta name="keywords" content="UI/UX дизайнер, интерфейсы, Figma, Webflow, прототипы">
     
-    <!-- FAVICON упрощён -->
     <link rel="icon" type="image/svg+xml" href="favicon-dark.svg" id="dynamicFavicon">
     <link rel="alternate icon" href="favicon-dark.svg">
     
@@ -60,14 +59,12 @@
     </div>
 </section>
 
-<!-- КЕЙСЫ (8 ПРОЕКТОВ) -->
 <section id="cases" class="cases">
     <h2>Кейсы</h2>
-    <p class="cases-note">✨ Проекты обновляются при каждом визите — так интереснее</p>
+    <p class="cases-note">✨ 4 случайных проекта при каждом визите. Один из них — избранный ⭐</p>
     <div id="casesContainer" class="cases-grid"></div>
 </section>
 
-<!-- СТЕК И УСЛУГИ -->
 <section id="stack" class="stack">
     <h2>Стек и услуги</h2>
     <div class="stack-grid">
@@ -94,7 +91,6 @@
     </div>
 </section>
 
-<!-- КОНТАКТЫ С ФОРМОЙ (FORMSPREE) -->
 <section id="contact" class="contact">
     <h2>Обсудить проект</h2>
     <p class="contact-subtitle">Расскажите о задаче — я предложу решение</p>
@@ -148,7 +144,7 @@
         setTheme(isDark ? 'light' : 'dark');
     });
     
-    // ===== 8 КЕЙСОВ =====
+    // ===== 8 КЕЙСОВ (показываем 4 случайных, один из них — избранный) =====
     const allProjects = [
         { href: "https://www.behance.net/gallery/248387797/Yandex-Pet-Day", img: "yandex-petday.jpg", title: "Yandex Pet Day", desc: "Сайт конференции о животных: регистрация, программа, спикеры", tag: "Event · UI/UX", fallback: "Yandex+Pet+Day" },
         { href: "https://www.behance.net/gallery/248386073/dizajn-lendinga-zhk-legenda", img: "legenda-preview.jpg", title: "Сервис BMW", desc: "Сайт о сервисе и обслуживании автомобилей BMW", tag: "Auto · UI", fallback: "BMW+Service" },
@@ -183,13 +179,20 @@
         if (!container) return;
         
         const shuffled = shuffleArray([...allProjects]);
+        const selectedProjects = shuffled.slice(0, 4);
+        const featuredIndex = Math.floor(Math.random() * selectedProjects.length);
         
-        container.innerHTML = shuffled.map((proj, idx) => {
+        container.innerHTML = selectedProjects.map((proj, idx) => {
             const sizeClass = getRandomSizeClass();
             const offsetClass = getRandomOffsetClass();
             const delay = (idx % 4) * 0.05;
+            const isFeatured = (idx === featuredIndex);
+            const featuredClass = isFeatured ? 'case-featured' : '';
+            const featuredBadge = isFeatured ? '<div class="featured-badge">⭐ Избранное</div>' : '';
+            
             return `
-                <a href="${proj.href}" target="_blank" class="case ${sizeClass} ${offsetClass}" style="animation-delay: ${delay}s">
+                <a href="${proj.href}" target="_blank" class="case ${sizeClass} ${offsetClass} ${featuredClass}" style="animation-delay: ${delay}s">
+                    ${featuredBadge}
                     <div class="case-image">
                         <img src="${proj.img}" alt="${proj.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/600x400?text=${proj.fallback}'">
                     </div>
