@@ -209,21 +209,30 @@
 
     renderProjects();
     
-    // ===== ПОДСВЕТКА МЕНЮ И ПЛАВНАЯ ПРОКРУТКА =====
+    // ===== ПОДСВЕТКА АКТИВНОГО ПУНКТА МЕНЮ (С ПОПРАВКОЙ ДЛЯ КОНЦА СТРАНИЦЫ) =====
     const sections = document.querySelectorAll('#cases, #stack, #reviews, #contact');
     const navLinks = document.querySelectorAll('.nav-link');
     
     window.addEventListener('scroll', () => {
         let current = '';
         const scrollPos = window.scrollY + 150;
-        sections.forEach(section => {
-            if (!section) return;
-            const top = section.offsetTop - 80;
-            const bottom = top + section.offsetHeight;
-            if (scrollPos >= top && scrollPos < bottom) {
-                current = section.getAttribute('id');
-            }
-        });
+        const scrollBottom = window.scrollY + window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        
+        // Если доскроллили до самого низа (с погрешностью 10px)
+        if (scrollBottom + 10 >= documentHeight) {
+            current = 'contact';
+        } else {
+            sections.forEach(section => {
+                if (!section) return;
+                const top = section.offsetTop - 80;
+                const bottom = top + section.offsetHeight;
+                if (scrollPos >= top && scrollPos < bottom) {
+                    current = section.getAttribute('id');
+                }
+            });
+        }
+        
         navLinks.forEach(link => {
             link.classList.remove('active');
             if (link.getAttribute('href') === `#${current}`) {
