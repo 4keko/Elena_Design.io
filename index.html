@@ -6,11 +6,16 @@
     <title>hel.design — проектирую интерфейсы для бизнеса</title>
     <meta name="description" content="UI/UX дизайнер. Проектирую интерфейсы для SaaS, e-commerce и стартапов. Figma, Webflow, прототипирование.">
     <meta name="keywords" content="UI/UX дизайнер, интерфейсы, Figma, Webflow, прототипы">
+    
+    <!-- FAVICON с надёжным fallback -->
     <link rel="icon" type="image/svg+xml" href="favicon-dark.svg" id="dynamicFavicon">
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230e0e0e'/%3E%3Ctext x='50' y='68' font-family='Arial' font-size='56' font-weight='bold' fill='%23667eea' text-anchor='middle'%3Ehd%3C/text%3E%3C/svg%3E">
     <link rel="alternate icon" href="favicon-dark.svg">
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    
     <script>
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'light') {
@@ -57,11 +62,10 @@
     </div>
 </section>
 
-<!-- КЕЙСЫ С ХАОТИЧНОЙ СЕТКОЙ (Masonry) -->
+<!-- КЕЙСЫ С BEHANCE (7 проектов) -->
 <section id="cases" class="cases">
     <h2>Кейсы</h2>
     <div id="casesContainer" class="cases-grid"></div>
-    <p class="cases-note">* Это учебные проекты, показывающие мой подход. Коммерческие работы появятся в портфолио после согласования с заказчиками.</p>
 </section>
 
 <!-- СТЕК И УСЛУГИ -->
@@ -91,17 +95,13 @@
     </div>
 </section>
 
+<!-- ОТЗЫВЫ (ЗАГЛУШКА) -->
 <section id="reviews" class="reviews">
     <h2>Отзывы</h2>
-    <div class="review-card">
-        <div class="review-avatar">👩‍💼</div>
-        <p id="review-text">"Вдумчивый подход и внимание к деталям. Елена предложила решения проблем, о которых я не думал."</p>
-        <span id="review-author">— Алексей, IT-директор</span>
-    </div>
-    <div class="review-card">
-        <div class="review-avatar">🧑‍💻</div>
-        <p>"Отличная коммуникация и быстрые прототипы. Работали удалённо — всё чётко."</p>
-        <span>— Иван, основатель стартапа</span>
+    <div class="review-placeholder">
+        <div class="review-placeholder-icon">💬</div>
+        <p class="review-placeholder-text">Здесь скоро появится ваш тёплый отзыв о моей работе</p>
+        <p class="review-placeholder-sub">Я ценю обратную связь и открыта к сотрудничеству</p>
     </div>
 </section>
 
@@ -153,13 +153,15 @@
         setTheme(isDark ? 'light' : 'dark');
     });
     
-    // ===== ХАОТИЧНАЯ СЕТКА (Masonry + случайные размеры и отступы) =====
+    // ===== 7 РЕАЛЬНЫХ ПРОЕКТОВ С BEHANCE =====
     const allProjects = [
-        { img: "banking-app.jpg", title: "Финтех-приложение", desc: "Редизайн онбординга и личного кабинета. Упростил сценарий пополнения счёта.", tag: "UI/UX", fallback: "Кейс+1" },
-        { img: "online-store.jpg", title: "Интернет-магазин одежды", desc: "Дизайн каталога и карточки товара. Добавил фильтры и сравнение.", tag: "UI/UX", fallback: "Кейс+2" },
-        { img: "travel-landing.jpg", title: "Лендинг турагентства", desc: "Главная страница с фокусом на подбор тура и бронирование.", tag: "UI", fallback: "Кейс+3" },
-        { img: "dashboard-preview.jpg", title: "Дашборд аналитики", desc: "Проектирование системы графиков и фильтров для маркетологов.", tag: "UX", fallback: "Кейс+4" },
-        { img: "mobile-app.jpg", title: "Мобильное приложение", desc: "Дизайн профиля, ленты и уведомлений.", tag: "UI/UX", fallback: "Кейс+5" }
+        { href: "https://www.behance.net/gallery/248386073/dizajn-lendinga-zhk-legenda", img: "legenda-preview.jpg", title: "ЖК Легенда", desc: "Лендинг жилого комплекса с фокусом на преимущества и планировки", tag: "Landing · UI", fallback: "ЖК+Легенда" },
+        { href: "https://www.behance.net/gallery/186421391/Website-for-eco-hotel", img: "ecohotel-preview.jpg", title: "Eco Hotel", desc: "Сайт для эко-отеля с акцентом на природу и атмосферу", tag: "Web · UI/UX", fallback: "Eco+Hotel" },
+        { href: "https://www.behance.net/gallery/182255229/Online-flower-shop-salon", img: "flowershop-preview.jpg", title: "Flower Shop", desc: "Дизайн интернет-магазина цветов с акцентом на эмоции", tag: "E‑commerce · UI", fallback: "Flower+Shop" },
+        { href: "https://www.behance.net/gallery/248387797/Yandex-Pet-Day", img: "yandex-petday.jpg", title: "Yandex Pet Day", desc: "Спецпроект для Яндекса: регистрация, афиша, лента новостей", tag: "Event · UI/UX", fallback: "Yandex+Pet+Day" },
+        { href: "https://www.behance.net/gallery/194731149/Web-design-for-consulting-company", img: "consulting-preview.jpg", title: "Consulting Company", desc: "Сайт консалтинговой компании: экспертиза, кейсы, контакты", tag: "Corporate · UX", fallback: "Consulting+Company" },
+        { href: "https://www.behance.net/gallery/192322247/redizajn-glavnoj-stranicy-dom-sajtov", img: "domsaitov-redesign.jpg", title: "Дом сайтов", desc: "Редизайн главной страницы веб-студии, упор на портфолио", tag: "Redesign · UI", fallback: "Дом+сайтов" },
+        { href: "https://www.behance.net/gallery/192315737/glavnye-stranicy-sajtov", img: "mainpages-collection.jpg", title: "Главные страницы", desc: "Коллекция концептов первых экранов для разных ниш", tag: "Concept · UI", fallback: "Главные+страницы" }
     ];
 
     function shuffleArray(arr) {
@@ -191,7 +193,7 @@
             const offsetClass = getRandomOffsetClass();
             const delay = (idx % 4) * 0.05;
             return `
-                <div class="case ${sizeClass} ${offsetClass}" style="animation-delay: ${delay}s">
+                <a href="${proj.href}" target="_blank" class="case ${sizeClass} ${offsetClass}" style="animation-delay: ${delay}s">
                     <div class="case-image">
                         <img src="${proj.img}" alt="${proj.title}" onerror="this.src='https://via.placeholder.com/600x400?text=${proj.fallback}'">
                     </div>
@@ -200,7 +202,7 @@
                         <p>${proj.desc}</p>
                         <span class="tag">${proj.tag}</span>
                     </div>
-                </div>
+                </a>
             `;
         }).join('');
     }
@@ -241,32 +243,6 @@
             }
         });
     });
-    
-    // ===== АВТО-СМЕНА ОТЗЫВОВ =====
-    const reviewsList = [
-        { text: "Вдумчивый подход и внимание к деталям. Елена предложила решения проблем, о которых я не думал.", author: "Алексей, IT-директор", avatar: "👨‍💻" },
-        { text: "Отличная коммуникация и быстрые прототипы. Работали удалённо — всё чётко.", author: "Иван, основатель стартапа", avatar: "🧑‍💼" },
-        { text: "Понравился анализ аудитории перед стартом. Учли даже мелкие боли пользователей.", author: "Ольга, project manager", avatar: "👩‍💼" }
-    ];
-    let reviewIndex = 0;
-    const reviewText = document.getElementById("review-text");
-    const reviewAuthor = document.getElementById("review-author");
-    const reviewAvatar = document.querySelector(".review-avatar");
-    
-    function updateReview(index) {
-        const r = reviewsList[index % reviewsList.length];
-        reviewText.style.opacity = '0';
-        setTimeout(() => {
-            reviewText.innerHTML = `"${r.text}"`;
-            reviewAuthor.innerHTML = `— ${r.author}`;
-            if (reviewAvatar) reviewAvatar.innerHTML = r.avatar;
-            reviewText.style.opacity = '1';
-        }, 200);
-    }
-    setInterval(() => {
-        reviewIndex++;
-        updateReview(reviewIndex);
-    }, 6000);
     
     // ===== КУРСОР (только для десктопа) =====
     const cursor = document.querySelector('.custom-cursor');
